@@ -2,7 +2,7 @@ site_name: kluster.ai Docs
 site_url: https://docs.kluster.ai/
 home_url: https://kluster.ai/
 home_name: kluster.ai
-site_dir: /var/www/kluster-docs-static
+site_dir: site  # Updated to a writable directory
 docs_dir: kluster-docs
 copyright: © 2024 kluster.ai. All rights reserved.
 theme:
@@ -80,18 +80,3 @@ extra:
   analytics:
     provider: google
     property: G-XXX
-  # TODO: set up feedback
-  #   feedback:
-  #     title: Was this page helpful?
-  #     ratings:
-  #       - icon: material/emoticon-happy-outline
-  #         name: This page was helpful
-  #         data: 1
-  #         note: >-
-  #           Thanks for your feedback!
-  #       - icon: material/emoticon-sad-outline
-  #         name: This page could be improved
-  #         data: 0
-  #         note: >-
-  #           Thanks for your feedback! Help us improve this page by submitting
-  #           <a href="https://github.com/XXX/XXX/issues/new/?title=[Feedback]+{title}+-+{url}" target="_blank" rel="noopener">additional feedback</a>.
