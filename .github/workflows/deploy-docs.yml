@@ -7,11 +7,11 @@ on:
 
 jobs:
   call-deploy:
-    uses: Telucero/workflows/.github/workflows/deploy-docs.yml@Central_repo_test  
+    uses: Telucero/workflows/deploy-docs.yml@Central_repo_test  
     with:
       branch: main  # Branch to deploy from in the docs repo
-      repository: Telucero/wormhole-docs  # Repo with the MkDocs content
-      path: wormhole-docs  # Directory name to clone into
-      url_prefix: wormhole-mkdocs  # Used to rewrite links
+      repository: Telucero/wormhole-docs  
+      path: wormhole-docs  
+      url_prefix: wormhole-mkdocs  
       submodules: true  # Optional, set to false if not using submodules
-    secrets: inherit  # Allow access to GitHub token and other secrets
+    secrets: inherit  
