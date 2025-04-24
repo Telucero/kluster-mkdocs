@@ -3,7 +3,7 @@ site_url: https://docs.kluster.ai/
 home_url: https://kluster.ai/
 home_name: kluster.ai
 site_dir: site  # Updated to a writable directory
-docs_dir: kluster-docs
+docs_dir: kluster_docs #updated due to wierd naming convention from fork
 copyright: © 2024 kluster.ai. All rights reserved.
 theme:
   name: material
