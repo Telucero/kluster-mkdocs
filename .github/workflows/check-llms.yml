@@ -1,0 +1,43 @@
+name: LLMS Check
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  llms:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout client repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt || true
+          pip install pyyaml requests beautifulsoup4
+
+      - name: Run LLMS Generator
+        uses: Telucero/workflows/llms_scripts@vCentral_repo_test
+        with:
+          docs_path: ./docs
+          config_path: ./llms_config.json
+          
+
+      - name: Upload LLMS Output as Artifact
+        if: success()
+        uses: actions/upload-artifact@v3
+        with:
+          name: llms-output
+          path: |
+            docs/llms-full.txt
+            docs/llms.txt
+            docs/llms-files/*.txt
