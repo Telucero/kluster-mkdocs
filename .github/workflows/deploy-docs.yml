@@ -13,5 +13,5 @@ jobs:
       repository: Telucero/kluster-docs  
       path: kluster-docs  
       url_prefix: kluster-mkdocs  
-      submodules: true  # Optional, set to false if not using submodules
+      submodules: false # Optional, set to false if not using submodules
     secrets: inherit  
