@@ -10,8 +10,10 @@ jobs:
     uses: Telucero/workflows/.github/workflows/deploy-docs.yml@Central_repo_test  
     with:
       branch: main  # Branch to deploy from in the docs repo
-      repository: Telucero/kluster-docs  
-      path: kluster-docs  
+      repository: Telucero/kluster_docs  #why was an underscore used here?
+      path: kluster_docs  
       url_prefix: kluster-mkdocs  
       submodules: false # Optional, set to false if not using submodules
     secrets: inherit  
+    permissions:
+      contents: write  # Needed to push to gh-pages
