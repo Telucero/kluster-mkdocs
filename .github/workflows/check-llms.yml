@@ -25,11 +25,13 @@ jobs:
           pip install -r requirements.txt || true
           pip install pyyaml requests beautifulsoup4
 
+        
+
       - name: Run LLMS Generator
-        uses: Telucero/workflows/llms_scripts@vCentral_repo_test
+        uses: Telucero/workflows/llms_scripts@Central_repo_test
         with:
           docs_path: ./docs
-          config_path: ./llms_config.json
+          #config_path: ./llms_config.json
           
 
       - name: Upload LLMS Output as Artifact
