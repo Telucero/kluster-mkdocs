@@ -10,8 +10,8 @@ jobs:
     uses: Telucero/workflows/.github/workflows/deploy-docs.yml@Central_repo_test  
     with:
       branch: main  # Branch to deploy from in the docs repo
-      repository: Telucero/wormhole-docs  
-      path: wormhole-docs  
-      url_prefix: wormhole-mkdocs  
+      repository: Telucero/kluster-docs  
+      path: kluster-docs  
+      url_prefix: kluster-mkdocs  
       submodules: true  # Optional, set to false if not using submodules
     secrets: inherit  
