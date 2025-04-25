@@ -18,7 +18,7 @@ jobs:
       - name: Checkout kluster-mkdocs repo
         uses: actions/checkout@v3
         with:
-          repository: Telucero/kluster-mkdocs
+          repository: Telucero
           path: kluster-mkdocs
 
       - name: Set up Python
