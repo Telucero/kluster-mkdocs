@@ -31,6 +31,8 @@ jobs:
           pip install -r requirements.txt || true
           pip install pyyaml requests beautifulsoup4
 
+      - name: Set variables_yml_path environment variable
+        run: echo "VARIABLES_YML_PATH=kluster-mkdocs/kluster-docs/variables.yml" >> $GITHUB_ENV
 
       - name: Run LLMS Generator
         uses: Telucero/workflows/llms_scripts@Central_repo_test
