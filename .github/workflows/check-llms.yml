@@ -18,7 +18,7 @@ jobs:
       - name: Checkout kluster-mkdocs repo
         uses: actions/checkout@v3
         with:
-          repository: Telucero
+          repository: Telucero/kluster-mkdocs  # specify repo name explicitly
           path: kluster-mkdocs
 
       - name: Set up Python
@@ -31,11 +31,16 @@ jobs:
           pip install -r requirements.txt || true
           pip install pyyaml requests beautifulsoup4
 
+      - name: Debug Confirm variables.yml exists
+        run: |
+          echo "Listing contents of kluster-mkdocs/kluster-docs/"
+          ls -lah kluster-mkdocs/kluster-docs/
+
       - name: Run LLMS Generator
         uses: Telucero/workflows/llms_scripts@Central_repo_test
         with:
           docs_path: llms-output
-          config_path: kluster-docs/variables.yml
+          config_path: kluster-mkdocs/kluster-docs/variables.yml
 
       - name: Upload LLMS Output as Artifact
         if: success()
