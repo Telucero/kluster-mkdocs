@@ -12,8 +12,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout client repo
+      - name: Checkout client repo (Telucero/workflows)
         uses: actions/checkout@v3
+
+      - name: Checkout kluster-mkdocs repo
+        uses: actions/checkout@v3
+        with:
+          repository: Telucero/kluster-mkdocs
+          path: kluster-mkdocs
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -25,14 +31,11 @@ jobs:
           pip install -r requirements.txt || true
           pip install pyyaml requests beautifulsoup4
 
-        
-
       - name: Run LLMS Generator
         uses: Telucero/workflows/llms_scripts@Central_repo_test
         with:
           docs_path: ./docs
-          #config_path: ./llms_config.json
-          
+          config_path: kluster-mkdocs/kluster-docs/variables.yml
 
       - name: Upload LLMS Output as Artifact
         if: success()
