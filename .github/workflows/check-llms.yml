@@ -35,7 +35,7 @@ jobs:
         uses: Telucero/workflows/llms_scripts@Central_repo_test
         with:
           docs_path: llms-output
-          config_path: kluster-mkdocs/kluster-docs/variables.yml
+          config_path: kluster-docs/variables.yml
 
       - name: Upload LLMS Output as Artifact
         if: success()
