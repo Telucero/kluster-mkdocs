@@ -34,7 +34,7 @@ jobs:
       - name: Run LLMS Generator
         uses: Telucero/workflows/llms_scripts@Central_repo_test
         with:
-          docs_path: ./docs
+          docs_path: llms-output
           config_path: kluster-mkdocs/kluster-docs/variables.yml
 
       - name: Upload LLMS Output as Artifact
@@ -43,6 +43,6 @@ jobs:
         with:
           name: llms-output
           path: |
-            docs/llms-full.txt
-            docs/llms.txt
-            docs/llms-files/*.txt
+            llms-output/llms-full.txt
+            llms-output/llms.txt
+            llms-output/llms-files/
