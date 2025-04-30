@@ -1279,6 +1279,48 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/klusterai-api/effective-prompt-engineering/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Effective prompt engineering
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/klusterai-api/uploads-api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Uploading large files
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1376,6 +1418,8 @@
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">＃</a></h2>
 <p>Before starting, ensure you have the following prerequisites:</p>
 <ul>
+<li><strong>A kluster.ai account</strong> - sign up on the <a href="https://platform.kluster.ai/signup" target="_blank">kluster.ai platform</a> if you don't have one</li>
+<li><strong>A kluster.ai API key</strong> - after signing in, go to the <a href="https://platform.kluster.ai/apikeys" target="_blank"><strong>API Keys</strong></a> section and create a new key. For detailed instructions, check out the <a href="/kluster-mkdocs/get-started/get-api-key/" target="_blank">Get an API key</a> guide</li>
 <li><strong>CrewAI installed</strong> - the <a href="https://docs.crewai.com/installation" target="_blank">Installation Guide</a> on the CrewAI website will walk you through installing CrewAI, setting up a virtual Python environment, and creating a new project. Note that CrewAI requires a Python version &gt;=<code>3.10</code> and &lt;<code>3.13</code></li>
 </ul>
 <h2 id="create-a-project-with-the-cli">Create a project with the CLI<a class="headerlink" href="#create-a-project-with-the-cli" title="Permanent link">＃</a></h2>
@@ -1404,23 +1448,82 @@
 </li>
 <li><strong>api_key</strong> - replace <code>INSERT_API_KEY</code> in the code below with your kluster.ai API key. If you don't have one yet, refer to the <a href="/kluster-mkdocs/get-started/get-api-key/" target="_blank">Get an API key guide</a></li>
 </ul>
-<div class="highlight"><span class="filename">hello_crew.py</span><pre><span></span><code>
+<div class="highlight"><span class="filename">hello_crew.py</span><pre><span></span><code><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="kn">from</span> <span class="nn">crewai</span> <span class="kn">import</span> <span class="n">LLM</span><span class="p">,</span> <span class="n">Agent</span><span class="p">,</span> <span class="n">Crew</span><span class="p">,</span> <span class="n">Process</span><span class="p">,</span> <span class="n">Task</span>
+<span class="kn">from</span> <span class="nn">crewai.project</span> <span class="kn">import</span> <span class="n">CrewBase</span><span class="p">,</span> <span class="n">agent</span><span class="p">,</span> <span class="n">crew</span><span class="p">,</span> <span class="n">task</span>
+
+
+<span class="nd">@CrewBase</span>
+<span class="k">class</span> <span class="nc">HelloWorldCrew</span><span class="p">:</span>
+    <span class="c1"># Override any default YAML references</span>
+    <span class="n">agents_config</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">tasks_config</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        When this crew is instantiated, create a custom LLM with your base_url.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">custom_llm</span> <span class="o">=</span> <span class="n">LLM</span><span class="p">(</span>
+            <span class="n">provider</span><span class="o">=</span><span class="s2">&quot;openai_compatible&quot;</span><span class="p">,</span> 
+            <span class="n">model</span><span class="o">=</span><span class="s2">&quot;openai/klusterai/Meta-Llama-3.3-70B-Instruct-Turbo&quot;</span><span class="p">,</span>
+            <span class="n">base_url</span><span class="o">=</span><span class="s2">&quot;https://api.kluster.ai/v1&quot;</span><span class="p">,</span>
+            <span class="n">api_key</span><span class="o">=</span><span class="s2">&quot;INSERT_KLUSTER_API_KEY&quot;</span>
+        <span class="p">)</span>
 </code></pre></div>
 <p>This example overrides <code>agents_config</code> and <code>tasks_config</code> with empty dictionaries to tell CrewAI to ignore all YAML files and rely solely on your code, keeping this guide as streamlined as possible. </p>
 </li>
 <li>
 <p><strong>Define your agent</strong> - set the agent's role, goal, and backstory, and assign the custom LLM (via the kluster.ai API) for generating creative greetings:</p>
-<div class="highlight"><span class="filename">hello_crew.py</span><pre><span></span><code>
+<div class="highlight"><span class="filename">hello_crew.py</span><pre><span></span><code>    <span class="nd">@agent</span>
+    <span class="k">def</span> <span class="nf">hello_agent</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Agent</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        A super simple agent with a single purpose: greet the user in a friendly, varied way.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">Agent</span><span class="p">(</span>
+            <span class="n">role</span><span class="o">=</span><span class="s2">&quot;HelloWorldAgent&quot;</span><span class="p">,</span>
+            <span class="n">goal</span><span class="o">=</span><span class="s2">&quot;Greet the user in a fun and creative way.&quot;</span><span class="p">,</span>
+            <span class="n">backstory</span><span class="o">=</span><span class="s2">&quot;I&#39;m a friendly agent who greets everyone in a slightly different manner!&quot;</span><span class="p">,</span>
+            <span class="n">llm</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">custom_llm</span><span class="p">,</span>
+            <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span>
+        <span class="p">)</span>
 </code></pre></div>
 </li>
 <li>
 <p><strong>Give the agent a task</strong> - define a task that prompts the agent for a unique, creative greeting using randomness to avoid repetition. Passing this prompt to <code>hello_agent()</code> ensures varied responses. CrewAI requires an <code>expected_output</code> field, defined here as a short greeting:</p>
-<div class="highlight"><span class="filename">hello_crew.py</span><pre><span></span><code>
+<div class="highlight"><span class="filename">hello_crew.py</span><pre><span></span><code>    <span class="nd">@task</span>
+    <span class="k">def</span> <span class="nf">hello_task</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Task</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        A task that asks the agent to produce a dynamic greeting.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">random_factor</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">100000</span><span class="p">,</span> <span class="mi">999999</span><span class="p">)</span>
+        <span class="n">prompt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">        You are a friendly greeting bot. </span>
+<span class="s2">        Please produce a short, creative greeting that changes each time. </span>
+<span class="s2">        Random factor: </span><span class="si">{</span><span class="n">random_factor</span><span class="si">}</span>
+<span class="s2">        Example: &quot;Hey there, how&#39;s your day going?&quot;</span>
+<span class="s2">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="n">Task</span><span class="p">(</span>
+            <span class="n">description</span><span class="o">=</span><span class="n">prompt</span><span class="p">,</span>
+            <span class="n">expected_output</span><span class="o">=</span><span class="s2">&quot;A short, creative greeting&quot;</span><span class="p">,</span>
+            <span class="n">agent</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">hello_agent</span><span class="p">()</span>
+        <span class="p">)</span>
 </code></pre></div>
 </li>
 <li>
 <p><strong>Tie it all together with a <code>@crew</code> method</strong> - add the following method to return the assembled Crew object with a single agent and task. This method enables CrewAI to coordinate the agent and task you defined:</p>
-<div class="highlight"><span class="filename">hello_crew.py</span><pre><span></span><code>
+<div class="highlight"><span class="filename">hello_crew.py</span><pre><span></span><code>    <span class="nd">@crew</span>
+    <span class="k">def</span> <span class="nf">hello_crew</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Crew</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Our entire &#39;Hello World&#39; crew—only 1 agent + 1 task in sequence.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">Crew</span><span class="p">(</span>
+            <span class="n">agents</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">agents</span><span class="p">,</span>  
+            <span class="n">tasks</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tasks</span><span class="p">,</span>    
+            <span class="n">process</span><span class="o">=</span><span class="n">Process</span><span class="o">.</span><span class="n">sequential</span><span class="p">,</span>
+            <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span>
+        <span class="p">)</span>
 </code></pre></div>
 </li>
 <li>
@@ -1442,7 +1545,72 @@
 </ol>
 <details class="code">
 <summary>View complete script</summary>
-<div class="highlight"><span class="filename">hello_crew.py</span><pre><span></span><code>
+<div class="highlight"><span class="filename">hello_crew.py</span><pre><span></span><code><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="kn">from</span> <span class="nn">crewai</span> <span class="kn">import</span> <span class="n">LLM</span><span class="p">,</span> <span class="n">Agent</span><span class="p">,</span> <span class="n">Crew</span><span class="p">,</span> <span class="n">Process</span><span class="p">,</span> <span class="n">Task</span>
+<span class="kn">from</span> <span class="nn">crewai.project</span> <span class="kn">import</span> <span class="n">CrewBase</span><span class="p">,</span> <span class="n">agent</span><span class="p">,</span> <span class="n">crew</span><span class="p">,</span> <span class="n">task</span>
+
+
+<span class="nd">@CrewBase</span>
+<span class="k">class</span> <span class="nc">HelloWorldCrew</span><span class="p">:</span>
+    <span class="c1"># Override any default YAML references</span>
+    <span class="n">agents_config</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">tasks_config</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        When this crew is instantiated, create a custom LLM with your base_url.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">custom_llm</span> <span class="o">=</span> <span class="n">LLM</span><span class="p">(</span>
+            <span class="n">provider</span><span class="o">=</span><span class="s2">&quot;openai_compatible&quot;</span><span class="p">,</span> 
+            <span class="n">model</span><span class="o">=</span><span class="s2">&quot;openai/klusterai/Meta-Llama-3.3-70B-Instruct-Turbo&quot;</span><span class="p">,</span>
+            <span class="n">base_url</span><span class="o">=</span><span class="s2">&quot;https://api.kluster.ai/v1&quot;</span><span class="p">,</span>
+            <span class="n">api_key</span><span class="o">=</span><span class="s2">&quot;INSERT_KLUSTER_API_KEY&quot;</span>
+        <span class="p">)</span>
+
+    <span class="nd">@agent</span>
+    <span class="k">def</span> <span class="nf">hello_agent</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Agent</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        A super simple agent with a single purpose: greet the user in a friendly, varied way.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">Agent</span><span class="p">(</span>
+            <span class="n">role</span><span class="o">=</span><span class="s2">&quot;HelloWorldAgent&quot;</span><span class="p">,</span>
+            <span class="n">goal</span><span class="o">=</span><span class="s2">&quot;Greet the user in a fun and creative way.&quot;</span><span class="p">,</span>
+            <span class="n">backstory</span><span class="o">=</span><span class="s2">&quot;I&#39;m a friendly agent who greets everyone in a slightly different manner!&quot;</span><span class="p">,</span>
+            <span class="n">llm</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">custom_llm</span><span class="p">,</span>
+            <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span>
+        <span class="p">)</span>
+
+    <span class="nd">@task</span>
+    <span class="k">def</span> <span class="nf">hello_task</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Task</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        A task that asks the agent to produce a dynamic greeting.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">random_factor</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">100000</span><span class="p">,</span> <span class="mi">999999</span><span class="p">)</span>
+        <span class="n">prompt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">        You are a friendly greeting bot. </span>
+<span class="s2">        Please produce a short, creative greeting that changes each time. </span>
+<span class="s2">        Random factor: </span><span class="si">{</span><span class="n">random_factor</span><span class="si">}</span>
+<span class="s2">        Example: &quot;Hey there, how&#39;s your day going?&quot;</span>
+<span class="s2">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="n">Task</span><span class="p">(</span>
+            <span class="n">description</span><span class="o">=</span><span class="n">prompt</span><span class="p">,</span>
+            <span class="n">expected_output</span><span class="o">=</span><span class="s2">&quot;A short, creative greeting&quot;</span><span class="p">,</span>
+            <span class="n">agent</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">hello_agent</span><span class="p">()</span>
+        <span class="p">)</span>
+
+    <span class="nd">@crew</span>
+    <span class="k">def</span> <span class="nf">hello_crew</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Crew</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Our entire &#39;Hello World&#39; crew—only 1 agent + 1 task in sequence.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">Crew</span><span class="p">(</span>
+            <span class="n">agents</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">agents</span><span class="p">,</span>  
+            <span class="n">tasks</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tasks</span><span class="p">,</span>    
+            <span class="n">process</span><span class="o">=</span><span class="n">Process</span><span class="o">.</span><span class="n">sequential</span><span class="p">,</span>
+            <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span>
+        <span class="p">)</span>
 </code></pre></div>
 </details>
 <h2 id="put-it-all-together">Put it all together<a class="headerlink" href="#put-it-all-together" title="Permanent link">＃</a></h2>
@@ -1450,6 +1618,19 @@
 <div class="highlight"><pre><span></span><code>python<span class="w"> </span>hello_main.py
 </code></pre></div>
 <p>Upon running the script, you'll see output that looks like the following:</p>
+<div id="termynal" data-termynal>
+<span data-ty></span># Agent: HelloWorldAgent</span>
+<span data-ty>## Task:</span>
+<span data-ty>You are a friendly greeting bot.</span>
+<span data-ty>Please produce a short, creative greeting that changes each time.</span>
+<span data-ty>Random factor: 896380</span>
+<span data-ty>Example: "Hey there, how's your day going?"</span>
+<br>
+<span data-ty></span># Agent: HelloWorldAgent</span>
+<span data-ty>## Final Answer:</span>
+<span data-ty>Hello, it's a beautiful day to shine, how's your sparkle today?</span>
+</div>
+
 <p>And that's it! You've now successfully configured your AI agent harnessing CrewAI and the power of the kluster.ai API! </p>
 
 

@@ -1343,6 +1343,48 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effective-prompt-engineering/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Effective prompt engineering
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../uploads-api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Uploading large files
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2050,10 +2092,6 @@ api_key = getpass("Enter your kluster.ai API key: ")</div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Enter your kluster.ai API key:  ········
-</pre>
-</div>
 </div>
 </div>
 </div>
@@ -2075,7 +2113,7 @@ api_key = getpass("Enter your kluster.ai API key: ")</div>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
 <clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-2">
@@ -2319,7 +2357,7 @@ client = OpenAI(
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>This example selects the <code>deepseek-ai/DeepSeek-V3</code> model. If you'd like to use a different model, feel free to change it by modifying the <code>model</code> field. In this notebook, you can also comment DeepSeek V3, and uncomment whatever model you want to try out.</p>
+<p>This example selects the <code>deepseek-ai/DeepSeek-V3-0324</code> model. If you'd like to use a different model, feel free to change it by modifying the <code>model</code> field.</p>
 <p>Please refer to the <a href="/get-started/models/#model-comparison-table" target="_blank">Supported models</a> section for a list of the models we support.</p>
 <p>The following snippets prepare the JSONL file, where each line represents a different request. Note that each separate batch request can have its own model. Also, we are using a temperature of <code>0.5</code> but feel free to change it and play around with the different outcomes (but we are only asking to respond with a single word, the genre).</p>
 </div>
@@ -2352,9 +2390,8 @@ client = OpenAI(
 
 <span class="c1"># Models</span>
 <span class="c1">#model="deepseek-ai/DeepSeek-R1"</span>
-<span class="n">model</span><span class="o">=</span><span class="s2">"deepseek-ai/DeepSeek-V3"</span>
+<span class="n">model</span><span class="o">=</span><span class="s2">"deepseek-ai/DeepSeek-V3-0324"</span>
 <span class="c1">#model="klusterai/Meta-Llama-3.1-8B-Instruct-Turbo"</span>
-<span class="c1">#model="klusterai/Meta-Llama-3.1-405B-Instruct-Turbo"</span>
 <span class="c1">#model="klusterai/Meta-Llama-3.3-70B-Instruct-Turbo"</span>
 <span class="c1">#model="Qwen/Qwen2.5-VL-7B-Instruct"</span>
 
@@ -2399,9 +2436,8 @@ SYSTEM_PROMPT = '''
 
 # Models
 #model="deepseek-ai/DeepSeek-R1"
-model="deepseek-ai/DeepSeek-V3"
+model="deepseek-ai/DeepSeek-V3-0324"
 #model="klusterai/Meta-Llama-3.1-8B-Instruct-Turbo"
-#model="klusterai/Meta-Llama-3.1-405B-Instruct-Turbo"
 #model="klusterai/Meta-Llama-3.3-70B-Instruct-Turbo"
 #model="Qwen/Qwen2.5-VL-7B-Instruct"
 
@@ -2541,7 +2577,7 @@ print(data_dir)</div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>{"custom_id": "movie_classification-0", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "deepseek-ai/DeepSeek-V3", "temperature": 0.5, "messages": [{"role": "system", "content": "\n    Classify the main genre of the given movie description based on the following genres (Respond with only the genre):\n    \u201cAction\u201d, \u201cAdventure\u201d, \u201cComedy\u201d, \u201cCrime\u201d, \u201cDocumentary\u201d, \u201cDrama\u201d, \u201cFantasy\u201d, \u201cHorror\u201d, \u201cRomance\u201d, \u201cSci-Fi\u201d.\n    "}, {"role": "user", "content": "Breakfast at Tiffany's: A young New York socialite becomes interested in a young man who has moved into her apartment building, but her past threatens to get in the way."}]}}
+<pre>{"custom_id": "movie_classification-0", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "deepseek-ai/DeepSeek-V3-0324", "temperature": 0.5, "messages": [{"role": "system", "content": "\n    Classify the main genre of the given movie description based on the following genres (Respond with only the genre):\n    \u201cAction\u201d, \u201cAdventure\u201d, \u201cComedy\u201d, \u201cCrime\u201d, \u201cDocumentary\u201d, \u201cDrama\u201d, \u201cFantasy\u201d, \u201cHorror\u201d, \u201cRomance\u201d, \u201cSci-Fi\u201d.\n    "}, {"role": "user", "content": "Breakfast at Tiffany's: A young New York socialite becomes interested in a young man who has moved into her apartment building, but her past threatens to get in the way."}]}}
 </pre>
 </div>
 </div>
@@ -2622,7 +2658,7 @@ with open(data_dir, 'rb') as file:
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>File uploaded successfully. File ID: 67e57d8f8573d5180a551f9e
+<pre>File uploaded successfully. File ID: 6801403efba4aabfd069a682
 </pre>
 </div>
 </div>
@@ -2705,11 +2741,11 @@ print(json.dumps(batch_dict, indent=2))</div>
 <pre>
 Batch job created:
 {
-  "id": "67e57d94562f33dce8762faf",
+  "id": "6801403e0969ab67de09ec8d",
   "completion_window": "24h",
-  "created_at": 1743093140,
+  "created_at": 1744912446,
   "endpoint": "/v1/chat/completions",
-  "input_file_id": "67e57d8f8573d5180a551f9e",
+  "input_file_id": "6801403efba4aabfd069a682",
   "object": "batch",
   "status": "pre_schedule",
   "cancelled_at": null,
@@ -2718,7 +2754,7 @@ Batch job created:
   "error_file_id": null,
   "errors": [],
   "expired_at": null,
-  "expires_at": 1743179540,
+  "expires_at": 1744998846,
   "failed_at": null,
   "finalizing_at": null,
   "in_progress_at": null,
@@ -2730,6 +2766,15 @@ Batch job created:
     "total": 0
   }
 }
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
+<pre>/Users/kevin/.pyenv/versions/3.10.8/lib/python3.10/site-packages/pydantic/main.py:426: UserWarning: Pydantic serializer warnings:
+  Expected `Errors` but got `list` with value `[]` - serialized value may not be as expected
+  return self.__pydantic_serializer__.to_python(
 </pre>
 </div>
 </div>
@@ -2970,7 +3015,7 @@ Romance
 Drama
 Drama
 Drama
-Action
+Crime
 </pre>
 </div>
 </div>

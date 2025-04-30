@@ -1279,6 +1279,48 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/klusterai-api/effective-prompt-engineering/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Effective prompt engineering
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/klusterai-api/uploads-api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Uploading large files
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1376,6 +1418,8 @@
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">＃</a></h2>
 <p>Before starting, ensure you have the following:</p>
 <ul>
+<li><strong>A kluster.ai account</strong> - sign up on the <a href="https://platform.kluster.ai/signup" target="_blank">kluster.ai platform</a> if you don't have one</li>
+<li><strong>A kluster.ai API key</strong> - after signing in, go to the <a href="https://platform.kluster.ai/apikeys" target="_blank"><strong>API Keys</strong></a> section and create a new key. For detailed instructions, check out the <a href="/kluster-mkdocs/get-started/get-api-key/" target="_blank">Get an API key</a> guide</li>
 <li><strong><a href="https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/" target="_blank">A python virtual environment</a></strong> - this is optional but recommended. Ensure that you enter the Python virtual environment before following along with this tutorial</li>
 <li>
 <p><strong>LangChain packages installed</strong> - install the <a href="https://github.com/langchain-ai/langchain" target="_blank"><code>langchain</code> packages</a>:</p>
@@ -1393,7 +1437,15 @@
 <li><strong>API key</strong> - replace <code>INSERT_API_KEY</code> in the code below with your kluster.ai API key. If you don't have one yet, refer to the <a href="/kluster-mkdocs/get-started/get-api-key/" target="_blank">Get an API key guide</a></li>
 <li><strong>Select your model</strong> - choose one of <a href="/kluster-mkdocs/get-started/models/" target="_blank">kluster.ai's available models</a> based on your use case</li>
 </ul>
-<div class="highlight"><pre><span></span><code>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">langchain_openai</span> <span class="kn">import</span> <span class="n">ChatOpenAI</span>
+
+<span class="n">llm</span> <span class="o">=</span> <span class="n">ChatOpenAI</span><span class="p">(</span>
+    <span class="n">base_url</span><span class="o">=</span><span class="s2">&quot;https://api.kluster.ai/v1&quot;</span><span class="p">,</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="s2">&quot;INSERT_API_KEY&quot;</span><span class="p">,</span> <span class="c1"># Replace with your actual API key</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;klusterai/Meta-Llama-3.1-8B-Instruct-Turbo&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">llm</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="s2">&quot;What is the capital of Nepal?&quot;</span><span class="p">)</span>
 </code></pre></div>
 <p>That's all you need to start with LangChain and the kluster.ai API! Next, this guide will explore building a multi-turn conversational agent that showcases how memory and context can elevate your chatbot to a more interactive, intelligent experience.</p>
 <h2 id="build-a-multi-turn-conversational-agent">Build a multi-turn conversational agent<a class="headerlink" href="#build-a-multi-turn-conversational-agent" title="Permanent link">＃</a></h2>
@@ -1406,31 +1458,102 @@
 </li>
 <li>
 <p><strong>Import LangChain components</strong> - inside your new file, import the following components for memory management, prompt handling, and kluster.ai integration:
-<div class="highlight"><pre><span></span><code>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">langchain.chains.conversation.memory</span> <span class="kn">import</span> <span class="n">ConversationBufferMemory</span>
+<span class="kn">from</span> <span class="nn">langchain_community.chat_message_histories</span> <span class="kn">import</span> <span class="n">ChatMessageHistory</span>
+<span class="kn">from</span> <span class="nn">langchain_core.messages</span> <span class="kn">import</span> <span class="n">HumanMessage</span>
+<span class="kn">from</span> <span class="nn">langchain_core.prompts</span> <span class="kn">import</span> <span class="n">ChatPromptTemplate</span><span class="p">,</span> <span class="n">MessagesPlaceholder</span>
+<span class="kn">from</span> <span class="nn">langchain_openai</span> <span class="kn">import</span> <span class="n">ChatOpenAI</span>
 </code></pre></div></p>
 </li>
 <li><strong>Create a memory instance</strong> - to store and manage the conversation's context, allowing the chatbot to remember previous user messages.
-<div class="highlight"><pre><span></span><code>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create a memory instance to store the conversation</span>
+<span class="n">message_history</span> <span class="o">=</span> <span class="n">ChatMessageHistory</span><span class="p">()</span>
+<span class="n">memory</span> <span class="o">=</span> <span class="n">ConversationBufferMemory</span><span class="p">(</span><span class="n">memory_key</span><span class="o">=</span><span class="s2">&quot;chat_history&quot;</span><span class="p">,</span> <span class="n">return_messages</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div></li>
 <li><strong>Configure the <code>ChatOpenAI</code> model</strong> - point to kluster.ai's endpoint with your API key and chosen model. Remember, you can always change the selected model based on your needs
-<div class="highlight"><pre><span></span><code>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create your LLM, pointing to kluster.ai&#39;s endpoint</span>
+<span class="n">llm</span> <span class="o">=</span> <span class="n">ChatOpenAI</span><span class="p">(</span>
+    <span class="n">base_url</span><span class="o">=</span><span class="s2">&quot;https://api.kluster.ai/v1&quot;</span><span class="p">,</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="s2">&quot;INSERT_API_KEY&quot;</span><span class="p">,</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;klusterai/Meta-Llama-3.1-8B-Instruct-Turbo&quot;</span><span class="p">,</span>
+<span class="p">)</span>
 </code></pre></div></li>
 <li><strong>Define a prompt template</strong> - include a system instruction for the assistant, a placeholder for the conversation history, and an input slot for the user's query 
-<div class="highlight"><pre><span></span><code>
+<div class="highlight"><pre><span></span><code><span class="c1"># Define the prompt template, including the system instruction and placeholders</span>
+<span class="n">prompt</span> <span class="o">=</span> <span class="n">ChatPromptTemplate</span><span class="o">.</span><span class="n">from_messages</span><span class="p">([</span>
+    <span class="p">(</span><span class="s2">&quot;system&quot;</span><span class="p">,</span> <span class="s2">&quot;You are a helpful assistant.&quot;</span><span class="p">),</span>
+    <span class="n">MessagesPlaceholder</span><span class="p">(</span><span class="n">variable_name</span><span class="o">=</span><span class="s2">&quot;chat_history&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;human&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">{input}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="p">])</span>
 </code></pre></div></li>
 <li><strong>Create the <code>ConversationChain</code></strong> - pass in the LLM, memory, and this prompt template so every new user query is automatically enriched with the stored conversation context and guided by the assistant's role
-<div class="highlight"><pre><span></span><code>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create the conversation chain</span>
+<span class="n">conversation</span> <span class="o">=</span> <span class="n">ConversationChain</span><span class="p">(</span>
+    <span class="n">llm</span><span class="o">=</span><span class="n">llm</span><span class="p">,</span>
+    <span class="n">memory</span><span class="o">=</span><span class="n">memory</span><span class="p">,</span>
+    <span class="n">prompt</span><span class="o">=</span><span class="n">prompt</span>
+<span class="p">)</span>
 </code></pre></div></li>
 <li><strong>Prompt the model with the first question</strong> - you can prompt the model with any question. The example chosen here is designed to demonstrate context awareness between questions
-<div class="highlight"><pre><span></span><code>
+<div class="highlight"><pre><span></span><code><span class="c1"># Send the first user prompt</span>
+<span class="n">question1</span> <span class="o">=</span> <span class="s2">&quot;Hello! Can you tell me something interesting about the city of Kathmandu?&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Question 1:&quot;</span><span class="p">,</span> <span class="n">question1</span><span class="p">)</span>
+<span class="n">response1</span> <span class="o">=</span> <span class="n">conversation</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="n">question1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Response 1:&quot;</span><span class="p">,</span> <span class="n">response1</span><span class="p">)</span>
 </code></pre></div></li>
 <li><strong>Pose a follow-up question</strong> - ask another question without resupplying the city name and notice how LangChain's memory implicitly handles the context. Return and print the questions and responses to see how the conversation informs each new query to create multi-turn interactions
-<div class="highlight"><pre><span></span><code>
+<div class="highlight"><pre><span></span><code><span class="c1"># Send a follow-up question referencing previous context</span>
+<span class="n">question2</span> <span class="o">=</span> <span class="s2">&quot;What is the population of that city?&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Question 2:&quot;</span><span class="p">,</span> <span class="n">question2</span><span class="p">)</span>
+<span class="n">response2</span> <span class="o">=</span> <span class="n">conversation</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="n">question2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Response 2:&quot;</span><span class="p">,</span> <span class="n">response2</span><span class="p">)</span>
 </code></pre></div></li>
 </ol>
 <details class="code">
 <summary>View complete script</summary>
-<div class="highlight"><span class="filename">langchain-advanced.py</span><pre><span></span><code>
+<div class="highlight"><span class="filename">langchain-advanced.py</span><pre><span></span><code><span class="kn">from</span> <span class="nn">langchain.chains</span> <span class="kn">import</span> <span class="n">ConversationChain</span>
+<span class="kn">from</span> <span class="nn">langchain.chains.conversation.memory</span> <span class="kn">import</span> <span class="n">ConversationBufferMemory</span>
+<span class="kn">from</span> <span class="nn">langchain_community.chat_message_histories</span> <span class="kn">import</span> <span class="n">ChatMessageHistory</span>
+<span class="kn">from</span> <span class="nn">langchain_core.messages</span> <span class="kn">import</span> <span class="n">HumanMessage</span>
+<span class="kn">from</span> <span class="nn">langchain_core.prompts</span> <span class="kn">import</span> <span class="n">ChatPromptTemplate</span><span class="p">,</span> <span class="n">MessagesPlaceholder</span>
+<span class="kn">from</span> <span class="nn">langchain_openai</span> <span class="kn">import</span> <span class="n">ChatOpenAI</span>
+
+<span class="c1"># Create a memory instance to store the conversation</span>
+<span class="n">message_history</span> <span class="o">=</span> <span class="n">ChatMessageHistory</span><span class="p">()</span>
+<span class="n">memory</span> <span class="o">=</span> <span class="n">ConversationBufferMemory</span><span class="p">(</span><span class="n">memory_key</span><span class="o">=</span><span class="s2">&quot;chat_history&quot;</span><span class="p">,</span> <span class="n">return_messages</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Create your LLM, pointing to kluster.ai&#39;s endpoint</span>
+<span class="n">llm</span> <span class="o">=</span> <span class="n">ChatOpenAI</span><span class="p">(</span>
+    <span class="n">base_url</span><span class="o">=</span><span class="s2">&quot;https://api.kluster.ai/v1&quot;</span><span class="p">,</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="s2">&quot;INSERT_API_KEY&quot;</span><span class="p">,</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;klusterai/Meta-Llama-3.1-8B-Instruct-Turbo&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Define the prompt template, including the system instruction and placeholders</span>
+<span class="n">prompt</span> <span class="o">=</span> <span class="n">ChatPromptTemplate</span><span class="o">.</span><span class="n">from_messages</span><span class="p">([</span>
+    <span class="p">(</span><span class="s2">&quot;system&quot;</span><span class="p">,</span> <span class="s2">&quot;You are a helpful assistant.&quot;</span><span class="p">),</span>
+    <span class="n">MessagesPlaceholder</span><span class="p">(</span><span class="n">variable_name</span><span class="o">=</span><span class="s2">&quot;chat_history&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;human&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">{input}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="p">])</span>
+
+<span class="c1"># Create the conversation chain</span>
+<span class="n">conversation</span> <span class="o">=</span> <span class="n">ConversationChain</span><span class="p">(</span>
+    <span class="n">llm</span><span class="o">=</span><span class="n">llm</span><span class="p">,</span>
+    <span class="n">memory</span><span class="o">=</span><span class="n">memory</span><span class="p">,</span>
+    <span class="n">prompt</span><span class="o">=</span><span class="n">prompt</span>
+<span class="p">)</span>
+
+<span class="c1"># Send the first user prompt</span>
+<span class="n">question1</span> <span class="o">=</span> <span class="s2">&quot;Hello! Can you tell me something interesting about the city of Kathmandu?&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Question 1:&quot;</span><span class="p">,</span> <span class="n">question1</span><span class="p">)</span>
+<span class="n">response1</span> <span class="o">=</span> <span class="n">conversation</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="n">question1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Response 1:&quot;</span><span class="p">,</span> <span class="n">response1</span><span class="p">)</span>
+
+<span class="c1"># Send a follow-up question referencing previous context</span>
+<span class="n">question2</span> <span class="o">=</span> <span class="s2">&quot;What is the population of that city?&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Question 2:&quot;</span><span class="p">,</span> <span class="n">question2</span><span class="p">)</span>
+<span class="n">response2</span> <span class="o">=</span> <span class="n">conversation</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="n">question2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Response 2:&quot;</span><span class="p">,</span> <span class="n">response2</span><span class="p">)</span>
 </code></pre></div>
 </details>
 <h2 id="put-it-all-together">Put it all together<a class="headerlink" href="#put-it-all-together" title="Permanent link">＃</a></h2>
@@ -1441,7 +1564,20 @@
 </code></pre></div></p>
 </li>
 <li>
-<p>You should see output that resembles the following:</p>
+<p>You should see output that resembles the following:
+    <div id="termynal" data-termynal>
+    <span data-ty="input"><span class="file-path"> python langchain.py </span>
+    <span data-ty=>Question 1: Hello! Can you tell me something interesting about the city of Kathmandu?</span>
+    <span data-ty>Response 1: Kathmandu, the capital city of Nepal, is indeed a treasure trove of history, culture, and natural beauty. Here's something interesting:</span>
+    <span data-ty>Kathmandu is home to the famous Boudhanath Stupa, a UNESCO World Heritage Site. It's one of the largest Buddhist stupas in the world and is considered a sacred site by Buddhists. The stupa is over 36 meters (118 feet) high and is built in a unique octagonal shape. Its massive size is so prominent that it can be seen from many parts of the city.</span>
+    <span data-ty>Another fascinating fact is that Kathmandu has managed to conserve its rich cultural heritage, which dates back to the 12th century. You can see ancient temples, palaces, streets, and marketplaces that have been beautifully preserved and restored.</span>
+    <span data-ty>Lastly, Kathmandu is also known for its Newar culture, which is the indigenous culture of the city. The Newars have a rich tradition of art, music, and cuisine, which is reflected in the vibrant festivals and celebrations that take place throughout the year.</span>
+    <span data-ty>Would you like to know more about Kathmandu's culture, history, or maybe some of its modern attractions?</span>
+    <span data-ty>Question 2: What is the population of that city?</span>
+    <span data-ty>Response 2: Kathmandu, the capital city of Nepal, has a population of around 374,405 people (as per the 2021 estimates). However, the Kathmandu Valley, which includes the surrounding municipalities and areas, has a population of over 3.2 million people.</span>
+    <span data-ty>When considering the larger metropolitan area that includes the neighboring cities like Lalitpur (Patan) and Bhaktapur, the population exceeds 5 million people, making it one of the largest urban agglomerations in Nepal.</span>
+    <span data-ty>It's worth noting that Nepal's population density is relatively high, with many people living in urban areas. The Kathmandu Valley, in particular, is one of the most densely populated regions in the country.</span>
+    </div></p>
 </li>
 </ol>
 <p>That's it! You've successfully integrated LangChain with the kluster.ai API, and your configured multi-turn conversational agent is ready to leverage the power of LangChain and the kluster.ai API. For more information about the capabilities of LangChain, be sure to check out the <a href="https://python.langchain.com/docs/introduction/" target="_blank">LangChain docs</a>.</p>

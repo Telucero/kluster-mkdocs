@@ -1365,6 +1365,48 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../effective-prompt-engineering/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Effective prompt engineering
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uploads-api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Uploading large files
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2006,7 +2048,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>In our previous <a href="https://github.com/kluster-ai/klusterai-cookbook/blob/main/examples/model-comparison.ipynb" target="_blank">notebook</a>, we explored the idea of selecting the best model to perform a classification task. We did that by calculating the accuracy of each model based on a ground truth label. In real-life applications, though, the ground truth is not always available, and to create one, we might depend on human annotation, which is time-consuming and costly.</p>
-<p>In this notebook, we will use the <code>Llama-3.1-8B-Instruct-Turbo</code> model to classify the genre of movies from the IMDb Top 1000 dataset based on their descriptions. To evaluate the accuracy of these predictions, we will use the <code>Llama-3.1-405B-Instruct-Turbo</code> model as a judge tasked with determining whether the base model's answers are correct. Since the dataset includes the true genres as ground truth, we can also assess how well the judge model aligns with the actual answers provided in the dataset.</p>
+<p>In this notebook, we will use the <code>Llama-3.1-8B-Instruct-Turbo</code> model to classify the genre of movies from the IMDb Top 1000 dataset based on their descriptions. To evaluate the accuracy of these predictions, we will use the <code>klusterai/Meta-Llama-3.3-70B-Instruct-Turbo</code> model as a judge tasked with determining whether the base model's answers are correct. Since the dataset includes the true genres as ground truth, we can also assess how well the judge model aligns with the actual answers provided in the dataset.</p>
 </div>
 </div>
 </div>
@@ -2973,7 +3015,7 @@ df['predicted_genre'] = get_results(client=client, job_id=job.id)</div>
 <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">task_list</span> <span class="o">=</span> <span class="n">create_tasks</span><span class="p">(</span><span class="n">user_contents</span><span class="o">=</span><span class="n">prompt_dict</span><span class="p">[</span><span class="s2">"USER_CONTENTS"</span><span class="p">],</span> 
                          <span class="n">system_prompt</span><span class="o">=</span><span class="n">prompt_dict</span><span class="p">[</span><span class="s2">"JUDGE_PROMPT"</span><span class="p">],</span> 
                          <span class="n">task_type</span><span class="o">=</span><span class="s1">'judge'</span><span class="p">,</span> 
-                         <span class="n">model</span><span class="o">=</span><span class="s2">"klusterai/Meta-Llama-3.1-405B-Instruct-Turbo"</span><span class="p">)</span>
+                         <span class="n">model</span><span class="o">=</span><span class="s2">"klusterai/Meta-Llama-3.3-70B-Instruct-Turbo"</span><span class="p">)</span>
 <span class="n">filename</span> <span class="o">=</span> <span class="n">save_tasks</span><span class="p">(</span><span class="n">task_list</span><span class="p">,</span> <span class="n">task_type</span><span class="o">=</span><span class="s1">'judge'</span><span class="p">)</span>
 <span class="n">job</span> <span class="o">=</span> <span class="n">create_batch_job</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
 <span class="n">monitor_job_status</span><span class="p">(</span><span class="n">client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span> <span class="n">job_id</span><span class="o">=</span><span class="n">job</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">task_type</span><span class="o">=</span><span class="s1">'judge'</span><span class="p">)</span>
@@ -2982,7 +3024,7 @@ df['predicted_genre'] = get_results(client=client, job_id=job.id)</div>
 <div class="clipboard-copy-txt" id="cell-13">task_list = create_tasks(user_contents=prompt_dict["USER_CONTENTS"], 
                          system_prompt=prompt_dict["JUDGE_PROMPT"], 
                          task_type='judge', 
-                         model="klusterai/Meta-Llama-3.1-405B-Instruct-Turbo")
+                         model="klusterai/Meta-Llama-3.3-70B-Instruct-Turbo")
 filename = save_tasks(task_list, task_type='judge')
 job = create_batch_job(filename)
 monitor_job_status(client=client, job_id=job.id, task_type='judge')

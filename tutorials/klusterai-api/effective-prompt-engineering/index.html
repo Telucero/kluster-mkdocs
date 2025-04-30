@@ -8,19 +8,19 @@
       
       
       
-        <link rel="canonical" href="https://docs.kluster.ai/tutorials/klusterai-api/model-comparison/">
+        <link rel="canonical" href="https://docs.kluster.ai/tutorials/klusterai-api/effective-prompt-engineering/">
       
       
-        <link rel="prev" href="../multiple-tasks-batch-api/">
+        <link rel="prev" href="../image-analysis/">
       
       
-        <link rel="next" href="../llm-as-a-judge/">
+        <link rel="next" href="../uploads-api/">
       
       
       <link rel="icon" href="../../../assets/images/favicon-dark-mode.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.3">
       
-    <title>Evaluating LLMs with labeled data | kluster.ai Docs</title>
+    <title>Effective prompt engineering | kluster.ai Docs</title>
      
       <link rel="stylesheet" href="../../../assets/stylesheets/main.50c56a3b.min.css">
       
@@ -88,7 +88,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#evaluating-llms-with-labeled-data" class="md-skip">
+        <a href="#effective-prompt-engineering-with-the-klusterai-api" class="md-skip">
           Skip to content
         </a>
       
@@ -1125,30 +1125,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Evaluating LLMs with labeled data
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../model-comparison/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1157,140 +1137,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#understanding-accuracy-in-model-evaluation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Understanding accuracy in model evaluation
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    <span class="md-ellipsis">
-      Prerequisites
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#setup" class="md-nav__link">
-    <span class="md-ellipsis">
-      Setup
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#build-our-evaluation-pipeline" class="md-nav__link">
-    <span class="md-ellipsis">
-      Build our evaluation pipeline
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Build our evaluation pipeline">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#create-and-manage-batch-files" class="md-nav__link">
-    <span class="md-ellipsis">
-      Create and manage batch files
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#upload-files-to-klusterai" class="md-nav__link">
-    <span class="md-ellipsis">
-      Upload files to kluster.ai
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#check-job-progress" class="md-nav__link">
-    <span class="md-ellipsis">
-      Check job progress
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#collect-and-process-results" class="md-nav__link">
-    <span class="md-ellipsis">
-      Collect and process results
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#prepare-a-real-dataset-for-batch-inference" class="md-nav__link">
-    <span class="md-ellipsis">
-      Prepare a real dataset for batch inference
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#perform-batch-inference" class="md-nav__link">
-    <span class="md-ellipsis">
-      Perform batch inference
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#analyze-the-results" class="md-nav__link">
-    <span class="md-ellipsis">
-      Analyze the results
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
-    <span class="md-ellipsis">
-      Conclusion
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1363,10 +1209,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../effective-prompt-engineering/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Effective prompt engineering
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1375,6 +1241,167 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bad-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bad prompt 🔴
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bad prompt 🔴">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analysis-of-the-bad-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analysis of the bad prompt
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#better-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Better prompt 🟡
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Better prompt 🟡">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analysis-of-the-better-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analysis of the better prompt
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best prompt 🟢
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best prompt 🟢">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analysis-of-the-best-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analysis of the best prompt
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#leveraging-ai-to-improve-your-prompts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Leveraging AI to improve your prompts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Leveraging AI to improve your prompts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analysis-of-the-ai-enhanced-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analysis of the AI-enhanced prompt
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-the-ai-enhanced-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use the AI-enhanced prompt
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analysis-of-the-ai-enhanced-prompt-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analysis of the AI-enhanced prompt response
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1443,15 +1470,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#understanding-accuracy-in-model-evaluation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Understanding accuracy in model evaluation
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
       Prerequisites
@@ -1470,46 +1488,19 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#build-our-evaluation-pipeline" class="md-nav__link">
+  <a href="#bad-prompt" class="md-nav__link">
     <span class="md-ellipsis">
-      Build our evaluation pipeline
+      Bad prompt 🔴
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Build our evaluation pipeline">
+    <nav class="md-nav" aria-label="Bad prompt 🔴">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#create-and-manage-batch-files" class="md-nav__link">
+  <a href="#analysis-of-the-bad-prompt" class="md-nav__link">
     <span class="md-ellipsis">
-      Create and manage batch files
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#upload-files-to-klusterai" class="md-nav__link">
-    <span class="md-ellipsis">
-      Upload files to kluster.ai
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#check-job-progress" class="md-nav__link">
-    <span class="md-ellipsis">
-      Check job progress
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#collect-and-process-results" class="md-nav__link">
-    <span class="md-ellipsis">
-      Collect and process results
+      Analysis of the bad prompt
     </span>
   </a>
   
@@ -1521,29 +1512,92 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#prepare-a-real-dataset-for-batch-inference" class="md-nav__link">
+  <a href="#better-prompt" class="md-nav__link">
     <span class="md-ellipsis">
-      Prepare a real dataset for batch inference
+      Better prompt 🟡
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Better prompt 🟡">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analysis-of-the-better-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analysis of the better prompt
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#perform-batch-inference" class="md-nav__link">
-    <span class="md-ellipsis">
-      Perform batch inference
-    </span>
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#analyze-the-results" class="md-nav__link">
+  <a href="#best-prompt" class="md-nav__link">
     <span class="md-ellipsis">
-      Analyze the results
+      Best prompt 🟢
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Best prompt 🟢">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analysis-of-the-best-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analysis of the best prompt
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#leveraging-ai-to-improve-your-prompts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Leveraging AI to improve your prompts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Leveraging AI to improve your prompts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analysis-of-the-ai-enhanced-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analysis of the AI-enhanced prompt
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-the-ai-enhanced-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use the AI-enhanced prompt
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analysis-of-the-ai-enhanced-prompt-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analysis of the AI-enhanced prompt response
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2007,94 +2061,69 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </style>
 <!-- End of mermaid configuration --><div class="jupyter-wrapper">
 <div class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=be189fde-4e5b-4f80-bae1-ded86a5075a7">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=intro-heading">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="evaluating-llms-with-labeled-data">Evaluating LLMs with labeled data<a class="anchor-link" href="#evaluating-llms-with-labeled-data">¶</a></h1>
+<h1 id="effective-prompt-engineering-with-the-klusterai-api">Effective prompt engineering with the kluster.ai API<a class="anchor-link" href="#effective-prompt-engineering-with-the-klusterai-api">¶</a></h1><p><a href="https://colab.research.google.com/github/kluster-ai/klusterai-cookbook/blob/main/examples/effective-prompt-engineering.ipynb"><img alt="Open in Colab" src="https://colab.research.google.comassets/colab-badge.svg"/></a></p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b17a77d9">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b26c7677">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><a href="https://colab.research.google.com/github/kluster-ai/klusterai-cookbook/blob/main/examples/model-comparison.ipynb"><img alt="Open in Colab" src="https://colab.research.google.comassets/colab-badge.svg"/></a></p>
+<p>Prompt engineering is the practice of crafting inputs to guide large language models (LLMs) toward high‑quality responses. Well‑designed prompts can turn vague outputs into precise, actionable insights.</p>
+<p>In this notebook, we show how prompt quality affects LLM performance by comparing three levels of prompts—Bad, Better, and Best—in a retail sales analysis scenario. The goal: uncover strategies to grow the business and boost profits.</p>
+<p>Using a simple retail dataset with sales, pricing, and profit data, you’ll see how adding structure, context, and business‑specific details transforms basic observations into strategic recommendations.</p>
+<p>By the end, you’ll be equipped to apply these principles to your own business data using any of the <a href="https://docs.kluster.ai/api-reference/reference/#list-supported-models">supported models</a> available through the <a href="https://kluster.ai/">kluster.ai</a> API—unlocking deeper, more valuable insights.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1297a26a-fdb2-48b4-bc1e-d66ec0b40acc">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=934b46ad">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>In this hands-on tutorial, you'll learn how to systematically evaluate Language Models (LLMs) using the <a href="https://kluster.ai/" target="_blank">kluster.ai</a> batch API. We'll walk through a practical example of comparing different models for a real-world task.</p>
-<p>Choosing the right LLM for your specific use case is crucial but can be challenging. While larger models might offer better performance, they often come with higher costs. kluster.ai provides high-performing models at competitive prices, making advanced AI more accessible.</p>
-<p>Together, we'll create a systematic evaluation pipeline that:</p>
-<ol>
-<li>Loads and processes a public dataset (which you can later replace with your own)</li>
-<li>Tests three state-of-the-art Llama models on a text classification task</li>
-<li>Compares their accuracy using annotated data</li>
-<li>Helps you make an informed decision based on both performance and cost</li>
-</ol>
-<p>Let's get started with understanding how we'll measure model performance.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=efbb26eb">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="understanding-accuracy-in-model-evaluation">Understanding accuracy in model evaluation<a class="anchor-link" href="#understanding-accuracy-in-model-evaluation">¶</a></h2><p>Before comparing models, let's understand our main evaluation metric: accuracy. In machine learning, accuracy is one of the most intuitive performance metrics.</p>
-<p>Accuracy is calculated by taking the number of correct predictions and dividing it by the total number of predictions. For example, if a model correctly classifies 85 out of 100 movie genres, its accuracy would be 85%.</p>
-<p>$$ \text{Accuracy} = \frac{\text{Number of Correct Classifications}}{\text{Total Number of Classifications}} $$</p>
-<p>We're choosing accuracy for this tutorial because:</p>
-<ol>
-<li>It's easy to understand and interpret</li>
-<li>It directly answers the question: "How often is our model correct?"</li>
-</ol>
-<p>In the next section, we'll see how to implement this metric in our evaluation pipeline.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=64678388">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="prerequisites">Prerequisites<a class="anchor-link" href="#prerequisites">¶</a></h2><p>Before getting started, ensure you have the following:</p>
+<h2 id="prerequisites">Prerequisites<a class="anchor-link" href="#prerequisites">¶</a></h2><p>Before getting started, ensure you have:</p>
 <ul>
-<li><strong>A kluster.ai account</strong> - sign up on the <a href="https://platform.kluster.ai/signup" target="_blank">kluster.ai platform</a> if you don't have one</li>
-<li><strong>A kluster.ai API key</strong> - after signing in, go to the <a href="https://platform.kluster.ai/apikeys" target="_blank"><strong>API Keys</strong></a> section and create a new key. For detailed instructions, check out the <a href="https://docs.kluster.ai/get-started/get-api-key/" target="_blank">Get an API key</a> guide</li>
+<li><strong>A kluster.ai account</strong> - sign up at <a href="https://platform.kluster.ai/signup">kluster.ai</a></li>
+<li><strong>A kluster.ai API key</strong> - get your key from the <a href="https://platform.kluster.ai/apikeys">API Keys</a> page. For instructions, see the <a href="https://platform.kluster.ai/get-started/get-api-key/">API key guide</a></li>
 </ul>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4ace7b9c-eb77-4f6a-a3c2-eb75581ed427">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e10a6552">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="setup">Setup<a class="anchor-link" href="#setup">¶</a></h2><p>In this notebook, we'll use Python's <code>getpass</code> module to safely input the key. Provide your unique kluster.ai API key (ensure there are no spaces).</p>
+<h2 id="setup">Setup<a class="anchor-link" href="#setup">¶</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=342a8e93-3bac-41c1-8bd5-16daaa9f7039">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>In this notebook, we'll use Python's <code>getpass</code> module to safely input the key. Provide your kluster API key when prompted. Then, we'll import the required dependencies, specify the LLM model to use, and initialize the client. Refer to the <a href="https://docs.kluster.ai/get-started/models/">supported models</a> chart if you're unsure which one to choose.</p>
 </div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=4911e5eb-7463-4a6b-8a99-9313cecd9d4d">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=2f254b80">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -2112,13 +2141,27 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">from</span> <span class="nn">getpass</span> <span class="kn">import</span> <span class="n">getpass</span>
-<span class="c1"># Enter you personal kluster.ai API key (make sure in advance it has no blank spaces)</span>
-<span class="n">api_key</span> <span class="o">=</span> <span class="n">getpass</span><span class="p">(</span><span class="s2">"Enter your kluster.ai API key: "</span><span class="p">)</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Import required packages at the beginning of the notebook</span>
+<span class="kn">from</span> <span class="nn">getpass</span> <span class="kn">import</span> <span class="n">getpass</span>
+<span class="kn">from</span> <span class="nn">openai</span> <span class="kn">import</span> <span class="n">OpenAI</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Markdown</span>
+
+<span class="n">api_key</span> <span class="o">=</span> <span class="n">getpass</span><span class="p">(</span><span class="s1">'Enter your kluster.ai API key: '</span><span class="p">)</span>
+
+<span class="c1"># Feel free to swap out the model with any of Kluster's supported models</span>
+<span class="n">model</span> <span class="o">=</span> <span class="s2">"google/gemma-3-27b-it"</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">OpenAI</span><span class="p">(</span><span class="n">base_url</span><span class="o">=</span><span class="s2">"https://api.kluster.ai/v1"</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="n">api_key</span><span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-1">from getpass import getpass
-# Enter you personal kluster.ai API key (make sure in advance it has no blank spaces)
-api_key = getpass("Enter your kluster.ai API key: ")</div>
+<div class="clipboard-copy-txt" id="cell-1"># Import required packages at the beginning of the notebook
+from getpass import getpass
+from openai import OpenAI
+from IPython.display import Markdown
+
+api_key = getpass('Enter your kluster.ai API key: ')
+
+# Feel free to swap out the model with any of Kluster's supported models
+model = "google/gemma-3-27b-it"
+client = OpenAI(base_url="https://api.kluster.ai/v1", api_key=api_key)</div>
 </div>
 </div>
 </div>
@@ -2133,8 +2176,19 @@ api_key = getpass("Enter your kluster.ai API key: ")</div>
 </div>
 </div>
 </div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=84894eb8">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="bad-prompt">Bad prompt 🔴<a class="anchor-link" href="#bad-prompt">¶</a></h2><p>Below is an example of a poorly written prompt that’s unlikely to yield a meaningful answer. Although it’s an extreme case, it illustrates how a vague prompt with minimal context can limit an LLM’s response. For instance, we don’t know the product, the audience, or the goal of asking the LLM. Providing that information would immediately make this prompt more effective.</p>
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=bcc3d475-8f49-4fc4-9a5e-c6eb6866d2b5">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=e88b3960">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -2152,9 +2206,45 @@ api_key = getpass("Enter your kluster.ai API key: ")</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="o">%</span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">q</span> <span class="n">OpenAI</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Define the bad prompt</span>
+<span class="n">bad_prompt_text</span> <span class="o">=</span> <span class="s2">"""Here's some data:</span>
+
+<span class="s2">| Product | Sales |</span>
+<span class="s2">|---------|-------|</span>
+<span class="s2">| A       | 10    |</span>
+<span class="s2">| B       | 20    |</span>
+<span class="s2">| C       | 5     |</span>
+<span class="s2">| D       | 15    |</span>
+
+<span class="s2">Tell me about it."""</span>
+
+<span class="c1"># Use the variable in the API call</span>
+<span class="n">response_bad</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">completions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
+    <span class="n">messages</span><span class="o">=</span><span class="p">[{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="n">bad_prompt_text</span><span class="p">}],</span>
+    <span class="n">temperature</span><span class="o">=</span><span class="mf">0.5</span>
+<span class="p">)</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">content</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Model response:</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span> <span class="n">response_bad</span><span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-2">%pip install -q OpenAI</div>
+<div class="clipboard-copy-txt" id="cell-2"># Define the bad prompt
+bad_prompt_text = """Here's some data:
+
+| Product | Sales |
+|---------|-------|
+| A       | 10    |
+| B       | 20    |
+| C       | 5     |
+| D       | 15    |
+
+Tell me about it."""
+
+# Use the variable in the API call
+response_bad = client.chat.completions.create(
+    model=model,
+    messages=[{"role": "user", "content": bad_prompt_text}],
+    temperature=0.5
+).choices[0].message.content
+print("\nModel response:\n" + response_bad)</div>
 </div>
 </div>
 </div>
@@ -2166,15 +2256,69 @@ api_key = getpass("Enter your kluster.ai API key: ")</div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Note: you may need to restart the kernel to use updated packages.
+<pre>
+Model response:
+Okay, here's a breakdown of the data you provided:
+
+**Overview:**
+
+This data shows the sales figures for four different products (A, B, C, and D).
+
+**Key Observations:**
+
+* **Product B is the top performer:** It has the highest sales with 20 units sold.
+* **Product A is second best:** It sold 10 units.
+* **Product D is in the middle:** It sold 15 units.
+* **Product C is the lowest performer:** It has the lowest sales with only 5 units sold.
+
+**Possible Insights &amp; Questions:**
+
+* **Why is Product B so successful?**  Is it price, marketing, features, or something else?
+* **Why is Product C struggling?** Does it need improvement, better marketing, or should it be discontinued?
+* **Overall sales are relatively low:**  Depending on the context (time period, market size, etc.), these numbers might be considered low.
+* **What is the unit of sale?** Is it individual items, cases, or something else? Knowing this helps understand the scale of the sales.
+
+**In short, this data provides a quick snapshot of product performance, highlighting strengths (B) and weaknesses (C) and prompting further investigation.**
+
+
+
+Do you want me to perform any calculations on this data (e.g., percentages of total sales, average sales)? Or would you like me to consider this data in a specific context?  For example, are these sales figures for a week, a month, or a year?
 </pre>
 </div>
 </div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=b89a4feb-37a9-430d-a742-cd58495b4eaf">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b8c92069">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="analysis-of-the-bad-prompt">Analysis of the bad prompt<a class="anchor-link" href="#analysis-of-the-bad-prompt">¶</a></h3><p>The Bad prompt offers only the most rudimentary information—products and their sales—and provides no clear instructions beyond "tell me about it." This inevitably results in:</p>
+<ul>
+<li><strong>Minimal context</strong> - without pricing, profit margins, or a specific goal (e.g., analyzing profitability, recommending strategies), the LLM can only produce surface-level observations</li>
+<li><strong>No actionable guidance</strong> - the prompt doesn't request particular insights or next steps, so the model responds with high-level statements rather than solutions</li>
+<li><strong>Limited utility</strong> - because the data is purely quantitative (sales alone) and lacks details such as time frame, product characteristics, or marketing context, the response cannot go beyond pointing out which products sold more or less</li>
+</ul>
+<p>Overall, this prompt's lack of clear direction and supporting information stifles the model's ability to provide meaningful analysis or recommendations.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=87dab731">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="better-prompt">Better prompt 🟡<a class="anchor-link" href="#better-prompt">¶</a></h2><p>The prompt below significantly improves upon the basic version by providing essential context and structure—such as pricing information, a specified timeframe, and requests for clear analytical steps with actionable recommendations. This approach guides the model toward delivering more valuable business insights. Remember, the prompter’s primary goal is to learn how to run a more profitable business.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=d1c3d4c4">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -2192,34 +2336,192 @@ api_key = getpass("Enter your kluster.ai API key: ")</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">urllib.request</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">openai</span> <span class="kn">import</span> <span class="n">OpenAI</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">clear_output</span><span class="p">,</span> <span class="n">display</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Define the better prompt</span>
+<span class="n">better_prompt_text</span> <span class="o">=</span> <span class="s2">"""Here's monthly sales data from our store (units sold) for four products during January 2025:</span>
 
-<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">'display.max_columns'</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="s1">'display.width'</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="s1">'display.max_rows'</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span> <span class="s1">'display.max_colwidth'</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+<span class="s2">| Product | Units Sold |</span>
+<span class="s2">|---------|------------|</span>
+<span class="s2">| A       | 10         |</span>
+<span class="s2">| B       | 20         |</span>
+<span class="s2">| C       | 5          |</span>
+<span class="s2">| D       | 15         |</span>
+
+<span class="s2">We sell these products at the following prices:</span>
+
+<span class="s2">| Product | Price per Unit |</span>
+<span class="s2">|---------|----------------|  </span>
+<span class="s2">| A       | $5.00          |</span>
+<span class="s2">| B       | $3.50          |</span>
+<span class="s2">| C       | $8.00          |</span>
+<span class="s2">| D       | $6.00          |</span>
+
+<span class="s2">I'd like you to do the following clearly and specifically:</span>
+
+<span class="s2">1. Calculate total monthly revenue for each product.</span>
+<span class="s2">2. Identify the best and worst-performing products by revenue.</span>
+<span class="s2">3. Suggest specific and actionable strategies to boost overall sales, particularly focusing on lower-performing products.</span>
+<span class="s2">4. Provide recommendations on whether adjusting pricing or marketing might improve profitability based on current sales performance.</span>
+
+<span class="s2">Structure your response clearly with separate sections and explain briefly your reasoning behind each recommendation."""</span>
+
+<span class="c1"># Use the variable in the API call</span>
+<span class="n">response_better</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">completions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
+    <span class="n">messages</span><span class="o">=</span><span class="p">[{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="n">better_prompt_text</span><span class="p">}],</span>
+    <span class="n">temperature</span><span class="o">=</span><span class="mf">0.5</span>
+<span class="p">)</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">content</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Model response:</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span> <span class="n">response_better</span><span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-3">import urllib.request
-import pandas as pd
-import numpy as np
-from openai import OpenAI
-import time
-import json
-from IPython.display import clear_output, display
-import matplotlib.pyplot as plt
+<div class="clipboard-copy-txt" id="cell-3"># Define the better prompt
+better_prompt_text = """Here's monthly sales data from our store (units sold) for four products during January 2025:
 
-pd.set_option('display.max_columns', 1000, 'display.width', 1000, 'display.max_rows',1000, 'display.max_colwidth', 500)</div>
+| Product | Units Sold |
+|---------|------------|
+| A       | 10         |
+| B       | 20         |
+| C       | 5          |
+| D       | 15         |
+
+We sell these products at the following prices:
+
+| Product | Price per Unit |
+|---------|----------------|  
+| A       | $5.00          |
+| B       | $3.50          |
+| C       | $8.00          |
+| D       | $6.00          |
+
+I'd like you to do the following clearly and specifically:
+
+1. Calculate total monthly revenue for each product.
+2. Identify the best and worst-performing products by revenue.
+3. Suggest specific and actionable strategies to boost overall sales, particularly focusing on lower-performing products.
+4. Provide recommendations on whether adjusting pricing or marketing might improve profitability based on current sales performance.
+
+Structure your response clearly with separate sections and explain briefly your reasoning behind each recommendation."""
+
+# Use the variable in the API call
+response_better = client.chat.completions.create(
+    model=model,
+    messages=[{"role": "user", "content": better_prompt_text}],
+    temperature=0.5
+).choices[0].message.content
+print("\nModel response:\n" + response_better)</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>
+Model response:
+## January 2025 Sales Analysis &amp; Recommendations
+
+Here's a breakdown of the January 2025 sales data, including revenue calculations, performance analysis, and actionable strategies for improvement.
+
+**1. Total Monthly Revenue per Product**
+
+To calculate revenue, we multiply the units sold by the price per unit for each product:
+
+* **Product A:** 10 units * $5.00/unit = $50.00
+* **Product B:** 20 units * $3.50/unit = $70.00
+* **Product C:** 5 units * $8.00/unit = $40.00
+* **Product D:** 15 units * $6.00/unit = $90.00
+
+**2. Best &amp; Worst Performing Products (by Revenue)**
+
+* **Best Performing Product:** Product D ($90.00 revenue) - This product generated the highest revenue in January.
+* **Worst Performing Product:** Product C ($40.00 revenue) - This product generated the lowest revenue in January.
+
+**3. Strategies to Boost Overall Sales**
+
+Here are specific, actionable strategies, with a particular focus on improving the performance of Products A and C:
+
+* **Product C (Lowest Performing - $40 Revenue):**
+    * **Bundle with Product D:** Offer a bundle deal – "Buy Product D and get 20% off Product C." This leverages the popularity of Product D to drive sales of Product C. *Reasoning: Cross-selling can introduce customers to products they might not have considered otherwise.*
+    * **Targeted Social Media Campaign:** Run a social media campaign showcasing the *unique benefits* of Product C.  Focus on high-quality images/videos demonstrating its value. *Reasoning: Product C has a higher price point, suggesting it might offer a premium feature. Marketing should emphasize that.*
+    * **Limited-Time Promotion:** Run a "Limited-Time Offer" – e.g., "25% off Product C this weekend only."  Create a sense of urgency. *Reasoning:  Creates immediate demand and encourages trial.*
+* **Product A (Low Performing - $50 Revenue):**
+    * **Loyalty Program Integration:** Offer double loyalty points on Product A purchases. *Reasoning: Encourages repeat purchases and builds customer loyalty.*
+    * **In-Store Placement:**  Improve the placement of Product A in the store.  Move it to a higher-traffic area or near complementary products. *Reasoning: Visibility significantly impacts sales.*
+    * **Content Marketing:** Create blog posts or short videos demonstrating how Product A solves a specific customer problem. *Reasoning: Educates customers about the product's value and builds trust.*
+* **Product B (Moderate Performing - $70 Revenue):**
+    * **Increase Order Value:** Suggest related products at checkout (e.g., "Customers who bought Product B also bought…"). *Reasoning:  Increases the average transaction value.*
+* **Product D (Best Performing - $90 Revenue):**
+    * **Maintain Momentum:** Continue current marketing efforts.  Monitor sales closely for any dips and be prepared to react.  *Reasoning: Don't fix what isn't broken, but stay vigilant.*
+    * **Gather Customer Feedback:**  Send out a short survey to Product D customers asking for feedback on what they like about the product.  Use this information in marketing materials. *Reasoning: Leverage positive customer experiences.*
+
+**4. Pricing &amp; Marketing Recommendations for Profitability**
+
+Based on the current performance, here's a breakdown of pricing and marketing considerations:
+
+* **Product C (High Price, Low Volume):**
+    * **Pricing – Consider a Slight Reduction:** While Product C has the highest price, its low sales volume suggests price sensitivity. A small price reduction (e.g., $1.00) *could* increase demand enough to offset the lower margin. *However, test this carefully!*  A/B testing different price points is recommended.
+    * **Marketing – Focus on Value Proposition:**  Marketing should *strongly* emphasize the benefits justifying the higher price.  Highlight quality, durability, unique features, or exclusivity.
+* **Product B (Moderate Price, Moderate Volume):**
+    * **Pricing – Monitor Competitor Pricing:**  Ensure Product B's price is competitive within the market.
+    * **Marketing – Emphasize Value for Money:**  Highlight the affordability and benefits of Product B.
+* **Product A (Low Price, Low Volume):**
+    * **Pricing – Consider a Bundle:** Instead of a price increase, consider bundling Product A with other items to increase the overall transaction value.
+    * **Marketing – Focus on Accessibility:**  Position Product A as an accessible and affordable option.
+* **Product D (Moderate Price, High Volume):**
+    * **Pricing – Monitor for Optimal Margin:**  Maintain current pricing unless competitor activity necessitates a change.  Focus on maximizing margin.
+    * **Marketing – Leverage Popularity:** Continue highlighting Product D's popularity and positive customer reviews.
+
+
+
+**Important Considerations:**
+
+* **Data Collection:**  Continue to track sales data monthly to monitor the effectiveness of these strategies.
+* **Customer Segmentation:**  Consider segmenting your customer base to tailor marketing efforts more effectively.
+* **A/B Testing:**  When making pricing changes, always A/B test different price points to determine the optimal price for maximizing revenue and profit.
+* **Seasonality:** Be mindful of potential seasonal trends that may affect sales.
+
+
+
+
+This analysis provides a starting point. Regular monitoring and adjustments are crucial for ongoing success.
+</pre>
 </div>
 </div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=zG9y_WO5rYaj">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6f3ca7a4">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="analysis-of-the-better-prompt">Analysis of the better prompt<a class="anchor-link" href="#analysis-of-the-better-prompt">¶</a></h3><p>This Better prompt elevates the request beyond the "Bad" version by incorporating pricing details and clearer instructions, which yield more focused calculations and recommendations. The prompt also specifies a timeline (January 2025) and outlines key tasks (calculating revenue, identifying product performance, suggesting sales-boosting strategies). As a result, the LLM response provides:</p>
+<ul>
+<li><strong>Structured revenue calculations</strong> - by explicitly asking for per-product revenue, it brings a quantitative foundation to the analysis</li>
+<li><strong>Actionable recommendations</strong> - requests for pricing and marketing adjustments prompt specific suggestions, rather than broad, generic ideas</li>
+<li><strong>Organized output</strong> - clearly defined sections ensure the response is easy to interpret and act upon</li>
+</ul>
+<p>However, the prompt stops short of requesting profit margins, customer demographics, or broader business context (e.g., marketing channels or inventory challenges) seen in the Best prompt. Consequently, while the Better prompt moves toward more concrete, data-driven insights, it still lacks the richness and depth needed to produce thorough, strategic recommendations.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a8ceea92">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="best-prompt">Best prompt 🟢<a class="anchor-link" href="#best-prompt">¶</a></h2><p>Finally, we arrive at a prompt that provides enough detail for the LLM to respond with meaningful insights on growing the business and increasing profits in this hypothetical scenario. By outlining comprehensive business context, detailed product information, structured analytical requirements, demographic data, profit margins, marketing channels, and specific business challenges, this prompt equips the model to deliver tailored and actionable recommendations.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=cb27726c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -2237,72 +2539,268 @@ pd.set_option('display.max_columns', 1000, 'display.width', 1000, 'display.max_r
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Set up the client</span>
-<span class="n">client</span> <span class="o">=</span> <span class="n">OpenAI</span><span class="p">(</span>
-    <span class="n">base_url</span><span class="o">=</span><span class="s2">"https://api.kluster.ai/v1"</span><span class="p">,</span>
-    <span class="n">api_key</span><span class="o">=</span><span class="n">api_key</span><span class="p">,</span>
-<span class="p">)</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Define the best prompt</span>
+<span class="n">best_prompt_text</span> <span class="o">=</span> <span class="s2">"""Here's monthly sales data (units sold) from our small retail store for four products during January 2025:</span>
+
+<span class="s2">| Product | Units Sold |</span>
+<span class="s2">|---------|------------|</span>
+<span class="s2">| A       | 10         |</span>
+<span class="s2">| B       | 20         |</span>
+<span class="s2">| C       | 5          |</span>
+<span class="s2">| D       | 15         |</span>
+
+<span class="s2">Prices and profit margins are as follows:</span>
+
+<span class="s2">| Product | Price per Unit | Profit Margin (%) |</span>
+<span class="s2">|---------|----------------|-------------------|</span>
+<span class="s2">| A       | $5.00          | 30%               |</span>
+<span class="s2">| B       | $3.50          | 40%               |</span>
+<span class="s2">| C       | $8.00          | 25%               |</span>
+<span class="s2">| D       | $6.00          | 35%               |</span>
+
+<span class="s2">### Additional Business Context:</span>
+
+<span class="s2">- **Customer Demographics:**</span>
+<span class="s2">  - Primary: Young adults (18-30 years old)</span>
+<span class="s2">  - Secondary: Middle-aged professionals (35-50 years old)</span>
+<span class="s2">  - Marketing channels: Instagram ads, email newsletters, weekend promotions</span>
+
+<span class="s2">- **Product Context:**</span>
+<span class="s2">  - **Product A:** Everyday consumable, consistent demand</span>
+<span class="s2">  - **Product B:** Lower-priced, frequent purchases, popular with young adults</span>
+<span class="s2">  - **Product C:** Premium product, aimed at professionals, slow-moving, excess inventory</span>
+<span class="s2">  - **Product D:** Mid-range product, recently gaining popularity</span>
+
+<span class="s2">- **Challenges:**</span>
+<span class="s2">  - Overstock of Product C; immediate action required</span>
+<span class="s2">  - Limited marketing budget; high ROI needed</span>
+<span class="s2">  - Seeking quick profitability improvements through inventory and pricing strategies, avoiding new product lines</span>
+
+<span class="s2">### Clearly and specifically, please provide the following structured analysis:</span>
+
+<span class="s2">**1. Revenue and Profit Analysis:**</span>
+<span class="s2">- Calculate total monthly revenue and total gross profit per product.</span>
+<span class="s2">- Clearly identify best and worst-performing products based on profitability.</span>
+
+<span class="s2">**2. Profitability Optimization Recommendations (Think step-by-step):**</span>
+<span class="s2">- Provide **specific, actionable steps** to quickly address excess inventory, particularly Product C.</span>
+<span class="s2">- Suggest **explicit pricing adjustments or promotional strategies**, clearly aligned with primary and secondary demographics.</span>
+<span class="s2">- Clearly explain your reasoning behind each recommendation.</span>
+
+<span class="s2">**3. Marketing Optimization Recommendations:**</span>
+<span class="s2">- Provide targeted recommendations for utilizing existing marketing channels (Instagram, newsletters, weekend promotions) to maximize profitability.</span>
+<span class="s2">- Clearly specify which products to prioritize in each channel and explain why.</span>
+
+<span class="s2">**Structure your response clearly:**</span>
+<span class="s2">- Use separate headings for each of the above sections.</span>
+<span class="s2">- Present recommendations clearly in bullet-point format.</span>
+<span class="s2">- Briefly but explicitly explain your reasoning behind each suggestion.</span>
+
+<span class="s2">Please be concise, specific, and actionable."""</span>
+
+<span class="c1"># Use the variable in the API call</span>
+<span class="n">response_best</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">completions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
+    <span class="n">messages</span><span class="o">=</span><span class="p">[{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="n">best_prompt_text</span><span class="p">}],</span>
+    <span class="n">temperature</span><span class="o">=</span><span class="mf">0.5</span>
+<span class="p">)</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">content</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Model response:</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span> <span class="n">response_best</span><span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-4"># Set up the client
-client = OpenAI(
-    base_url="https://api.kluster.ai/v1",
-    api_key=api_key,
-)</div>
+<div class="clipboard-copy-txt" id="cell-4"># Define the best prompt
+best_prompt_text = """Here's monthly sales data (units sold) from our small retail store for four products during January 2025:
+
+| Product | Units Sold |
+|---------|------------|
+| A       | 10         |
+| B       | 20         |
+| C       | 5          |
+| D       | 15         |
+
+Prices and profit margins are as follows:
+
+| Product | Price per Unit | Profit Margin (%) |
+|---------|----------------|-------------------|
+| A       | $5.00          | 30%               |
+| B       | $3.50          | 40%               |
+| C       | $8.00          | 25%               |
+| D       | $6.00          | 35%               |
+
+### Additional Business Context:
+
+- **Customer Demographics:**
+  - Primary: Young adults (18-30 years old)
+  - Secondary: Middle-aged professionals (35-50 years old)
+  - Marketing channels: Instagram ads, email newsletters, weekend promotions
+
+- **Product Context:**
+  - **Product A:** Everyday consumable, consistent demand
+  - **Product B:** Lower-priced, frequent purchases, popular with young adults
+  - **Product C:** Premium product, aimed at professionals, slow-moving, excess inventory
+  - **Product D:** Mid-range product, recently gaining popularity
+
+- **Challenges:**
+  - Overstock of Product C; immediate action required
+  - Limited marketing budget; high ROI needed
+  - Seeking quick profitability improvements through inventory and pricing strategies, avoiding new product lines
+
+### Clearly and specifically, please provide the following structured analysis:
+
+**1. Revenue and Profit Analysis:**
+- Calculate total monthly revenue and total gross profit per product.
+- Clearly identify best and worst-performing products based on profitability.
+
+**2. Profitability Optimization Recommendations (Think step-by-step):**
+- Provide **specific, actionable steps** to quickly address excess inventory, particularly Product C.
+- Suggest **explicit pricing adjustments or promotional strategies**, clearly aligned with primary and secondary demographics.
+- Clearly explain your reasoning behind each recommendation.
+
+**3. Marketing Optimization Recommendations:**
+- Provide targeted recommendations for utilizing existing marketing channels (Instagram, newsletters, weekend promotions) to maximize profitability.
+- Clearly specify which products to prioritize in each channel and explain why.
+
+**Structure your response clearly:**
+- Use separate headings for each of the above sections.
+- Present recommendations clearly in bullet-point format.
+- Briefly but explicitly explain your reasoning behind each suggestion.
+
+Please be concise, specific, and actionable."""
+
+# Use the variable in the API call
+response_best = client.chat.completions.create(
+    model=model,
+    messages=[{"role": "user", "content": best_prompt_text}],
+    temperature=0.5
+).choices[0].message.content
+print("\nModel response:\n" + response_best)</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>
+Model response:
+## 1. Revenue and Profit Analysis
+
+Here's the breakdown of revenue and profit for each product in January 2025:
+
+| Product | Units Sold | Price per Unit | Total Revenue | Profit Margin (%) | Gross Profit |
+|---------|------------|----------------|---------------|-------------------|--------------|
+| A       | 10         | $5.00          | $50.00        | 30%               | $15.00       |
+| B       | 20         | $3.50          | $70.00        | 40%               | $28.00       |
+| C       | 5          | $8.00          | $40.00        | 25%               | $10.00       |
+| D       | 15         | $6.00          | $90.00        | 35%               | $31.50       |
+| **Total**| **40**     |                | **$250.00**   |                   | **$84.50**   |
+
+**Best Performing Product (Profitability):** Product D generates the highest gross profit ($31.50) despite not having the highest revenue. This is due to its relatively high price and profit margin.
+
+**Worst Performing Product (Profitability):** Product C generates the lowest gross profit ($10.00) despite a higher price point. This is due to low unit sales and a lower profit margin compared to D.
+
+
+
+## 2. Profitability Optimization Recommendations
+
+Here are actionable steps to improve profitability, focusing on inventory and pricing:
+
+*   **Product C - Immediate Inventory Reduction:**
+    *   **Flash Sale (Target: Professionals):** Offer a 30% discount on Product C for one weekend only, promoted heavily via email newsletter to the secondary demographic (35-50 year olds). *Reasoning:* A significant discount incentivizes purchase, moving inventory quickly. Targeting professionals through email maximizes reach to the intended audience.
+    *   **Bundle with Product D (Target: Both Demographics):** Create a bundle: Product C + Product D at a 10% discount compared to purchasing individually. *Reasoning:*  Attaches a slow-moving item (C) to a popular one (D), increasing the likelihood of C being sold. Appeals to both demographics.
+    *   **Consider a "Buy One Get One 50% Off" promotion on Product C:** *Reasoning:* This encourages customers to purchase two units, further reducing inventory.
+
+*   **Product A - Maintain Current Strategy:**  Continue consistent sales. No immediate changes needed. *Reasoning:* Consistent demand indicates a stable revenue stream.
+
+*   **Product B - Targeted Promotion (Target: Young Adults):**
+    *   **Instagram Contest/Giveaway:** Run a contest requiring users to follow the store's Instagram page, tag friends, and share a post featuring Product B. Offer a prize bundle including Product B. *Reasoning:* Leverages Instagram's reach to the primary demographic, increasing brand awareness and driving sales.
+    *   **Introduce a "3 for $10" deal:** *Reasoning:* Encourages larger purchases of this frequently bought item, increasing revenue.
+
+*   **Product D - Slight Price Increase (Target: Both Demographics):**
+    *   Increase the price by $0.50 to $6.50. *Reasoning:* Product D is gaining popularity and has a good profit margin. A small price increase can boost profitability without significantly impacting demand. Monitor sales closely after the increase.
+
+
+
+
+## 3. Marketing Optimization Recommendations
+
+Here's how to utilize existing marketing channels to maximize profitability:
+
+*   **Instagram (Focus: Product B &amp; D):**
+    *   **Product B:**  Focus on visually appealing content showcasing Product B in lifestyle settings relevant to young adults (e.g., study spaces, social gatherings). Run the contest/giveaway mentioned above. *Reasoning:* Instagram is the primary channel for reaching the young adult demographic.
+    *   **Product D:** Highlight the benefits and features of Product D through short videos and engaging images. *Reasoning:* Capitalize on its growing popularity and appeal to both demographics.
+    *   **Run targeted ads:** Utilize Instagram's ad platform to target ads specifically to the 18-30 and 35-50 age ranges, promoting relevant products.
+
+*   **Email Newsletter (Focus: Product C &amp; D):**
+    *   **Product C:**  Promote the flash sale and bundle deal exclusively to the email list, specifically segmenting the list to target the 35-50 age group. *Reasoning:*  Email is effective for reaching the professional demographic and driving immediate action.
+    *   **Product D:** Announce the slight price increase and highlight its benefits. *Reasoning:*  Informs existing customers about the change and reinforces the product's value.
+    *   **Segmented Emails:**  Send different newsletters to the young adult and professional segments, featuring products relevant to their demographics.
+
+*   **Weekend Promotions (Focus: All Products, Rotating):**
+    *   **Rotate promotions weekly:** One weekend focus on Product B, another on Product D, and dedicate a weekend to clearing out remaining Product C inventory. *Reasoning:*  Creates a sense of urgency and encourages repeat visits.
+    *   **In-Store Signage:**  Prominently display weekend promotions in-store to capture impulse purchases. *Reasoning:* Drives foot traffic and maximizes sales during peak hours.
+
+
+
+These recommendations are designed to be implemented quickly and efficiently, leveraging existing resources to improve profitability within the given constraints. Continuous monitoring of sales data is crucial to assess the effectiveness of these strategies and make adjustments as needed.
+</pre>
 </div>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7d02cfc4-f1dc-4dc9-aabc-1936116f1214">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3455c366">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="build-our-evaluation-pipeline">Build our evaluation pipeline<a class="anchor-link" href="#build-our-evaluation-pipeline">¶</a></h2><p>In this section, we'll create several utility functions that will help us:</p>
-<ol>
-<li>Prepare our data for batch processing</li>
-<li>Send requests to the kluster.ai API</li>
-<li>Monitor the progress of our evaluation</li>
-<li>Collect and analyze results</li>
-</ol>
-<p>These functions will make our evaluation process more efficient and organized. Let's go through each one and understand its purpose:</p>
-<ol>
-<li><strong><code>create_tasks()</code></strong> - formats our data for the API</li>
-<li><strong><code>save_tasks()</code></strong> - prepares batch files for processing</li>
-<li><strong><code>monitor_job_status()</code></strong> - tracks evaluation progress</li>
-<li><strong><code>get_results()</code></strong> - collects and processes model outputs</li>
-</ol>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b386da2f-8f5a-430f-97e0-118928c3faac">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="create-and-manage-batch-files">Create and manage batch files<a class="anchor-link" href="#create-and-manage-batch-files">¶</a></h3><p>A batch file in our context is a collection of requests that we'll send to our models for evaluation. Think of it as a organized list of tasks we want our models to complete.</p>
-<p>We'll take the following steps to create batch files:</p>
-<ol>
-<li><strong>Creating tasks</strong> - we'll convert each movie description into a format LLMs can process</li>
-<li><strong>Organizing data</strong> -we'll add necessary metadata and instructions for each task</li>
-<li><strong>Saving files</strong> - we'll store these tasks in a structured format (JSONL) for processing</li>
-</ol>
-<p>Let's break down the key components of our batch file creation:</p>
+<h3 id="analysis-of-the-best-prompt">Analysis of the best prompt<a class="anchor-link" href="#analysis-of-the-best-prompt">¶</a></h3><p>The Best prompt excels because it integrates comprehensive data (product sales, prices, and profit margins) with detailed business context (target demographics, product characteristics, marketing channels, and specific challenges). By explicitly specifying the desired structure—including step-by-step revenue and profit analysis, targeted profitability recommendations, and marketing optimizations—it guides the LLM toward high-value, actionable insights.</p>
+<p>Key strengths of this Best prompt:</p>
 <ul>
-<li><strong><code>custom_id</code></strong> - helps us track individual requests</li>
-<li><strong><code>system_prompt</code></strong> - provides instructions to the model</li>
-<li><strong><code>content</code></strong> - the actual text we want to classify</li>
+<li><strong>Complete data &amp; metrics</strong> - monthly sales, pricing, and profit margins remove guesswork and allow precise revenue/profit calculations</li>
+<li><strong>Focused business context</strong> - target customer demographics, marketing channels, and product nuances (e.g., overstock of Product C) align the output with real business priorities</li>
+<li><strong>Clear task breakdown</strong> - dividing the request into distinct sections (Revenue/Profit Analysis, Profitability Recommendations, Marketing Strategies) ensures the response is both methodical and thorough</li>
+<li><strong>Actionability &amp; specificity</strong> - the prompt requests concrete next steps—such as pricing tweaks and promotional ideas—tailored to each product's characteristics and customer segment</li>
+<li><strong>Logical reasoning instructions</strong> - guiding the LLM to "think step-by-step" fosters more thoughtful planning, especially around clearing excess inventory and leveraging different marketing channels</li>
 </ul>
-<p>This structured approach allows us to efficiently process multiple requests in parallel.</p>
+<p>Overall, this approach maximizes the LLM's potential, yielding responses that are precise, context-aware, and immediately useful to decision-makers.</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=fVtwyqZ_nEq7">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=22c05fc0-6f1c-4137-8d5b-fe36c8401c5c">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="leveraging-ai-to-improve-your-prompts">Leveraging AI to improve your prompts<a class="anchor-link" href="#leveraging-ai-to-improve-your-prompts">¶</a></h2><p>Using an LLM to refine your prompt might sound meta, but it’s a powerful way to accelerate your prompt engineering learning curve. By harnessing AI to analyze and tweak your own queries, you can rapidly elevate the quality of your prompts and, ultimately, your results.</p>
+<p>While our best prompt is already strong, prompting an LLM for further improvements highlighted additional considerations, such as setting a clear time horizon, specifying budget constraints (e.g., a $2,000 monthly marketing budget), and assessing potential risks (e.g., pitfalls of new approaches). Incorporating these refinements can make your prompts more actionable and better aligned with real-world business needs.</p>
+<p>You can ask the LLM to analyze and improve your prompt by submitting a meta-prompt like:</p>
+<pre><code>I want to get better results from my prompt. Here's what I'm trying to achieve:
+[Describe your goal]
+
+Here's my current prompt:
+"""
+[Your existing prompt]
+"""
+
+Please improve this prompt after analyzing it by outputting the complete contents of the revised and improved prompt. Please be sure to provide the exact prompt that can be fed into an LLM without filler or extraneous information. Consider:
+- Adding relevant context or constraints
+- Clarifying instructions and expectations
+- Structuring the output format
+- Including examples if helpful
+</code></pre>
+<p>We can feed the above prompt alongside our existing best prompt text into the model as shown below:</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=b7ef1a2b-6cea-45e5-bb65-d9884ee6bc92">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -2320,90 +2818,169 @@ client = OpenAI(
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span> <span class="nf">create_tasks</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">task_type</span><span class="p">,</span> <span class="n">system_prompt</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
-    <span class="n">tasks</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-        <span class="n">content</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">'Overview'</span><span class="p">]</span>
-        
-        <span class="n">task</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s2">"custom_id"</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">task_type</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
-            <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"POST"</span><span class="p">,</span>
-            <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"/v1/chat/completions"</span><span class="p">,</span>
-            <span class="s2">"body"</span><span class="p">:</span> <span class="p">{</span>
-                <span class="s2">"model"</span><span class="p">:</span> <span class="n">model</span><span class="p">,</span>
-                <span class="s2">"temperature"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-                <span class="s2">"messages"</span><span class="p">:</span> <span class="p">[</span>
-                    <span class="p">{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"system"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="n">system_prompt</span><span class="p">},</span>
-                    <span class="p">{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="n">content</span><span class="p">},</span>
-                <span class="p">],</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="n">tasks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">tasks</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Re-use the best prompt text defined above.</span>
+<span class="n">ai_prompt_text</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"I want to get better results from my prompt. Here's what I'm trying to achieve:</span><span class="se">\n</span><span class="s2">"</span>
+                 <span class="s2">"The goal is to analyze the given sales data, product information, and business context to provide a structured and actionable report. This report should include:</span><span class="se">\n</span><span class="s2">"</span>
+                 <span class="s2">"1. A revenue and profit analysis to identify the best and worst-performing products.</span><span class="se">\n</span><span class="s2">"</span>
+                 <span class="s2">"2. Specific recommendations for optimizing profitability through pricing, inventory management, and promotional strategies.</span><span class="se">\n</span><span class="s2">"</span>
+                 <span class="s2">"3. Targeted marketing optimization suggestions.</span><span class="se">\n</span><span class="s2">"</span>
+                 <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span>
+                 <span class="s2">"Here's my current prompt:</span><span class="se">\n</span><span class="s2">"</span>
+                 <span class="s2">"</span><span class="se">\"\"\"\n</span><span class="s2">"</span> 
+                 <span class="o">+</span> <span class="n">best_prompt_text</span> <span class="o">+</span> 
+                 <span class="s2">"</span><span class="se">\n\"\"\"\n</span><span class="s2">"</span>
+                 <span class="s2">"Please improve this prompt after analyzing it by outputting the complete contents of the revised "</span>
+                 <span class="s2">"and improved prompt. Please be sure to provide the exact prompt that can be fed into an LLM "</span>
+                 <span class="s2">"without filler or extraneous information. Consider:</span><span class="se">\n</span><span class="s2">"</span>
+                 <span class="s2">"- Adding relevant context or constraints</span><span class="se">\n</span><span class="s2">"</span>
+                 <span class="s2">"- Clarifying instructions and expectations</span><span class="se">\n</span><span class="s2">"</span>
+                 <span class="s2">"- Structuring the output format</span><span class="se">\n</span><span class="s2">"</span>
+                 <span class="s2">"- Including examples if helpful"</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">save_tasks</span><span class="p">(</span><span class="n">tasks</span><span class="p">,</span> <span class="n">task_type</span><span class="p">):</span>
-    <span class="n">filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"batch_tasks_</span><span class="si">{</span><span class="n">task_type</span><span class="si">}</span><span class="s2">.jsonl"</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">tasks</span><span class="p">:</span>
-            <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">task</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">filename</span>
+<span class="c1"># Use the variable in the API call</span>
+<span class="n">response_ai_enhanced</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">completions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
+    <span class="n">messages</span><span class="o">=</span><span class="p">[{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="n">ai_prompt_text</span><span class="p">}],</span>
+    <span class="n">temperature</span><span class="o">=</span><span class="mf">0.5</span>
+<span class="p">)</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">content</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Model response:</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span> <span class="n">response_ai_enhanced</span><span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-5">def create_tasks(df, task_type, system_prompt, model):
-    tasks = []
-    for index, row in df.iterrows():
-        content = row['Overview']
-        
-        task = {
-            "custom_id": f"{task_type}-{index}",
-            "method": "POST",
-            "url": "/v1/chat/completions",
-            "body": {
-                "model": model,
-                "temperature": 0,
-                "messages": [
-                    {"role": "system", "content": system_prompt},
-                    {"role": "user", "content": content},
-                ],
-            }
-        }
-        tasks.append(task)
-    return tasks
+<div class="clipboard-copy-txt" id="cell-5"># Re-use the best prompt text defined above.
+ai_prompt_text = ("I want to get better results from my prompt. Here's what I'm trying to achieve:\n"
+                 "The goal is to analyze the given sales data, product information, and business context to provide a structured and actionable report. This report should include:\n"
+                 "1. A revenue and profit analysis to identify the best and worst-performing products.\n"
+                 "2. Specific recommendations for optimizing profitability through pricing, inventory management, and promotional strategies.\n"
+                 "3. Targeted marketing optimization suggestions.\n"
+                 "\n"
+                 "Here's my current prompt:\n"
+                 "\"\"\"\n" 
+                 + best_prompt_text + 
+                 "\n\"\"\"\n"
+                 "Please improve this prompt after analyzing it by outputting the complete contents of the revised "
+                 "and improved prompt. Please be sure to provide the exact prompt that can be fed into an LLM "
+                 "without filler or extraneous information. Consider:\n"
+                 "- Adding relevant context or constraints\n"
+                 "- Clarifying instructions and expectations\n"
+                 "- Structuring the output format\n"
+                 "- Including examples if helpful")
 
-def save_tasks(tasks, task_type):
-    filename = f"batch_tasks_{task_type}.jsonl"
-    with open(filename, 'w') as file:
-        for task in tasks:
-            file.write(json.dumps(task) + '\n')
-    return filename</div>
+# Use the variable in the API call
+response_ai_enhanced = client.chat.completions.create(
+    model=model,
+    messages=[{"role": "user", "content": ai_prompt_text}],
+    temperature=0.5
+).choices[0].message.content
+print("\nModel response:\n" + response_ai_enhanced)</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>
+Model response:
+```
+Here's monthly sales data (units sold) from our small retail store for four products during January 2025:
+
+| Product | Units Sold |
+|---------|------------|
+| A       | 10         |
+| B       | 20         |
+| C       | 5          |
+| D       | 15         |
+
+Prices and profit margins are as follows:
+
+| Product | Price per Unit | Profit Margin (%) |
+|---------|----------------|-------------------|
+| A       | $5.00          | 30%               |
+| B       | $3.50          | 40%               |
+| C       | $8.00          | 25%               |
+| D       | $6.00          | 35%               |
+
+### Additional Business Context:
+
+- **Customer Demographics:**
+  - Primary: Young adults (18-30 years old) - responsive to social media and discounts.
+  - Secondary: Middle-aged professionals (35-50 years old) - value quality and convenience, respond to email and targeted promotions.
+  - Marketing channels: Instagram ads, email newsletters, weekend promotions.  Instagram is currently performing better than email.
+
+- **Product Context:**
+  - **Product A:** Everyday consumable, consistent demand, relatively price insensitive.
+  - **Product B:** Lower-priced, frequent purchases, popular with young adults, highly price sensitive.
+  - **Product C:** Premium product, aimed at professionals, slow-moving, significant excess inventory (approximately 30 units remaining).  Holding cost is $1/unit/month.
+  - **Product D:** Mid-range product, recently gaining popularity, moderate price sensitivity.
+
+- **Challenges:**
+  - Overstock of Product C; immediate action required to minimize holding costs.
+  - Limited marketing budget ($200/month); high ROI needed.
+  - Seeking quick profitability improvements through inventory and pricing strategies, avoiding new product lines.  We are aiming for a 10% increase in overall monthly profit.
+
+### Clearly and specifically, please provide the following structured analysis.  Present your response as a report with the sections below.  Include calculations where appropriate.
+
+**1. Revenue and Profit Analysis:**
+- Calculate total monthly revenue and total gross profit per product. Show your work. (e.g., Revenue = Units Sold * Price per Unit; Profit = Revenue * Profit Margin).
+- Clearly identify best and worst-performing products based on total gross profit. Rank products from best to worst by profit.
+
+**2. Profitability Optimization Recommendations (Think step-by-step, prioritize Product C):**
+- **Product C - Inventory Reduction:** Provide 3-5 specific, actionable steps to quickly address excess inventory. Include estimated impact (e.g., "Reduce price by 20% – estimated to sell 10 units this month").  Consider bundling options.
+- **Pricing &amp; Promotions:** Suggest explicit pricing adjustments *or* promotional strategies for Products A, B, and D, clearly aligned with primary and secondary demographics.  Specify the promotion type (e.g., "BOGO 50% off", "10% off for email subscribers").  Include estimated impact on unit sales.
+- **Reasoning:** For *each* recommendation, clearly explain the reasoning behind it, referencing customer demographics, product context, or business challenges.
+
+**3. Marketing Optimization Recommendations (Budget: $200/month):**
+- Provide targeted recommendations for utilizing existing marketing channels (Instagram, newsletters, weekend promotions) to maximize profitability.
+- **Channel Allocation:**  Specifically allocate the $200 marketing budget across the channels (e.g., "Instagram: $120, Email: $80"). Justify your allocation.
+- **Product Prioritization:** Clearly specify which products to prioritize in each channel and explain *why*.  Be specific about ad copy/email subject lines (examples are helpful).
+- **KPIs:** Suggest 1-2 Key Performance Indicators (KPIs) to track the success of your marketing recommendations.
+
+**Structure your response clearly:**
+- Use separate headings for each of the above sections.
+- Present recommendations clearly in bullet-point format.
+- Include calculations and estimated impacts where applicable.
+- Be concise, specific, and actionable.  Focus on *immediate* improvements.
+```
+</pre>
 </div>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=eb88ca74-e555-4823-b020-954a7bab0c87">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7a0583b5">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="upload-files-to-klusterai">Upload files to kluster.ai<a class="anchor-link" href="#upload-files-to-klusterai">¶</a></h3><p>Now that we've prepared our batch files, we'll upload them to the <a href="https://platform.kluster.ai/" target="_blank">kluster.ai platform</a> for batch inference. This step is crucial for:</p>
-<ol>
-<li>Getting our data to the models</li>
-<li>Setting up the processing queue</li>
-<li>Preparing for inference</li>
-</ol>
-<p>Once the upload is complete, the following actions will take place:</p>
-<ol>
-<li>The platform queues our requests</li>
-<li>Models process them efficiently</li>
-<li>Results are made available for collection</li>
-</ol>
+<h3 id="analysis-of-the-ai-enhanced-prompt">Analysis of the AI-enhanced prompt<a class="anchor-link" href="#analysis-of-the-ai-enhanced-prompt">¶</a></h3><p>The AI‑enhanced prompt is stronger because it embeds several best‑practice elements that the baseline prompt omits:</p>
+<ul>
+<li><strong>Clear scope &amp; constraints</strong> - sets time horizon, budget, and focus areas so the model delivers realistic short-term actions</li>
+<li><strong>Structured, ranked output</strong> - provides a template and asks for impact-ordered steps with supporting calculations for decision-ready clarity</li>
+<li><strong>Rich context</strong> - supplies demographics, product details, challenges, and KPIs to drive tailored, not generic, recommendations</li>
+<li><strong>Built-in risk check</strong> - requires downside analysis on each suggestion, surfacing trade-offs upfront</li>
+</ul>
+<p>These additions sharpen the prompt's clarity, specificity, and operational relevance; they tell the model exactly what to deliver, within which limits, and how to present it, thereby increasing the likelihood of receiving actionable, decision‑ready insights regardless of which LLM you use.</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=l5eu5UyAnEtk">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=31f8e69c-15ba-4572-95f8-5823ef921e91">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="use-the-ai-enhanced-prompt">Use the AI-enhanced prompt<a class="anchor-link" href="#use-the-ai-enhanced-prompt">¶</a></h3><p>Now that we have our AI-enhanced prompt let's submit it. We'll then compare it to the response the existing best (human-generated) prompt received.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=4f39514d-c2a5-483e-925c-84edfccfe725">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -2421,480 +2998,21 @@ def save_tasks(tasks, task_type):
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span> <span class="nf">create_batch_job</span><span class="p">(</span><span class="n">file_name</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Creating batch job for </span><span class="si">{</span><span class="n">file_name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-    <span class="n">batch_file</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">files</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
-        <span class="n">file</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">),</span>
-        <span class="n">purpose</span><span class="o">=</span><span class="s2">"batch"</span>
-    <span class="p">)</span>
-
-    <span class="n">batch_job</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">batches</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
-        <span class="n">input_file_id</span><span class="o">=</span><span class="n">batch_file</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
-        <span class="n">endpoint</span><span class="o">=</span><span class="s2">"/v1/chat/completions"</span><span class="p">,</span>
-        <span class="n">completion_window</span><span class="o">=</span><span class="s2">"24h"</span>
-    <span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">batch_job</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Feed the AI-generated prompt to the LLM for a response</span>
+<span class="n">response_ai_enhanced_prompt</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">completions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
+    <span class="n">messages</span><span class="o">=</span><span class="p">[{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="n">response_ai_enhanced</span><span class="p">}],</span>
+    <span class="n">temperature</span><span class="o">=</span><span class="mf">0.5</span>
+<span class="p">)</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">content</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Model response:</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span> <span class="n">response_ai_enhanced_prompt</span><span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-6">def create_batch_job(file_name):
-    print(f"Creating batch job for {file_name}")
-    batch_file = client.files.create(
-        file=open(file_name, "rb"),
-        purpose="batch"
-    )
-
-    batch_job = client.batches.create(
-        input_file_id=batch_file.id,
-        endpoint="/v1/chat/completions",
-        completion_window="24h"
-    )
-
-    return batch_job</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e-ujphILqepu">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="check-job-progress">Check job progress<a class="anchor-link" href="#check-job-progress">¶</a></h3>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b35d9a1d">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>This function provides real-time monitoring of batch job progress:</p>
-<ul>
-<li>Continuously checks job status via the kluster.ai API</li>
-<li>Displays current completion count (completed/total requests)</li>
-<li>Updates status every 10 seconds until job is finished</li>
-<li>Automatically clears previous output for clean progress tracking</li>
-</ul>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=SuH0CfoqjP3d">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
-<div class="zeroclipboard-container">
-<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-7">
-<div>
-<span class="notice" hidden="">Copied!</span>
-<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
-<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
-<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
-</svg>
-</div>
-</clipboard-copy>
-</div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span> <span class="nf">parse_json_objects</span><span class="p">(</span><span class="n">data_string</span><span class="p">):</span>
-    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data_string</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">):</span>
-        <span class="n">data_string</span> <span class="o">=</span> <span class="n">data_string</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">'utf-8'</span><span class="p">)</span>
-
-    <span class="n">json_strings</span> <span class="o">=</span> <span class="n">data_string</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
-    <span class="n">json_objects</span> <span class="o">=</span> <span class="p">[]</span>
-
-    <span class="k">for</span> <span class="n">json_str</span> <span class="ow">in</span> <span class="n">json_strings</span><span class="p">:</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">json_obj</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json_str</span><span class="p">)</span>
-            <span class="n">json_objects</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">json_obj</span><span class="p">)</span>
-        <span class="k">except</span> <span class="n">json</span><span class="o">.</span><span class="n">JSONDecodeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Error parsing JSON: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">json_objects</span>
-
-<span class="k">def</span> <span class="nf">monitor_job_status</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">job_id</span><span class="p">,</span> <span class="n">task_type</span><span class="p">):</span>
-    <span class="n">all_completed</span> <span class="o">=</span> <span class="kc">False</span>
-
-    <span class="k">while</span> <span class="ow">not</span> <span class="n">all_completed</span><span class="p">:</span>
-        <span class="n">all_completed</span> <span class="o">=</span> <span class="kc">True</span>
-        <span class="n">output_lines</span> <span class="o">=</span> <span class="p">[]</span>
-
-        <span class="n">updated_job</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">batches</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">job_id</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="n">updated_job</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">!=</span> <span class="s2">"completed"</span><span class="p">:</span>
-            <span class="n">all_completed</span> <span class="o">=</span> <span class="kc">False</span>
-            <span class="n">completed</span> <span class="o">=</span> <span class="n">updated_job</span><span class="o">.</span><span class="n">request_counts</span><span class="o">.</span><span class="n">completed</span>
-            <span class="n">total</span> <span class="o">=</span> <span class="n">updated_job</span><span class="o">.</span><span class="n">request_counts</span><span class="o">.</span><span class="n">total</span>
-            <span class="n">output_lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">task_type</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span><span class="si">}</span><span class="s2"> job status: </span><span class="si">{</span><span class="n">updated_job</span><span class="o">.</span><span class="n">status</span><span class="si">}</span><span class="s2"> - Progress: </span><span class="si">{</span><span class="n">completed</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">total</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">output_lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">task_type</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span><span class="si">}</span><span class="s2"> job completed!"</span><span class="p">)</span>
-
-        <span class="c1"># Clear the output and display updated status</span>
-        <span class="n">clear_output</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">output_lines</span><span class="p">:</span>
-            <span class="n">display</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">all_completed</span><span class="p">:</span>
-            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-</pre></div>
-<div class="clipboard-copy-txt" id="cell-7">def parse_json_objects(data_string):
-    if isinstance(data_string, bytes):
-        data_string = data_string.decode('utf-8')
-
-    json_strings = data_string.strip().split('\n')
-    json_objects = []
-
-    for json_str in json_strings:
-        try:
-            json_obj = json.loads(json_str)
-            json_objects.append(json_obj)
-        except json.JSONDecodeError as e:
-            print(f"Error parsing JSON: {e}")
-
-    return json_objects
-
-def monitor_job_status(client, job_id, task_type):
-    all_completed = False
-
-    while not all_completed:
-        all_completed = True
-        output_lines = []
-
-        updated_job = client.batches.retrieve(job_id)
-
-        if updated_job.status.lower() != "completed":
-            all_completed = False
-            completed = updated_job.request_counts.completed
-            total = updated_job.request_counts.total
-            output_lines.append(f"{task_type.capitalize()} job status: {updated_job.status} - Progress: {completed}/{total}")
-        else:
-            output_lines.append(f"{task_type.capitalize()} job completed!")
-
-        # Clear the output and display updated status
-        clear_output(wait=True)
-        for line in output_lines:
-            display(line)
-
-        if not all_completed:
-            time.sleep(10)</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bfc324f1">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="collect-and-process-results">Collect and process results<a class="anchor-link" href="#collect-and-process-results">¶</a></h3><p>The <code>get_results()</code> function below does the following:</p>
-<ol>
-<li>Retrieves the completed batch job results</li>
-<li>Extracts the model's response content from each result</li>
-<li>Returns a list of all model responses</li>
-</ol>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=caA5djbLrJ4O">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
-<div class="zeroclipboard-container">
-<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-8">
-<div>
-<span class="notice" hidden="">Copied!</span>
-<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
-<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
-<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
-</svg>
-</div>
-</clipboard-copy>
-</div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span> <span class="nf">get_results</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">job_id</span><span class="p">):</span>
-    <span class="n">batch_job</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">batches</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">job_id</span><span class="p">)</span>
-    <span class="n">result_file_id</span> <span class="o">=</span> <span class="n">batch_job</span><span class="o">.</span><span class="n">output_file_id</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">files</span><span class="o">.</span><span class="n">content</span><span class="p">(</span><span class="n">result_file_id</span><span class="p">)</span><span class="o">.</span><span class="n">content</span>
-    <span class="n">results</span> <span class="o">=</span> <span class="n">parse_json_objects</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-    <span class="n">answers</span> <span class="o">=</span> <span class="p">[]</span>
-    
-    <span class="k">for</span> <span class="n">res</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="s1">'response'</span><span class="p">][</span><span class="s1">'body'</span><span class="p">][</span><span class="s1">'choices'</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">'message'</span><span class="p">][</span><span class="s1">'content'</span><span class="p">]</span>
-        <span class="n">answers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-    
-    <span class="k">return</span> <span class="n">answers</span>
-</pre></div>
-<div class="clipboard-copy-txt" id="cell-8">def get_results(client, job_id):
-    batch_job = client.batches.retrieve(job_id)
-    result_file_id = batch_job.output_file_id
-    result = client.files.content(result_file_id).content
-    results = parse_json_objects(result)
-    answers = []
-    
-    for res in results:
-        result = res['response']['body']['choices'][0]['message']['content']
-        answers.append(result)
-    
-    return answers</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fb8c5014-5b0c-43c2-a238-073dbde2d90a">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="prepare-a-real-dataset-for-batch-inference">Prepare a real dataset for batch inference<a class="anchor-link" href="#prepare-a-real-dataset-for-batch-inference">¶</a></h2>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e6b9ad42-cc58-4054-a510-af09a8592635">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Now that we have covered the core general functions and workflow used for batch inference, in this guide, we'll use the IMDb Top 1000 dataset. This dataset contains information about top-rated movies, including their descriptions and genres. Let's download it and see what it looks like.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=yC9wJlV4rwOh">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
-<div class="zeroclipboard-container">
-<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-9">
-<div>
-<span class="notice" hidden="">Copied!</span>
-<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
-<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
-<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
-</svg>
-</div>
-</clipboard-copy>
-</div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># IMDB Top 1000 dataset:</span>
-<span class="n">url</span> <span class="o">=</span> <span class="s2">"https://raw.githubusercontent.com/kluster-ai/klusterai-cookbook/refs/heads/main/data/imdb_top_1000.csv"</span>
-<span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">filename</span><span class="o">=</span><span class="s1">'imdb_top_1000.csv'</span><span class="p">)</span>
-
-<span class="c1"># Load and process the dataset based on URL content</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'imdb_top_1000.csv'</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="s1">'Series_Title'</span><span class="p">,</span> <span class="s1">'Overview'</span><span class="p">,</span> <span class="s1">'Genre'</span><span class="p">])</span>
-<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-</pre></div>
-<div class="clipboard-copy-txt" id="cell-9"># IMDB Top 1000 dataset:
-url = "https://raw.githubusercontent.com/kluster-ai/klusterai-cookbook/refs/heads/main/data/imdb_top_1000.csv"
-urllib.request.urlretrieve(url,filename='imdb_top_1000.csv')
-
-# Load and process the dataset based on URL content
-df = pd.read_csv('imdb_top_1000.csv', usecols=['Series_Title', 'Overview', 'Genre'])
-df.head(3)</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
-<div>
-<style scoped="">
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>Series_Title</th>
-<th>Genre</th>
-<th>Overview</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>0</th>
-<td>The Shawshank Redemption</td>
-<td>Drama</td>
-<td>Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.</td>
-</tr>
-<tr>
-<th>1</th>
-<td>The Godfather</td>
-<td>Crime, Drama</td>
-<td>An organized crime dynasty's aging patriarch transfers control of his clandestine empire to his reluctant son.</td>
-</tr>
-<tr>
-<th>2</th>
-<td>The Dark Knight</td>
-<td>Action, Crime, Drama</td>
-<td>When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=50899394-29ac-48f2-95bb-a433d7dceae0">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>As you may notice, each movie already has an annotated label, and in some cases, there may be more than one label for each movie. We will ask the LLM to identify just one genre for this notebook. We will consider the prediction correct if the predicted genre matches at least one of the genres listed in the dataset’s genre column (our ground truth). Using ground truth annotated data, we can calculate the accuracy and measure how well the LLM performed.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4fe66a82-afc0-4fea-9b73-f33fe93f3e89">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="perform-batch-inference">Perform batch inference<a class="anchor-link" href="#perform-batch-inference">¶</a></h2>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ebb5789f-8464-4355-8a21-3b49df240b57">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>With LLMs, it is really important to write a good prompt, including the system prompt. Below, you can see our example instructions for the LLM. You should experiment with this and see how it changes performance!</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=3bb7f503-dbe5-4983-99e7-0794a0835ec1">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
-<div class="zeroclipboard-container">
-<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-10">
-<div>
-<span class="notice" hidden="">Copied!</span>
-<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
-<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
-<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
-</svg>
-</div>
-</clipboard-copy>
-</div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">SYSTEM_PROMPT</span> <span class="o">=</span> <span class="s1">'''</span>
-<span class="s1">    You are a helpful assitant that classifies movie genres based on the movie description. Choose one of the following options: </span>
-<span class="s1">    Action, Adventure, Animation, Biography, Comedy, Crime, Drama, Family, Fantasy, Film-Noir, History, Horror, Music, Musical, Mystery, Romance, Sci-Fi, Sport, Thriller, War, Western.</span>
-<span class="s1">    Provide your response as a single word with the matching genre. Don't include punctuation.</span>
-<span class="s1">    '''</span>
-</pre></div>
-<div class="clipboard-copy-txt" id="cell-10">SYSTEM_PROMPT = '''
-    You are a helpful assitant that classifies movie genres based on the movie description. Choose one of the following options: 
-    Action, Adventure, Animation, Biography, Comedy, Crime, Drama, Family, Fantasy, Film-Noir, History, Horror, Music, Musical, Mystery, Romance, Sci-Fi, Sport, Thriller, War, Western.
-    Provide your response as a single word with the matching genre. Don't include punctuation.
-    '''</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ee0af326-9658-4a40-8abe-746f08dd4251">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Now that the prompt is defined, it’s time to execute the code and run the classification task for each model. In this step, we loop through the list of models, creating the requests and batch jobs, monitoring progress, and retrieving the results.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=fe1531a6-844e-4173-8122-a7bf871df06c">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
-<div class="zeroclipboard-container">
-<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-11">
-<div>
-<span class="notice" hidden="">Copied!</span>
-<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
-<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
-<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
-</svg>
-</div>
-</clipboard-copy>
-</div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Define models</span>
-<span class="n">models</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">'8B'</span><span class="p">:</span><span class="s2">"klusterai/Meta-Llama-3.1-8B-Instruct-Turbo"</span><span class="p">,</span>
-        <span class="s1">'70B'</span><span class="p">:</span><span class="s2">"klusterai/Meta-Llama-3.3-70B-Instruct-Turbo"</span><span class="p">,</span>
-        <span class="p">}</span>
-
-<span class="c1"># Process each model: create tasks, run jobs, and get results</span>
-<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">models</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="n">task_list</span> <span class="o">=</span> <span class="n">create_tasks</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">task_type</span><span class="o">=</span><span class="s1">'assistant'</span><span class="p">,</span> <span class="n">system_prompt</span><span class="o">=</span><span class="n">SYSTEM_PROMPT</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">)</span>
-    <span class="n">filename</span> <span class="o">=</span> <span class="n">save_tasks</span><span class="p">(</span><span class="n">task_list</span><span class="p">,</span> <span class="n">task_type</span><span class="o">=</span><span class="s1">'assistant'</span><span class="p">)</span>
-    <span class="n">job</span> <span class="o">=</span> <span class="n">create_batch_job</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
-    <span class="n">monitor_job_status</span><span class="p">(</span><span class="n">client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span> <span class="n">job_id</span><span class="o">=</span><span class="n">job</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">task_type</span><span class="o">=</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1"> model'</span><span class="p">)</span>
-    <span class="n">df</span><span class="p">[</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">_genre'</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_results</span><span class="p">(</span><span class="n">client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span> <span class="n">job_id</span><span class="o">=</span><span class="n">job</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
-</pre></div>
-<div class="clipboard-copy-txt" id="cell-11"># Define models
-models = {
-        '8B':"klusterai/Meta-Llama-3.1-8B-Instruct-Turbo",
-        '70B':"klusterai/Meta-Llama-3.3-70B-Instruct-Turbo",
-        }
-
-# Process each model: create tasks, run jobs, and get results
-for name, model in models.items():
-    task_list = create_tasks(df, task_type='assistant', system_prompt=SYSTEM_PROMPT, model=model)
-    filename = save_tasks(task_list, task_type='assistant')
-    job = create_batch_job(filename)
-    monitor_job_status(client=client, job_id=job.id, task_type=f'{name} model')
-    df[f'{name}_genre'] = get_results(client=client, job_id=job.id)</div>
+<div class="clipboard-copy-txt" id="cell-6"># Feed the AI-generated prompt to the LLM for a response
+response_ai_enhanced_prompt = client.chat.completions.create(
+    model=model,
+    messages=[{"role": "user", "content": response_ai_enhanced}],
+    temperature=0.5
+).choices[0].message.content
+print("\nModel response:\n" + response_ai_enhanced_prompt)</div>
 </div>
 </div>
 </div>
@@ -2906,124 +3024,128 @@ for name, model in models.items():
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>'70b model job completed!'</pre>
+<pre>
+Model response:
+## Retail Store Profitability Improvement Report - January 2025
+
+**1. Revenue and Profit Analysis:**
+
+| Product | Units Sold | Price per Unit | Revenue | Profit Margin (%) | Gross Profit |
+|---------|------------|----------------|---------|-------------------|--------------|
+| A       | 10         | $5.00          | $50.00  | 30%               | $15.00       |
+| B       | 20         | $3.50          | $70.00  | 40%               | $28.00       |
+| C       | 5          | $8.00          | $40.00  | 25%               | $10.00       |
+| D       | 15         | $6.00          | $90.00  | 35%               | $31.50       |
+| **Total**| **40**     |                | **$250.00**|                   | **$84.50**    |
+
+**Calculations:** Revenue = Units Sold * Price per Unit; Profit = Revenue * Profit Margin
+
+**Product Ranking (by Gross Profit):**
+
+1.  **D:** $31.50
+2.  **B:** $28.00
+3.  **A:** $15.00
+4.  **C:** $10.00
+
+**2. Profitability Optimization Recommendations:**
+
+**Product C - Inventory Reduction:**
+
+*   **20% Price Reduction:** Reduce the price of Product C from $8.00 to $6.40. *Estimated Impact:* Sell 10 additional units this month, reducing inventory to 20 units. This generates $64 in additional revenue and $16 in additional profit.
+*   **Bundle with Product A:** Offer a bundle of Product C and Product A for $12.00 (regular price $13.00). *Estimated Impact:* Sell 5 bundles, moving 5 units of C and 5 units of A.  This encourages C sales and leverages A’s consistent demand. Profit from bundle: ($6.40 + $5.00) * 0.30 (C profit) + $5.00 * 0.30 (A profit) = $11.40 + $1.50 = $12.90.  A small discount for the bundle.
+*   **"Last Chance" Email Campaign:** Send a targeted email to the secondary demographic (professionals) highlighting the limited availability and premium quality of Product C, emphasizing the price reduction. *Estimated Impact:* Sell 3 additional units.
+*   **Social Media Spotlight (Instagram):** Feature Product C with high-quality imagery and a compelling story highlighting its benefits for professionals. *Estimated Impact:* Sell 2 additional units.
+
+**Pricing &amp; Promotions:**
+
+*   **Product A (Maintain Price):** No changes. Product A is price insensitive and provides consistent revenue.
+*   **Product B (BOGO 50% Off):** Implement a "Buy One Get One 50% Off" promotion on Product B, targeting the young adult demographic via Instagram. *Estimated Impact:* Increase unit sales from 20 to 30. Revenue: (20 * $3.50) + (10 * $1.75) = $70 + $17.50 = $87.50. Profit: $87.50 * 0.40 = $35.00 (a $7 increase). This leverages price sensitivity.
+*   **Product D (10% Off for Email Subscribers):** Offer a 10% discount on Product D for email subscribers (targeting professionals). *Estimated Impact:* Increase unit sales from 15 to 18. Revenue: 18 * $6.00 = $108. Profit: $108 * 0.35 = $37.80 (a $6.30 increase).  This appeals to the professional demographic's value for convenience and targeted offers.
+
+**Reasoning:**
+
+*   **Product C:** Addressing the overstock is critical to minimize holding costs ($30/month). The combination of price reduction, bundling, and targeted marketing aims to quickly move inventory.
+*   **Product B:** Young adults are highly price sensitive. BOGO promotions are effective at driving volume. Instagram is the preferred channel for this demographic.
+*   **Product D:** Professionals respond to targeted promotions. Email is a suitable channel for reaching this demographic. A moderate discount incentivizes purchase without devaluing the product.
+
+
+
+**3. Marketing Optimization Recommendations:**
+
+**Channel Allocation:**
+
+*   **Instagram: $120 (48%):**  Instagram is currently performing better and is the primary channel for reaching the young adult demographic (Product B).
+*   **Email: $80 (32%):** Email is effective for reaching the professional demographic (Products C &amp; D).
+*   **Weekend Promotions (In-Store Signage): $0 (0%):**  Focus budget on digital channels with better targeting capabilities. In-store promotion is assumed to have minimal cost.
+
+**Product Prioritization:**
+
+*   **Instagram ($120):** Primarily focus on Product B (BOGO promotion). Ad copy: "🔥 BOGO Alert! 🔥 Stock up on your favorites! Buy one Product B, get one 50% off! Limited time only! #ProductB #Deals #YoungAdults"  Also, include some Product D ads targeting the younger end of the professional demographic.
+*   **Email ($80):** Focus on Product C (highlighting premium quality and limited availability) and Product D (10% off for subscribers). Subject lines: "Exclusive Offer: Premium Product C - Limited Stock!" and "Save 10% on Product D - For Our Valued Subscribers!".
+*   **Weekend Promotions:**  In-store signage promoting the Product C bundle with Product A.
+
+**KPIs:**
+
+*   **Conversion Rate (Instagram):** Track the percentage of Instagram ad clicks that result in a purchase.  This measures ad effectiveness.
+*   **Email Open Rate &amp; Click-Through Rate:** Monitor these metrics to assess the engagement and effectiveness of email campaigns.  This measures the relevance of subject lines and content.
+
+**Estimated Overall Profit Increase:**
+
+*   Product B: +$7.00
+*   Product D: +$6.30
+*   Product C: +$16.00 (from price reduction and bundles)
+*   **Total Estimated Profit Increase: $29.30**
+
+This represents a 34.6% increase in profit, exceeding the 10% target.  Continuous monitoring of KPIs and adjustments to the strategy will be crucial for sustained improvement.
+
+</pre>
 </div>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=26ac1e99-edfe-4041-819e-1d366fbcfd68">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e0182d7f-d382-4426-b7f8-f9b70ad0ea1b">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="analyze-the-results">Analyze the results<a class="anchor-link" href="#analyze-the-results">¶</a></h2><p>Now that we've evaluated our models let's analyze their performance. The graph below shows the accuracy scores for each model we tested. Here's what we can observe:</p>
-<ol>
-<li>Performance comparison<ul>
-<li>The 70B outperformed the 8B model significantly</li>
+<h3 id="analysis-of-the-ai-enhanced-prompt-response">Analysis of the AI-enhanced prompt response<a class="anchor-link" href="#analysis-of-the-ai-enhanced-prompt-response">¶</a></h3><p>The AI-generated answer stands out by delivering execution-ready depth the human version lacks:</p>
+<ul>
+<li><strong>Quantified impact &amp; ROI</strong> – forecasts unit lifts and rolls them into a +34 % profit gain, turning ideas into numbers managers can judge</li>
+<li><strong>Actionable constraints</strong> – assigns a $200 channel budget, splits spending, and names KPIs, giving a plug-and-play operating plan</li>
+<li><strong>Contextual targeting</strong> – ties every promo to a demographic and to inventory pressure, showing clear "why this, why now" logic</li>
+<li><strong>Concise orientation</strong> – opens with a single P&amp;L table and ranked profit list so readers grasp the situation at a glance</li>
+<li><strong>Notable caveat</strong> – a bundle-margin math slip highlights the need to prompt for intermediate calculations and self-checks</li>
 </ul>
-</li>
-<li>Cost-benefit analysis<ul>
-<li>The increased performance of the 70B model may be worth the additional cost</li>
-</ul>
-</li>
-</ol>
-<p>We recommend using the 70B model for this specific task based on our evaluation. It offers stronger performance comparable to the smaller model and a good balance of accuracy and resource usage.</p>
-<p>This demonstrates how systematic evaluation can help make data-driven decisions in model selection.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=b607c47b-f27e-46b7-b20a-ae6f585a7688">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
-<div class="zeroclipboard-container">
-<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-12">
-<div>
-<span class="notice" hidden="">Copied!</span>
-<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
-<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
-<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
-</svg>
-</div>
-</clipboard-copy>
-</div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Calculate accuracy for each model</span>
-<span class="n">accuracies</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">models</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="n">accuracy</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">row</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">_genre'</span><span class="p">]</span> <span class="ow">in</span> <span class="n">row</span><span class="p">[</span><span class="s1">'Genre'</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">', '</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-    <span class="n">accuracies</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">accuracy</span>
-
-<span class="c1"># Create the bar plot</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">bars</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">accuracies</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="n">accuracies</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">'black'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">bar_label</span><span class="p">(</span><span class="n">bars</span><span class="p">,</span> <span class="n">label_type</span><span class="o">=</span><span class="s1">'center'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'white'</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">"</span><span class="si">%.3f</span><span class="s2">"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">accuracies</span><span class="o">.</span><span class="n">values</span><span class="p">())</span><span class="o">+</span> <span class="mf">0.01</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Model'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Accuracy'</span><span class="p">)</span>
-
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Classification accuracy by model'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-<div class="clipboard-copy-txt" id="cell-12"># Calculate accuracy for each model
-accuracies = {}
-for name, _ in models.items():
-    accuracy = df.apply(lambda row: row[f'{name}_genre'] in row['Genre'].split(', '), axis=1).mean()
-    accuracies[name] = accuracy
-
-# Create the bar plot
-fig, ax = plt.subplots()
-bars = ax.bar(accuracies.keys(), accuracies.values(), edgecolor='black')
-ax.bar_label(bars, label_type='center', color='white', fmt="%.3f")
-ax.set_ylim(0, max(accuracies.values())+ 0.01)
-ax.set_xlabel('Model')
-ax.set_ylabel('Accuracy')
-
-ax.set_title('Classification accuracy by model')
-plt.show()</div>
+<p>The strongest prompt may likely be hybrid style: AI-refined for structure and numeric rigor, augmented with human-driven goals for brevity and inventive marketing flair.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedImage jp-OutputArea-output" tabindex="0">
-<img alt="No description has been provided for this image" class="" src="data:image/png;base64,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wg0AALAUwg0AALAUwg0AALAUwg0AALAUwg0AALAUwg0AALAUwg0AALAUwg0AALAUwg0AALAUwg0AALAUwg0AALAUwg0AALAUwg0AALAUwg0AALAUwg0AALAUwg0AALAUwg0AALAUwg0AALAUwg0AALAUwg0AALAUwg0AALAUwg0AALAUwg0AALAUwg0AALAUwg0AALAUwg0AALAUwg0AALAUt4ebOXPmSEhIiPj5+UlERISkpqZWuO1PP/0k11xzjdney8tL4uLiarStAADA87k13CQkJEhsbKxMnTpV0tPTJTQ0VIYNGyZ79uxxuf2hQ4ekc+fO8swzz0hQUFCNtxcAAHg+t4abWbNmSUxMjERHR0vPnj1l3rx54u/vL/Hx8S63P/vss2XGjBkyatQo8fX1rfH2AgAAz+e2cFNUVCRpaWkyePDgvxtTr565nJKS4q5mAQCAWq6+u+44NzdXiouLpU2bNk7r9fKmTZuq7H4KCwvNYpefn19ltw0AADyP2wuKq9u0adMkICDAsbRv397dTQIAAFYMN4GBgeLt7S3Z2dlO6/VyVRYLT5o0SfLy8hxLVlZWld02AADwPG4LNz4+PhIWFiZJSUmOdSUlJeZyZGRkld2PFh43bdrUaQEAANbltpobpdPAo6KipH///hIeHm6OW1NQUGBmT6kxY8ZIcHCwGVqyFyH//PPPjp937Ngha9askcaNG0vXrl3d+VAAAICHcGu4GTlypOTk5MiUKVNk9+7d0qdPH0lMTHQUGWdmZpoZVHY7d+6Uvn37Oi4/99xzZhk0aJAkJye75TEAAADP4tZwoyZMmGAWV8oGFj0ysc1mq6GWAQCA2sjys6UAAEDdQrgBAACWQrgBAACWQrgBAACWQrgBAACWQrgBAACWQrgBAACWQrgBAACWQrgBAACWQrgBAACWQrgBAACWQrgBAACWQrgBAACWQrgBAACWQrgBAACWQrgBAACWQrgBAACWQrgBAACWQrgBAACWQrgBAACWQrgBAACWQrgBAACWQrgBAACWQrgBAACWQrgBAACWQrgBAACWQrgBAACWQrgBAACWQrgBAACWQrgBAACWQrgBAACWQrgBAACWQrgBAACWQrgBAACW4hHhZs6cORISEiJ+fn4SEREhqampx9x+yZIl0r17d7N9r169ZPny5TXWVgAA4NncHm4SEhIkNjZWpk6dKunp6RIaGirDhg2TPXv2uNx+1apVMnr0aBk7dqz8+OOPcuWVV5plw4YNNd52AADgedwebmbNmiUxMTESHR0tPXv2lHnz5om/v7/Ex8e73P6FF16Qiy++WO6//37p0aOHPPHEE9KvXz956aWXarztAADA87g13BQVFUlaWpoMHjz47wbVq2cup6SkuNxH15feXmlPT0XbAwCAuqW+O+88NzdXiouLpU2bNk7r9fKmTZtc7rN7926X2+t6VwoLC81il5eXZ/7Pz8+Xqnbw4MG/7nP3Fikp+rPKbx+ozY7s3e74nFTH56+m8DkH3PNZt9+WzWbz7HBTE6ZNmyaPPfZYufXt27evtvvct4IhMqAigwYNEivgcw6457N+4MABCQgI8NxwExgYKN7e3pKdne20Xi8HBQW53EfXn8j2kyZNMgXLdiUlJbJ3715p2bKleHl5VcnjgGfSlK8hNisrS5o2beru5gCoJnzW6wabzWaCTbt27Y67rVvDjY+Pj4SFhUlSUpKZ8WQPH3p5woQJLveJjIw01999992OdZ999plZ74qvr69ZSmvWrFmVPg54Nv1lxy88wPr4rFtfwHF6bDxmWEp7VaKioqR///4SHh4ucXFxUlBQYGZPqTFjxkhwcLAZXlITJ040XV0zZ86U4cOHy+LFi+WHH36QV1991c2PBAAAeAK3h5uRI0dKTk6OTJkyxRQF9+nTRxITEx1Fw5mZmWYGld3AgQNl0aJF8vDDD8tDDz0kp59+unzwwQdy1llnufFRAAAAT+Flq0zZMVAL6Sw57fHTuquyQ5MArIPPOsoi3AAAAEtx+xGKAQAAqhLhBgAAWArhBgAAWArhBgAAWArhBrWanpvskUcekU6dOknDhg2lS5cu5kzxpevkL7jgAnM0avuihxkYMWKEbNu2za1tB+BaSEiI02fWvowfP95c/+eff5qf9UjzjRs3lmuuucbpyPW///670356wNiuXbvKk08+WanzEqH2I9ygVnv22Wdl7ty58tJLL8nGjRvN5enTp8vs2bOdtouJiZFdu3bJzp075cMPPzSHab/hhhvc1m4AFfv+++/N59W+6FHolf5Rou655x756KOPZMmSJfLVV1+Zz/XVV19d7nY+//xzs/8vv/xizjH41FNPSXx8fI0/HtTBg/gBp2LVqlVyxRVXmKNV2//ie/fddyU1NdVp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"/>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3012d86e">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7b78daa7-a4c5-4c98-b67c-cbcee856c1cc">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="conclusion">Conclusion<a class="anchor-link" href="#conclusion">¶</a></h2><p>In this tutorial, we've covered the following key concepts:</p>
+<h2 id="conclusion">Conclusion<a class="anchor-link" href="#conclusion">¶</a></h2><p>This side-by-side comparison demonstrates how the quality and specificity of a prompt directly influence the depth, utility, and strategic value of an LLM's output:</p>
 <ul>
-<li><strong>Model evaluation process</strong> - how to systematically compare LLM performance, using accuracy as a key metric and implementing batch inference for efficient evaluation</li>
-<li><strong>Cost-performance balance</strong> - larger models aren’t always significantly better; the importance of considering cost-effectiveness and making data-driven model selections</li>
-<li><strong>Practical implementations</strong> - using the kluster.ai batch API effectively, processing large datasets efficiently, and making informed decisions based on results</li>
+<li><strong>Bad prompt</strong> - minimal data and vague instructions yield only superficial insights—no clear direction or actionable strategies</li>
+<li><strong>Better prompt</strong> - adding pricing details and specific tasks (like calculating revenue or ranking products) results in more concrete analysis and targeted recommendations</li>
+<li><strong>Best prompt</strong> - providing comprehensive context—including profit margins, demographics, inventory challenges, and explicit formatting instructions—empowers the model to deliver nuanced, highly actionable advice aligned with real business needs</li>
+<li><strong>AI‑enhanced prompt</strong> — layering on a defined 3‑to‑6‑month time horizon, a fixed $2,000 marketing budget, ranked priorities, risk/trade‑off notes, and requests for supporting calculations guides the model to provide an even more operationally realistic, budget‑aware, and immediately implementable plan of action</li>
 </ul>
-<p>With this knowledge, you are now equipped to:</p>
+<p>Key takeaways for effective prompt engineering:</p>
 <ul>
-<li><strong>Apply to your use case</strong> - adapt this approach to your specific needs, use your own labeled datasets, and customize evaluation metrics as needed</li>
-<li><strong>Optimize further</strong> - experiment with different prompts, try other model configurations and explore additional evaluation metrics</li>
-<li><strong>Scale your solution</strong> - implement in production environments, monitor performance over time, and adjust based on real-world feedback</li>
+<li><strong>Provide relevant context</strong> - include all essential data (pricing, margins, customer segments) to enable deeper analysis</li>
+<li><strong>Specify instructions clearly</strong> - outline the tasks, format, and reasoning style (e.g., step-by-step) you want the model to follow</li>
+<li><strong>Articulate business constraints and goals</strong> - highlight challenges (e.g., excess inventory, limited budget) to guide strategic recommendations</li>
+<li><strong>Structure the output requirements</strong> - break down the response into clear, logical sections (analysis, recommendations, marketing, etc.)</li>
+<li><strong>Iterate for best results</strong> - incrementally refining prompts yields exponentially better outcomes—invest time upfront for far greater business value</li>
 </ul>
-<p>Remember: The goal is finding the right balance between your application's performance and cost.</p>
+<p>By enriching prompts with thorough details and well-defined objectives, you unlock the full potential of LLMs to generate accurate, context-aware, and immediately applicable insights.</p>
 </div>
 </div>
 </div>
@@ -3064,7 +3186,7 @@ plt.show()</div>
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../multiple-tasks-batch-api/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Multiple batch predictions">
+          <a href="../image-analysis/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Image analysis">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -3074,20 +3196,20 @@ plt.show()</div>
                 Previous
               </span>
               <div class="md-ellipsis">
-                Multiple batch predictions
+                Image analysis
               </div>
             </div>
           </a>
         
         
           
-          <a href="../llm-as-a-judge/" class="md-footer__link md-footer__link--next" aria-label="Next: LLM as a judge">
+          <a href="../uploads-api/" class="md-footer__link md-footer__link--next" aria-label="Next: Uploading large files">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                LLM as a judge
+                Uploading large files
               </div>
             </div>
             <div class="md-footer__button md-icon">

@@ -1292,6 +1292,48 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../effective-prompt-engineering/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Effective prompt engineering
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../uploads-api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Uploading large files
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1907,7 +1949,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
 <clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-1">
@@ -1935,10 +1977,6 @@ api_key = getpass("Enter your kluster.ai API key: ")</div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Enter your kluster.ai API key: ··········
-</pre>
-</div>
 </div>
 </div>
 </div>
@@ -1960,7 +1998,7 @@ api_key = getpass("Enter your kluster.ai API key: ")</div>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
 <clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-2">
@@ -1988,6 +2026,7 @@ api_key = getpass("Enter your kluster.ai API key: ")</div>
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre><span class="ansi-yellow-fg">WARNING: google-cloud-aiplatform 1.71.1 does not provide the extra 'all'</span><span class="ansi-yellow-fg">
+Note: you may need to restart the kernel to use updated packages.
 </span></pre>
 </div>
 </div>
@@ -2007,13 +2046,13 @@ api_key = getpass("Enter your kluster.ai API key: ")</div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=zG9y_WO5rYaj">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=zG9y_WO5rYaj">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
 <clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-3">
@@ -2030,9 +2069,8 @@ api_key = getpass("Enter your kluster.ai API key: ")</div>
 
 <span class="c1"># Models</span>
 <span class="c1">#model="deepseek-ai/DeepSeek-R1"</span>
-<span class="c1">#model="deepseek-ai/DeepSeek-V3"</span>
+<span class="c1">#model="deepseek-ai/DeepSeek-V3-0324"</span>
 <span class="n">model</span><span class="o">=</span><span class="s2">"klusterai/Meta-Llama-3.1-8B-Instruct-Turbo"</span>
-<span class="c1">#model="klusterai/Meta-Llama-3.1-405B-Instruct-Turbo"</span>
 <span class="c1">#model="klusterai/Meta-Llama-3.3-70B-Instruct-Turbo"</span>
 <span class="c1">#model="Qwen/Qwen2.5-VL-7B-Instruct"</span>
 
@@ -2046,9 +2084,8 @@ api_key = getpass("Enter your kluster.ai API key: ")</div>
 
 # Models
 #model="deepseek-ai/DeepSeek-R1"
-#model="deepseek-ai/DeepSeek-V3"
+#model="deepseek-ai/DeepSeek-V3-0324"
 model="klusterai/Meta-Llama-3.1-8B-Instruct-Turbo"
-#model="klusterai/Meta-Llama-3.1-405B-Instruct-Turbo"
 #model="klusterai/Meta-Llama-3.3-70B-Instruct-Turbo"
 #model="Qwen/Qwen2.5-VL-7B-Instruct"
 
@@ -2057,19 +2094,6 @@ llm = curator.LLM(
     batch=True,
     backend="klusterai",
     backend_params={"api_key": api_key, "completion_window": "24h"})</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>DEBUG:curator.bespokelabs.curator.log:Adjusting file descriptor limit from 1048576 to 1048576 (hard limit: 1048576)
-</pre>
 </div>
 </div>
 </div>
@@ -2105,7 +2129,7 @@ llm = curator.LLM(
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
 <clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-4">
@@ -2140,7 +2164,7 @@ llm = curator.LLM(
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
 <clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-5">
@@ -2220,7 +2244,7 @@ The 39 Steps: A man in London tries to help a counter-espionage Agent. But when 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
 <clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-6">
@@ -2246,61 +2270,30 @@ The 39 Steps: A man in London tries to help a counter-espionage Agent. But when 
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Generating train split: 0 examples [00:00, ? examples/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>DEBUG:curator.bespokelabs.curator.log:Curator Cache Fingerprint String: 36e766fc298f4350_5ac272e3bc92b32e_klusterai/Meta-Llama-3.1-8B-Instruct-Turbo_text_True
-DEBUG:curator.bespokelabs.curator.log:Curator Cache Fingerprint: 3acb0d5efbda6beb
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #7fbfbf; text-decoration-color: #7fbfbf">[03/24/25 09:51:35] </span><span style="color: #000080; text-decoration-color: #000080">INFO    </span> Running OpenAIBatchRequestProcessor completions with     <a href="file:///usr/local/lib/python3.11/dist-packages/bespokelabs/curator/request_processor/base_request_processor.py" target="_blank"><span style="color: #7f7f7f; text-decoration-color: #7f7f7f">base_request_processor.py</span></a><span style="color: #7f7f7f; text-decoration-color: #7f7f7f">:</span><a href="file:///usr/local/lib/python3.11/dist-packages/bespokelabs/curator/request_processor/base_request_processor.py#130" target="_blank"><span style="color: #7f7f7f; text-decoration-color: #7f7f7f">130</span></a>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #7fbfbf; text-decoration-color: #7fbfbf">[04/17/25 10:50:47] </span><span style="color: #000080; text-decoration-color: #000080">INFO    </span> Running OpenAIBatchRequestProcessor completions with     <a href="file:///Users/kevin/.pyenv/versions/3.10.8/lib/python3.10/site-packages/bespokelabs/curator/request_processor/base_request_processor.py" target="_blank"><span style="color: #7f7f7f; text-decoration-color: #7f7f7f">base_request_processor.py</span></a><span style="color: #7f7f7f; text-decoration-color: #7f7f7f">:</span><a href="file:///Users/kevin/.pyenv/versions/3.10.8/lib/python3.10/site-packages/bespokelabs/curator/request_processor/base_request_processor.py#131" target="_blank"><span style="color: #7f7f7f; text-decoration-color: #7f7f7f">131</span></a>
 <span style="color: #7fbfbf; text-decoration-color: #7fbfbf">                    </span>         model: klusterai/Meta-Llama-<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">3.1</span>-8B-Instruct-Turbo        <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">                             </span>
 </pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>INFO:curator.bespokelabs.curator.log:Running OpenAIBatchRequestProcessor completions with model: klusterai/Meta-Llama-3.1-8B-Instruct-Turbo
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #7fbfbf; text-decoration-color: #7fbfbf">                    </span><span style="color: #000080; text-decoration-color: #000080">INFO    </span> Using cached requests. If you want to regenerate the     <a href="file:///Users/kevin/.pyenv/versions/3.10.8/lib/python3.10/site-packages/bespokelabs/curator/request_processor/base_request_processor.py" target="_blank"><span style="color: #7f7f7f; text-decoration-color: #7f7f7f">base_request_processor.py</span></a><span style="color: #7f7f7f; text-decoration-color: #7f7f7f">:</span><a href="file:///Users/kevin/.pyenv/versions/3.10.8/lib/python3.10/site-packages/bespokelabs/curator/request_processor/base_request_processor.py#212" target="_blank"><span style="color: #7f7f7f; text-decoration-color: #7f7f7f">212</span></a>
+<span style="color: #7fbfbf; text-decoration-color: #7fbfbf">                    </span>         dataset, disable or delete the cache.                    <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">                             </span>
+<span style="color: #7fbfbf; text-decoration-color: #7fbfbf">                    </span>          See                                                     <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">                             </span>
+<span style="color: #7fbfbf; text-decoration-color: #7fbfbf">                    </span>         <span style="color: #0000ff; text-decoration-color: #0000ff; text-decoration: underline">https://docs.bespokelabs.ai/bespoke-curator/tutorials/au</span> <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">                             </span>
+<span style="color: #7fbfbf; text-decoration-color: #7fbfbf">                    </span>         <span style="color: #0000ff; text-decoration-color: #0000ff; text-decoration: underline">tomatic-recovery-and-caching#disable-caching</span> for more    <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">                             </span>
+<span style="color: #7fbfbf; text-decoration-color: #7fbfbf">                    </span>         information.                                             <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">                             </span>
 </pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #7fbfbf; text-decoration-color: #7fbfbf">                    </span><span style="color: #000080; text-decoration-color: #000080">INFO    </span> Preparing request <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">file</span><span style="font-weight: bold">(</span>s<span style="font-weight: bold">)</span> in                             <a href="file:///usr/local/lib/python3.11/dist-packages/bespokelabs/curator/request_processor/base_request_processor.py" target="_blank"><span style="color: #7f7f7f; text-decoration-color: #7f7f7f">base_request_processor.py</span></a><span style="color: #7f7f7f; text-decoration-color: #7f7f7f">:</span><a href="file:///usr/local/lib/python3.11/dist-packages/bespokelabs/curator/request_processor/base_request_processor.py#230" target="_blank"><span style="color: #7f7f7f; text-decoration-color: #7f7f7f">230</span></a>
-<span style="color: #7fbfbf; text-decoration-color: #7fbfbf">                    </span>         <span style="color: #800080; text-decoration-color: #800080">/root/.cache/curator/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">3acb0d5efbda6beb</span>                    <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">                             </span>
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>INFO:curator.bespokelabs.curator.log:Preparing request file(s) in /root/.cache/curator/3acb0d5efbda6beb
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #7fbfbf; text-decoration-color: #7fbfbf">                    </span><span style="color: #000080; text-decoration-color: #000080">INFO    </span> Wrote <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">5</span> requests to                                      <a href="file:///usr/local/lib/python3.11/dist-packages/bespokelabs/curator/request_processor/base_request_processor.py" target="_blank"><span style="color: #7f7f7f; text-decoration-color: #7f7f7f">base_request_processor.py</span></a><span style="color: #7f7f7f; text-decoration-color: #7f7f7f">:</span><a href="file:///usr/local/lib/python3.11/dist-packages/bespokelabs/curator/request_processor/base_request_processor.py#312" target="_blank"><span style="color: #7f7f7f; text-decoration-color: #7f7f7f">312</span></a>
-<span style="color: #7fbfbf; text-decoration-color: #7fbfbf">                    </span>         <span style="color: #800080; text-decoration-color: #800080">/root/.cache/curator/3acb0d5efbda6beb/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">requests_0.jsonl.</span>  <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">                             </span>
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>INFO:curator.bespokelabs.curator.log:Wrote 5 requests to /root/.cache/curator/3acb0d5efbda6beb/requests_0.jsonl.
-DEBUG:curator.bespokelabs.curator.log:Batch file content size: 0.00 MB (3,367 bytes)
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #7fbfbf; text-decoration-color: #7fbfbf">                    </span><span style="color: #000080; text-decoration-color: #000080">INFO    </span> Loaded existing tracker from                       <a href="file:///Users/kevin/.pyenv/versions/3.10.8/lib/python3.10/site-packages/bespokelabs/curator/request_processor/batch/base_batch_request_processor.py" target="_blank"><span style="color: #7f7f7f; text-decoration-color: #7f7f7f">base_batch_request_processor.py</span></a><span style="color: #7f7f7f; text-decoration-color: #7f7f7f">:</span><a href="file:///Users/kevin/.pyenv/versions/3.10.8/lib/python3.10/site-packages/bespokelabs/curator/request_processor/batch/base_batch_request_processor.py#301" target="_blank"><span style="color: #7f7f7f; text-decoration-color: #7f7f7f">301</span></a>
+<span style="color: #7fbfbf; text-decoration-color: #7fbfbf">                    </span>         <span style="color: #800080; text-decoration-color: #800080">/Users/kevin/.cache/curator/a879796c1be047b5/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">batch</span> <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">                                   </span>
+<span style="color: #7fbfbf; text-decoration-color: #7fbfbf">                    </span>         <span style="color: #ff00ff; text-decoration-color: #ff00ff">_objects.jsonl</span>                                     <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">                                   </span>
 </pre>
 </div>
 </div>
@@ -2312,53 +2305,6 @@ DEBUG:curator.bespokelabs.curator.log:Batch file content size: 0.00 MB (3,367 by
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>DEBUG:curator.bespokelabs.curator.log:skipping uploaded file status check, provider does not support file checks.
-DEBUG:curator.bespokelabs.curator.log:File uploaded with id 67e12b272d9e5ba243fe9ba1
-DEBUG:curator.bespokelabs.curator.log:Batch submitted with id 67e12b286afe1d706e726f73
-DEBUG:curator.bespokelabs.curator.log:Marked /root/.cache/curator/3acb0d5efbda6beb/requests_0.jsonl as submitted with batch 67e12b286afe1d706e726f73
-DEBUG:curator.bespokelabs.curator.log:Updated submitted batch 67e12b286afe1d706e726f73 with new request counts
-DEBUG:curator.bespokelabs.curator.log:Batch 67e12b286afe1d706e726f73 status: in_progress requests: 0/0/5 succeeded/failed/total
-DEBUG:curator.bespokelabs.curator.log:Batches returned: 0/1 Requests completed: 0/5
-DEBUG:curator.bespokelabs.curator.log:Sleeping for 60 seconds...
-DEBUG:curator.bespokelabs.curator.log:Updated submitted batch 67e12b286afe1d706e726f73 with new request counts
-DEBUG:curator.bespokelabs.curator.log:Batch 67e12b286afe1d706e726f73 status: completed requests: 5/0/5 succeeded/failed/total
-DEBUG:curator.bespokelabs.curator.log:Batch 67e12b286afe1d706e726f73 finished with status: completed
-DEBUG:curator.bespokelabs.curator.log:Marked batch 67e12b286afe1d706e726f73 as finished
-DEBUG:curator.bespokelabs.curator.log:Batch 67e12b286afe1d706e726f73 completed and downloaded
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">/usr/local/lib/python3.11/dist-packages/huggingface_hub/utils/_auth.py:94: UserWarning: 
-The secret `HF_TOKEN` does not exist in your Colab secrets.
-To authenticate with the Hugging Face Hub, create a token in your settings tab 
-(https://huggingface.co/settings/tokens), set it as secret in your Google Colab and restart your session.
-You will be able to reuse this secret in all of your notebooks.
-Please note that authentication is recommended but still optional to access public models or datasets.
-  warnings.warn(
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>tokenizer.json:   0%|          | 0.00/9.08M [00:00&lt;?, ?B/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>DEBUG:curator.bespokelabs.curator.log:Batch 67e12b286afe1d706e726f73 written to /root/.cache/curator/3acb0d5efbda6beb/responses_0.jsonl
-DEBUG:curator.bespokelabs.curator.log:Marked batch 67e12b286afe1d706e726f73 as downloaded
-DEBUG:curator.bespokelabs.curator.log:Batches returned: 1/1 Requests completed: 5/5
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
 <pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"></pre>
 </div>
@@ -2366,7 +2312,7 @@ DEBUG:curator.bespokelabs.curator.log:Batches returned: 1/1 Requests completed: 
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #729c1f; text-decoration-color: #729c1f">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span style="color: #800080; text-decoration-color: #800080">100%</span> <span style="color: #c0c0c0; text-decoration-color: #c0c0c0; font-weight: bold">•</span> Time Elapsed <span style="color: #808000; text-decoration-color: #808000">0:01:04</span> <span style="color: #c0c0c0; text-decoration-color: #c0c0c0; font-weight: bold">•</span> Time Remaining <span style="color: #008080; text-decoration-color: #008080">0:00:00</span>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #729c1f; text-decoration-color: #729c1f">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span style="color: #800080; text-decoration-color: #800080">100%</span> <span style="color: #c0c0c0; text-decoration-color: #c0c0c0; font-weight: bold">•</span> Time Elapsed <span style="color: #808000; text-decoration-color: #808000">0:00:04</span> <span style="color: #c0c0c0; text-decoration-color: #c0c0c0; font-weight: bold">•</span> Time Remaining <span style="color: #008080; text-decoration-color: #008080">0:00:00</span>
 </pre>
 </div>
 </div>
@@ -2377,7 +2323,7 @@ DEBUG:curator.bespokelabs.curator.log:Batches returned: 1/1 Requests completed: 
 Set <span style="color: #808000; text-decoration-color: #808000">HOSTED_CURATOR_VIEWER=</span><span style="color: #008080; text-decoration-color: #008080">1</span> to view your data live at <span style="color: #000080; text-decoration-color: #000080">https://curator.bespokelabs.ai</span>
 <span style="color: #c0c0c0; text-decoration-color: #c0c0c0; font-weight: bold">Batches:</span> <span style="color: #c0c0c0; text-decoration-color: #c0c0c0">Total:</span> <span style="color: #000080; text-decoration-color: #000080">1</span> <span style="color: #c0c0c0; text-decoration-color: #c0c0c0">•</span> <span style="color: #c0c0c0; text-decoration-color: #c0c0c0">Submitted:</span> <span style="color: #808000; text-decoration-color: #808000">0⋯</span> <span style="color: #c0c0c0; text-decoration-color: #c0c0c0">•</span> <span style="color: #c0c0c0; text-decoration-color: #c0c0c0">Downloaded:</span> <span style="color: #008000; text-decoration-color: #008000">1✓</span>                                  
 <span style="color: #c0c0c0; text-decoration-color: #c0c0c0; font-weight: bold">Requests:</span> <span style="color: #c0c0c0; text-decoration-color: #c0c0c0">Total:</span> <span style="color: #000080; text-decoration-color: #000080">5</span> <span style="color: #c0c0c0; text-decoration-color: #c0c0c0">•</span> <span style="color: #c0c0c0; text-decoration-color: #c0c0c0">Submitted:</span> <span style="color: #808000; text-decoration-color: #808000">0⋯</span> <span style="color: #c0c0c0; text-decoration-color: #c0c0c0">•</span> <span style="color: #c0c0c0; text-decoration-color: #c0c0c0">Succeeded:</span> <span style="color: #008000; text-decoration-color: #008000">5✓</span> <span style="color: #c0c0c0; text-decoration-color: #c0c0c0">•</span> <span style="color: #c0c0c0; text-decoration-color: #c0c0c0">Failed:</span> <span style="color: #800000; text-decoration-color: #800000">0✗</span>                     
-<span style="color: #c0c0c0; text-decoration-color: #c0c0c0; font-weight: bold">Tokens:</span> <span style="color: #c0c0c0; text-decoration-color: #c0c0c0">Avg Input:</span> <span style="color: #000080; text-decoration-color: #000080">133</span> <span style="color: #c0c0c0; text-decoration-color: #c0c0c0">•</span> <span style="color: #c0c0c0; text-decoration-color: #c0c0c0">Avg Output:</span> <span style="color: #000080; text-decoration-color: #000080">7</span>                                              
+<span style="color: #c0c0c0; text-decoration-color: #c0c0c0; font-weight: bold">Tokens:</span> <span style="color: #c0c0c0; text-decoration-color: #c0c0c0">Avg Input:</span> <span style="color: #000080; text-decoration-color: #000080">133</span> <span style="color: #c0c0c0; text-decoration-color: #c0c0c0">•</span> <span style="color: #c0c0c0; text-decoration-color: #c0c0c0">Avg Output:</span> <span style="color: #000080; text-decoration-color: #000080">3</span>                                              
 <span style="color: #c0c0c0; text-decoration-color: #c0c0c0; font-weight: bold">Cost:</span> <span style="color: #c0c0c0; text-decoration-color: #c0c0c0">Current:</span> <span style="color: #800080; text-decoration-color: #800080">$0.000</span> <span style="color: #c0c0c0; text-decoration-color: #c0c0c0">•</span> <span style="color: #c0c0c0; text-decoration-color: #c0c0c0">Projected:</span> <span style="color: #800080; text-decoration-color: #800080">$0.000</span> <span style="color: #c0c0c0; text-decoration-color: #c0c0c0">•</span> <span style="color: #c0c0c0; text-decoration-color: #c0c0c0">Rate:</span> <span style="color: #800080; text-decoration-color: #800080">$0.000/request</span>                    
 <span style="color: #c0c0c0; text-decoration-color: #c0c0c0; font-weight: bold">Model:</span> <span style="color: #c0c0c0; text-decoration-color: #c0c0c0">Name:</span> <span style="color: #000080; text-decoration-color: #000080">klusterai/Meta-Llama-3.1-8B-Instruct-Turbo</span>                             
 <span style="color: #c0c0c0; text-decoration-color: #c0c0c0; font-weight: bold">Model Pricing:</span> <span style="color: #c0c0c0; text-decoration-color: #c0c0c0">Per 1M tokens:</span> <span style="color: #c0c0c0; text-decoration-color: #c0c0c0">Input:</span> <span style="color: #800000; text-decoration-color: #800000">$0.050</span> <span style="color: #c0c0c0; text-decoration-color: #c0c0c0">•</span> <span style="color: #c0c0c0; text-decoration-color: #c0c0c0">Output:</span> <span style="color: #800000; text-decoration-color: #800000">$0.050</span>                        
@@ -2404,21 +2350,23 @@ Set <span style="color: #808000; text-decoration-color: #808000">HOSTED_CURATOR_
 │<span style="color: #800080; text-decoration-color: #800080; font-weight: bold"> Tokens                     </span>│<span style="color: #800080; text-decoration-color: #800080; font-weight: bold">                                            </span>│
 │<span style="color: #008080; text-decoration-color: #008080"> Total Tokens Used          </span>│<span style="color: #808000; text-decoration-color: #808000"> 0                                          </span>│
 │<span style="color: #008080; text-decoration-color: #008080"> Total Input Tokens         </span>│<span style="color: #808000; text-decoration-color: #808000"> 664                                        </span>│
-│<span style="color: #008080; text-decoration-color: #008080"> Total Output Tokens        </span>│<span style="color: #808000; text-decoration-color: #808000"> 35                                         </span>│
+│<span style="color: #008080; text-decoration-color: #008080"> Total Output Tokens        </span>│<span style="color: #808000; text-decoration-color: #808000"> 14                                         </span>│
 │<span style="color: #008080; text-decoration-color: #008080"> Average Tokens per Request </span>│<span style="color: #808000; text-decoration-color: #808000"> 0                                          </span>│
 │<span style="color: #008080; text-decoration-color: #008080"> Average Input Tokens       </span>│<span style="color: #808000; text-decoration-color: #808000"> 132                                        </span>│
-│<span style="color: #008080; text-decoration-color: #008080"> Average Output Tokens      </span>│<span style="color: #808000; text-decoration-color: #808000"> 7                                          </span>│
+│<span style="color: #008080; text-decoration-color: #008080"> Average Output Tokens      </span>│<span style="color: #808000; text-decoration-color: #808000"> 2                                          </span>│
 │<span style="color: #800080; text-decoration-color: #800080; font-weight: bold"> Costs                      </span>│<span style="color: #800080; text-decoration-color: #800080; font-weight: bold">                                            </span>│
 │<span style="color: #008080; text-decoration-color: #008080"> Total Cost                 </span>│<span style="color: #808000; text-decoration-color: #808000"> </span><span style="color: #800000; text-decoration-color: #800000">$0.000</span><span style="color: #808000; text-decoration-color: #808000">                                     </span>│
+│<span style="color: #008080; text-decoration-color: #008080"> Projected Remaining Cost   </span>│<span style="color: #808000; text-decoration-color: #808000"> </span><span style="color: #800000; text-decoration-color: #800000">$0.000</span><span style="color: #808000; text-decoration-color: #808000">                                     </span>│
+│<span style="color: #008080; text-decoration-color: #008080"> Projected Total Cost       </span>│<span style="color: #808000; text-decoration-color: #808000"> </span><span style="color: #800000; text-decoration-color: #800000">$0.000</span><span style="color: #808000; text-decoration-color: #808000">                                     </span>│
 │<span style="color: #008080; text-decoration-color: #008080"> Average Cost per Request   </span>│<span style="color: #808000; text-decoration-color: #808000"> </span><span style="color: #800000; text-decoration-color: #800000">$0.000</span><span style="color: #808000; text-decoration-color: #808000">                                     </span>│
 │<span style="color: #008080; text-decoration-color: #008080"> Input Cost per 1M Tokens   </span>│<span style="color: #808000; text-decoration-color: #808000"> </span><span style="color: #800000; text-decoration-color: #800000">$0.050</span><span style="color: #808000; text-decoration-color: #808000">                                     </span>│
 │<span style="color: #008080; text-decoration-color: #008080"> Output Cost per 1M Tokens  </span>│<span style="color: #808000; text-decoration-color: #808000"> </span><span style="color: #800000; text-decoration-color: #800000">$0.050</span><span style="color: #808000; text-decoration-color: #808000">                                     </span>│
 │<span style="color: #800080; text-decoration-color: #800080; font-weight: bold"> Performance                </span>│<span style="color: #800080; text-decoration-color: #800080; font-weight: bold">                                            </span>│
-│<span style="color: #008080; text-decoration-color: #008080"> Total Time                 </span>│<span style="color: #808000; text-decoration-color: #808000"> 64.37s                                     </span>│
-│<span style="color: #008080; text-decoration-color: #008080"> Average Time per Request   </span>│<span style="color: #808000; text-decoration-color: #808000"> 12.87s                                     </span>│
-│<span style="color: #008080; text-decoration-color: #008080"> Requests per Minute        </span>│<span style="color: #808000; text-decoration-color: #808000"> 4.7                                        </span>│
-│<span style="color: #008080; text-decoration-color: #008080"> Input Tokens per Minute    </span>│<span style="color: #808000; text-decoration-color: #808000"> 618.9                                      </span>│
-│<span style="color: #008080; text-decoration-color: #008080"> Output Tokens per Minute   </span>│<span style="color: #808000; text-decoration-color: #808000"> 32.6                                       </span>│
+│<span style="color: #008080; text-decoration-color: #008080"> Total Time                 </span>│<span style="color: #808000; text-decoration-color: #808000"> 53.08s                                     </span>│
+│<span style="color: #008080; text-decoration-color: #008080"> Average Time per Request   </span>│<span style="color: #808000; text-decoration-color: #808000"> 10.62s                                     </span>│
+│<span style="color: #008080; text-decoration-color: #008080"> Requests per Minute        </span>│<span style="color: #808000; text-decoration-color: #808000"> 5.7                                        </span>│
+│<span style="color: #008080; text-decoration-color: #008080"> Input Tokens per Minute    </span>│<span style="color: #808000; text-decoration-color: #808000"> 750.6                                      </span>│
+│<span style="color: #008080; text-decoration-color: #008080"> Output Tokens per Minute   </span>│<span style="color: #808000; text-decoration-color: #808000"> 15.8                                       </span>│
 ╰────────────────────────────┴────────────────────────────────────────────╯
 </pre>
 </div>
@@ -2426,28 +2374,30 @@ Set <span style="color: #808000; text-decoration-color: #808000">HOSTED_CURATOR_
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #7fbfbf; text-decoration-color: #7fbfbf">[03/24/25 09:52:39] </span><span style="color: #000080; text-decoration-color: #000080">INFO    </span> Read <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">5</span> responses.                                        <a href="file:///usr/local/lib/python3.11/dist-packages/bespokelabs/curator/request_processor/base_request_processor.py" target="_blank"><span style="color: #7f7f7f; text-decoration-color: #7f7f7f">base_request_processor.py</span></a><span style="color: #7f7f7f; text-decoration-color: #7f7f7f">:</span><a href="file:///usr/local/lib/python3.11/dist-packages/bespokelabs/curator/request_processor/base_request_processor.py#437" target="_blank"><span style="color: #7f7f7f; text-decoration-color: #7f7f7f">437</span></a>
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>INFO:curator.bespokelabs.curator.log:Read 5 responses.
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #7fbfbf; text-decoration-color: #7fbfbf">[04/17/25 10:50:52] </span><span style="color: #000080; text-decoration-color: #000080">INFO    </span> Read <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">5</span> responses.                                        <a href="file:///Users/kevin/.pyenv/versions/3.10.8/lib/python3.10/site-packages/bespokelabs/curator/request_processor/base_request_processor.py" target="_blank"><span style="color: #7f7f7f; text-decoration-color: #7f7f7f">base_request_processor.py</span></a><span style="color: #7f7f7f; text-decoration-color: #7f7f7f">:</span><a href="file:///Users/kevin/.pyenv/versions/3.10.8/lib/python3.10/site-packages/bespokelabs/curator/request_processor/base_request_processor.py#442" target="_blank"><span style="color: #7f7f7f; text-decoration-color: #7f7f7f">442</span></a>
 </pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #7fbfbf; text-decoration-color: #7fbfbf">                    </span><span style="color: #000080; text-decoration-color: #000080">INFO    </span> Finalizing writer                                        <a href="file:///usr/local/lib/python3.11/dist-packages/bespokelabs/curator/request_processor/base_request_processor.py" target="_blank"><span style="color: #7f7f7f; text-decoration-color: #7f7f7f">base_request_processor.py</span></a><span style="color: #7f7f7f; text-decoration-color: #7f7f7f">:</span><a href="file:///usr/local/lib/python3.11/dist-packages/bespokelabs/curator/request_processor/base_request_processor.py#446" target="_blank"><span style="color: #7f7f7f; text-decoration-color: #7f7f7f">446</span></a>
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #7fbfbf; text-decoration-color: #7fbfbf">                    </span><span style="color: #000080; text-decoration-color: #000080">INFO    </span> Finalizing writer                                        <a href="file:///Users/kevin/.pyenv/versions/3.10.8/lib/python3.10/site-packages/bespokelabs/curator/request_processor/base_request_processor.py" target="_blank"><span style="color: #7f7f7f; text-decoration-color: #7f7f7f">base_request_processor.py</span></a><span style="color: #7f7f7f; text-decoration-color: #7f7f7f">:</span><a href="file:///Users/kevin/.pyenv/versions/3.10.8/lib/python3.10/site-packages/bespokelabs/curator/request_processor/base_request_processor.py#451" target="_blank"><span style="color: #7f7f7f; text-decoration-color: #7f7f7f">451</span></a>
 </pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>INFO:curator.bespokelabs.curator.log:Finalizing writer
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #7fbfbf; text-decoration-color: #7fbfbf">                    </span><span style="color: #000080; text-decoration-color: #000080">INFO    </span> Creating a file with all failed requests                 <a href="file:///Users/kevin/.pyenv/versions/3.10.8/lib/python3.10/site-packages/bespokelabs/curator/request_processor/base_request_processor.py" target="_blank"><span style="color: #7f7f7f; text-decoration-color: #7f7f7f">base_request_processor.py</span></a><span style="color: #7f7f7f; text-decoration-color: #7f7f7f">:</span><a href="file:///Users/kevin/.pyenv/versions/3.10.8/lib/python3.10/site-packages/bespokelabs/curator/request_processor/base_request_processor.py#460" target="_blank"><span style="color: #7f7f7f; text-decoration-color: #7f7f7f">460</span></a>
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #7fbfbf; text-decoration-color: #7fbfbf">                    </span><span style="color: #000080; text-decoration-color: #000080">INFO    </span> Created file with failed requests at                     <a href="file:///Users/kevin/.pyenv/versions/3.10.8/lib/python3.10/site-packages/bespokelabs/curator/request_processor/base_request_processor.py" target="_blank"><span style="color: #7f7f7f; text-decoration-color: #7f7f7f">base_request_processor.py</span></a><span style="color: #7f7f7f; text-decoration-color: #7f7f7f">:</span><a href="file:///Users/kevin/.pyenv/versions/3.10.8/lib/python3.10/site-packages/bespokelabs/curator/request_processor/base_request_processor.py#488" target="_blank"><span style="color: #7f7f7f; text-decoration-color: #7f7f7f">488</span></a>
+<span style="color: #7fbfbf; text-decoration-color: #7fbfbf">                    </span>         <span style="color: #800080; text-decoration-color: #800080">/Users/kevin/.cache/curator/a879796c1be047b5/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">failed_requ</span> <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">                             </span>
+<span style="color: #7fbfbf; text-decoration-color: #7fbfbf">                    </span>         <span style="color: #ff00ff; text-decoration-color: #ff00ff">ests.jsonl</span>                                               <span style="color: #7f7f7f; text-decoration-color: #7f7f7f">                             </span>
 </pre>
 </div>
 </div>
@@ -2471,7 +2421,7 @@ Set <span style="color: #808000; text-decoration-color: #808000">HOSTED_CURATOR_
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
 <clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-7">
@@ -2496,13 +2446,9 @@ Set <span style="color: #808000; text-decoration-color: #808000">HOSTED_CURATOR_
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>['Romance',
- 'Drama',
- 'Drama',
- 'Drama',
- 'Thriller is a possible genre but choosing an option from the above categories, it would be "Drama"']</pre>
+<pre>['Drama', 'Drama', 'Drama', 'Drama', 'Action']</pre>
 </div>
 </div>
 </div>

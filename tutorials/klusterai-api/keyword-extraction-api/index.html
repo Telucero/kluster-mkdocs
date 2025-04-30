@@ -1341,6 +1341,48 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../effective-prompt-engineering/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Effective prompt engineering
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uploads-api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Uploading large files
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2036,6 +2078,10 @@ api_key = getpass("Enter your kluster.ai API key: ")</div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Enter your kluster.ai API key:  ········
+</pre>
+</div>
 </div>
 </div>
 </div>
@@ -2288,7 +2334,7 @@ client = OpenAI(
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>This example selects the <code>klusterai/Meta-Llama-3.1-405B-Instruct-Turbo</code> model. If you'd like to use a different model, feel free to change it by modifying the <code>model</code> field. In this notebook, you can also comment Llama 3.1 405B, and uncomment whatever model you want to try out.</p>
+<p>This example selects the <code>klusterai/Meta-Llama-3.3-70B-Instruct-Turbo</code> model. If you'd like to use a different model, feel free to change it by modifying the <code>model</code> field.</p>
 <p>Please refer to the <a href="/get-started/models/" target="_blank">Supported models</a> section for a list of the models we support.</p>
 <p>The following snippets prepare the JSONL file, where each line represents a different request. Note that each separate batch request can have its model. Also, we are using a temperature of <code>0.5</code>, but feel free to change it and play around with the different outcomes (but we are only asking to respond with a single word, the genre).</p>
 </div>
@@ -2320,10 +2366,9 @@ client = OpenAI(
 
 <span class="c1"># Models</span>
 <span class="c1">#model="deepseek-ai/DeepSeek-R1"</span>
-<span class="c1">#model="deepseek-ai/DeepSeek-V3"</span>
+<span class="c1">#model="deepseek-ai/DeepSeek-V3-0324"</span>
 <span class="c1">#model="klusterai/Meta-Llama-3.1-8B-Instruct-Turbo"</span>
-<span class="n">model</span><span class="o">=</span><span class="s2">"klusterai/Meta-Llama-3.1-405B-Instruct-Turbo"</span>
-<span class="c1">#model="klusterai/Meta-Llama-3.3-70B-Instruct-Turbo"</span>
+<span class="n">model</span><span class="o">=</span><span class="s2">"klusterai/Meta-Llama-3.3-70B-Instruct-Turbo"</span>
 <span class="c1">#model="Qwen/Qwen2.5-VL-7B-Instruct"</span>
 
 <span class="c1"># Ensure the directory exists</span>
@@ -2366,10 +2411,9 @@ SYSTEM_PROMPT = '''
 
 # Models
 #model="deepseek-ai/DeepSeek-R1"
-#model="deepseek-ai/DeepSeek-V3"
+#model="deepseek-ai/DeepSeek-V3-0324"
 #model="klusterai/Meta-Llama-3.1-8B-Instruct-Turbo"
-model="klusterai/Meta-Llama-3.1-405B-Instruct-Turbo"
-#model="klusterai/Meta-Llama-3.3-70B-Instruct-Turbo"
+model="klusterai/Meta-Llama-3.3-70B-Instruct-Turbo"
 #model="Qwen/Qwen2.5-VL-7B-Instruct"
 
 # Ensure the directory exists
@@ -2493,7 +2537,7 @@ filename = save_batch_file(batch_list)</div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>{"custom_id": "keyword_extraction-0", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "klusterai/Meta-Llama-3.1-405B-Instruct-Turbo", "temperature": 0.5, "messages": [{"role": "system", "content": "\n    Extract up to 5 relevant keywords from the given text. Provide only the keywords between double quotes and separated by commas.\n    "}, {"role": "user", "content": "Chorus Frog Found Croaking in Virginia - The Southern chorus frog has been found in southeastern Virginia, far outside its previously known range. The animal had never before been reported north of Beaufort County, N.C., about 125 miles to the south."}]}}
+<pre>{"custom_id": "keyword_extraction-0", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "klusterai/Meta-Llama-3.3-70B-Instruct-Turbo", "temperature": 0.5, "messages": [{"role": "system", "content": "\n    Extract up to 5 relevant keywords from the given text. Provide only the keywords between double quotes and separated by commas.\n    "}, {"role": "user", "content": "Chorus Frog Found Croaking in Virginia - The Southern chorus frog has been found in southeastern Virginia, far outside its previously known range. The animal had never before been reported north of Beaufort County, N.C., about 125 miles to the south."}]}}
 </pre>
 </div>
 </div>

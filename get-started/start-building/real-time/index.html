@@ -1354,6 +1354,48 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/klusterai-api/effective-prompt-engineering/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Effective prompt engineering
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/klusterai-api/uploads-api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Uploading large files
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1527,6 +1569,8 @@
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">＃</a></h2>
 <p>This guide assumes familiarity with Large Language Model (LLM) development and OpenAI libraries. Before getting started, make sure you have:</p>
 <ul>
+<li><strong>A kluster.ai account</strong> - sign up on the <a href="https://platform.kluster.ai/signup" target="_blank">kluster.ai platform</a> if you don't have one</li>
+<li><strong>A kluster.ai API key</strong> - after signing in, go to the <a href="https://platform.kluster.ai/apikeys" target="_blank"><strong>API Keys</strong></a> section and create a new key. For detailed instructions, check out the <a href="/kluster-mkdocs/get-started/get-api-key/" target="_blank">Get an API key</a> guide</li>
 <li><strong>A virtual Python environment</strong> - (optional) recommended for developers using Python. It helps isolate Python installations in a <a href="https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/" target="_blank">virtual environment</a> to reduce the risk of environment or package conflicts between your projects</li>
 <li><strong>Required Python libraries</strong> - install the following Python libraries:<ul>
 <li><a href="https://pypi.org/project/openai/"><strong>OpenAI Python API library</strong></a> - to access the <code>openai</code> module</li>
@@ -1546,104 +1590,484 @@
 <p>To use these snippets, run the Python script and enter your kluster.ai API key when prompted.</p>
 <details class="example">
 <summary>DeepSeek R1</summary>
-<div class="highlight"><pre><span></span><code>
-</code></pre></div>
-</details>
-<details class="example">
-<summary>DeepSeek V3</summary>
-<div class="highlight"><pre><span></span><code>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">openai</span> <span class="kn">import</span> <span class="n">OpenAI</span>
+<span class="kn">from</span> <span class="nn">getpass</span> <span class="kn">import</span> <span class="n">getpass</span>
+
+<span class="c1"># Get API key from user input</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="n">getpass</span><span class="p">(</span><span class="s2">&quot;Enter your kluster.ai API key: &quot;</span><span class="p">)</span>
+
+<span class="c1"># Initialize OpenAI client pointing to kluster.ai API</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">OpenAI</span><span class="p">(</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="n">api_key</span><span class="p">,</span>
+    <span class="n">base_url</span><span class="o">=</span><span class="s2">&quot;https://api.kluster.ai/v1&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Create chat completion request</span>
+<span class="n">completion</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">completions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;deepseek-ai/DeepSeek-R1&quot;</span><span class="p">,</span>
+    <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;What is the ultimate breakfast sandwich?&quot;</span><span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+
+<span class="sd">&quot;&quot;&quot;Logs the full AI response to terminal.&quot;&quot;&quot;</span>
+
+<span class="c1"># Extract model name and AI-generated text</span>
+<span class="n">model_name</span> <span class="o">=</span> <span class="n">completion</span><span class="o">.</span><span class="n">model</span>  
+<span class="n">text_response</span> <span class="o">=</span> <span class="n">completion</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">content</span>  
+
+<span class="c1"># Print response to console</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">🔍 AI response (model: </span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2">):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">text_response</span><span class="p">)</span>
 </code></pre></div>
 </details>
 <details class="example">
 <summary>DeepSeek V3 0324</summary>
-<div class="highlight"><pre><span></span><code>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">openai</span> <span class="kn">import</span> <span class="n">OpenAI</span>
+<span class="kn">from</span> <span class="nn">getpass</span> <span class="kn">import</span> <span class="n">getpass</span>
+
+<span class="c1"># Get API key from user input</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="n">getpass</span><span class="p">(</span><span class="s2">&quot;Enter your kluster.ai API key: &quot;</span><span class="p">)</span>
+
+<span class="c1"># Initialize OpenAI client pointing to kluster.ai API</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">OpenAI</span><span class="p">(</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="n">api_key</span><span class="p">,</span>
+    <span class="n">base_url</span><span class="o">=</span><span class="s2">&quot;https://api.kluster.ai/v1&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Create chat completion request</span>
+<span class="n">completion</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">completions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;deepseek-ai/DeepSeek-V3-0324&quot;</span><span class="p">,</span>
+    <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;What is the ultimate breakfast sandwich?&quot;</span><span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+
+<span class="sd">&quot;&quot;&quot;Logs the full AI response to terminal.&quot;&quot;&quot;</span>
+
+<span class="c1"># Extract model name and AI-generated text</span>
+<span class="n">model_name</span> <span class="o">=</span> <span class="n">completion</span><span class="o">.</span><span class="n">model</span>  
+<span class="n">text_response</span> <span class="o">=</span> <span class="n">completion</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">content</span>  
+
+<span class="c1"># Print response to console</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">🔍 AI response (model: </span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2">):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">text_response</span><span class="p">)</span>
 </code></pre></div>
 </details>
 <details class="example">
 <summary>Gemma 3 27B</summary>
-<div class="highlight"><pre><span></span><code>
+<div class="highlight"><pre><span></span><code>from<span class="w"> </span>openai<span class="w"> </span>import<span class="w"> </span>OpenAI
+from<span class="w"> </span>getpass<span class="w"> </span>import<span class="w"> </span>getpass
+
+<span class="nv">image_url</span><span class="o">=</span><span class="s2">&quot;https://github.com/kluster-ai/klusterai-cookbook/blob/main/images/parking-image.jpeg?raw=true&quot;</span>
+
+<span class="c1"># Get API key from user input</span>
+<span class="nv">api_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>getpass<span class="o">(</span><span class="s2">&quot;Enter your kluster.ai API key: &quot;</span><span class="o">)</span>
+
+<span class="c1"># Initialize OpenAI client pointing to kluster.ai API</span>
+<span class="nv">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>OpenAI<span class="o">(</span><span class="nv">api_key</span><span class="o">=</span>api_key,<span class="w"> </span><span class="nv">base_url</span><span class="o">=</span><span class="s2">&quot;https://api.kluster.ai/v1&quot;</span><span class="o">)</span>
+
+<span class="c1"># Create chat completion request</span>
+<span class="nv">completion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>client.chat.completions.create<span class="o">(</span>
+<span class="w">    </span><span class="nv">model</span><span class="o">=</span><span class="s2">&quot;google/gemma-3-27b-it&quot;</span>,
+<span class="w">    </span><span class="nv">messages</span><span class="o">=[</span>
+<span class="w">        </span><span class="o">{</span>
+<span class="w">            </span><span class="s2">&quot;role&quot;</span>:<span class="w"> </span><span class="s2">&quot;user&quot;</span>,
+<span class="w">            </span><span class="s2">&quot;content&quot;</span>:<span class="w"> </span><span class="o">[</span>
+<span class="w">                </span><span class="o">{</span><span class="s2">&quot;type&quot;</span>:<span class="w"> </span><span class="s2">&quot;text&quot;</span>,<span class="w"> </span><span class="s2">&quot;text&quot;</span>:<span class="w"> </span><span class="s2">&quot;Who can park in the area?&quot;</span><span class="o">}</span>,
+<span class="w">                </span><span class="o">{</span><span class="s2">&quot;type&quot;</span>:<span class="w"> </span><span class="s2">&quot;image_url&quot;</span>,<span class="w"> </span><span class="s2">&quot;image_url&quot;</span>:<span class="w"> </span><span class="o">{</span><span class="s2">&quot;url&quot;</span>:<span class="w"> </span>image_url<span class="o">}}</span>,
+<span class="w">            </span><span class="o">]</span>,
+<span class="w">        </span><span class="o">}</span>
+<span class="w">    </span><span class="o">]</span>,
+<span class="o">)</span>
+
+print<span class="o">(</span>f<span class="s2">&quot;\nImage URL: {image_url}&quot;</span><span class="o">)</span>
+
+<span class="s2">&quot;&quot;&quot;Logs the full AI response to terminal.&quot;&quot;&quot;</span>
+
+<span class="c1"># Extract model name and AI-generated text</span>
+<span class="nv">model_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>completion.model
+<span class="nv">text_response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>completion.choices<span class="o">[</span><span class="m">0</span><span class="o">]</span>.message.content
+
+<span class="c1"># Print response to console</span>
+print<span class="o">(</span>f<span class="s2">&quot;\n🔍 AI response (model: {model_name}):&quot;</span><span class="o">)</span>
+print<span class="o">(</span>text_response<span class="o">)</span>
 </code></pre></div>
 </details>
 <details class="example">
 <summary>LLama 3.1 8B</summary>
-<div class="highlight"><pre><span></span><code>
-</code></pre></div>
-</details>
-<details class="example">
-<summary>LLama 3.1 405B</summary>
-<div class="highlight"><pre><span></span><code>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">openai</span> <span class="kn">import</span> <span class="n">OpenAI</span>
+<span class="kn">from</span> <span class="nn">getpass</span> <span class="kn">import</span> <span class="n">getpass</span>
+
+<span class="c1"># Get API key from user input</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="n">getpass</span><span class="p">(</span><span class="s2">&quot;Enter your kluster.ai API key: &quot;</span><span class="p">)</span>
+
+<span class="c1"># Initialize OpenAI client pointing to kluster.ai API</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">OpenAI</span><span class="p">(</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="n">api_key</span><span class="p">,</span>
+    <span class="n">base_url</span><span class="o">=</span><span class="s2">&quot;https://api.kluster.ai/v1&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Create chat completion request</span>
+<span class="n">completion</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">completions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;klusterai/Meta-Llama-3.1-8B-Instruct-Turbo&quot;</span><span class="p">,</span>
+    <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;What is the ultimate breakfast sandwich?&quot;</span><span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+
+<span class="sd">&quot;&quot;&quot;Logs the full AI response to terminal.&quot;&quot;&quot;</span>
+
+<span class="c1"># Extract model name and AI-generated text</span>
+<span class="n">model_name</span> <span class="o">=</span> <span class="n">completion</span><span class="o">.</span><span class="n">model</span>  
+<span class="n">text_response</span> <span class="o">=</span> <span class="n">completion</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">content</span>  
+
+<span class="c1"># Print response to console</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">🔍 AI response (model: </span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2">):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">text_response</span><span class="p">)</span>
 </code></pre></div>
 </details>
 <details class="example">
 <summary>LLama 3.3 70B</summary>
-<div class="highlight"><pre><span></span><code>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">openai</span> <span class="kn">import</span> <span class="n">OpenAI</span>
+<span class="kn">from</span> <span class="nn">getpass</span> <span class="kn">import</span> <span class="n">getpass</span>
+
+<span class="c1"># Get API key from user input</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="n">getpass</span><span class="p">(</span><span class="s2">&quot;Enter your kluster.ai API key: &quot;</span><span class="p">)</span>
+
+<span class="c1"># Initialize OpenAI client pointing to kluster.ai API</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">OpenAI</span><span class="p">(</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="n">api_key</span><span class="p">,</span>
+    <span class="n">base_url</span><span class="o">=</span><span class="s2">&quot;https://api.kluster.ai/v1&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Create chat completion request</span>
+<span class="n">completion</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">completions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;klusterai/Meta-Llama-3.3-70B-Instruct-Turbo&quot;</span><span class="p">,</span>
+    <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;What is the ultimate breakfast sandwich?&quot;</span><span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+
+<span class="sd">&quot;&quot;&quot;Logs the full AI response to terminal.&quot;&quot;&quot;</span>
+
+<span class="c1"># Extract model name and AI-generated text</span>
+<span class="n">model_name</span> <span class="o">=</span> <span class="n">completion</span><span class="o">.</span><span class="n">model</span>  
+<span class="n">text_response</span> <span class="o">=</span> <span class="n">completion</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">content</span>  
+
+<span class="c1"># Print response to console</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">🔍 AI response (model: </span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2">):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">text_response</span><span class="p">)</span>
 </code></pre></div>
 </details>
 <details class="example">
 <summary>Llama 4 Maverick 17B 128E</summary>
-<div class="highlight"><pre><span></span><code>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">openai</span> <span class="kn">import</span> <span class="n">OpenAI</span>
+<span class="kn">from</span> <span class="nn">getpass</span> <span class="kn">import</span> <span class="n">getpass</span>
+
+<span class="c1"># Get API key from user input</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="n">getpass</span><span class="p">(</span><span class="s2">&quot;Enter your kluster.ai API key: &quot;</span><span class="p">)</span>
+
+<span class="c1"># Initialize OpenAI client pointing to kluster.ai API</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">OpenAI</span><span class="p">(</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="n">api_key</span><span class="p">,</span>
+    <span class="n">base_url</span><span class="o">=</span><span class="s2">&quot;https://api.kluster.ai/v1&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Create chat completion request</span>
+<span class="n">completion</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">completions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8&quot;</span><span class="p">,</span>
+    <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;What is the ultimate breakfast sandwich?&quot;</span><span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+
+<span class="sd">&quot;&quot;&quot;Logs the full AI response to terminal.&quot;&quot;&quot;</span>
+
+<span class="c1"># Extract model name and AI-generated text</span>
+<span class="n">model_name</span> <span class="o">=</span> <span class="n">completion</span><span class="o">.</span><span class="n">model</span>  
+<span class="n">text_response</span> <span class="o">=</span> <span class="n">completion</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">content</span>  
+
+<span class="c1"># Print response to console</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">🔍 AI response (model: </span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2">):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">text_response</span><span class="p">)</span>
 </code></pre></div>
 </details>
 <details class="example">
 <summary>Llama 4 Scout 17B 16E</summary>
-<div class="highlight"><pre><span></span><code>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">openai</span> <span class="kn">import</span> <span class="n">OpenAI</span>
+<span class="kn">from</span> <span class="nn">getpass</span> <span class="kn">import</span> <span class="n">getpass</span>
+
+<span class="c1"># Get API key from user input</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="n">getpass</span><span class="p">(</span><span class="s2">&quot;Enter your kluster.ai API key: &quot;</span><span class="p">)</span>
+
+<span class="c1"># Initialize OpenAI client pointing to kluster.ai API</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">OpenAI</span><span class="p">(</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="n">api_key</span><span class="p">,</span>
+    <span class="n">base_url</span><span class="o">=</span><span class="s2">&quot;https://api.kluster.ai/v1&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Create chat completion request</span>
+<span class="n">completion</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">completions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;meta-llama/Llama-4-Scout-17B-16E-Instruct&quot;</span><span class="p">,</span>
+    <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;What is the ultimate breakfast sandwich?&quot;</span><span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+
+<span class="sd">&quot;&quot;&quot;Logs the full AI response to terminal.&quot;&quot;&quot;</span>
+
+<span class="c1"># Extract model name and AI-generated text</span>
+<span class="n">model_name</span> <span class="o">=</span> <span class="n">completion</span><span class="o">.</span><span class="n">model</span>  
+<span class="n">text_response</span> <span class="o">=</span> <span class="n">completion</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">content</span>  
+
+<span class="c1"># Print response to console</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">🔍 AI response (model: </span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2">):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">text_response</span><span class="p">)</span>
 </code></pre></div>
 </details>
 <details class="example">
 <summary>Qwen 2.5 7B</summary>
-<div class="highlight"><pre><span></span><code>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">openai</span> <span class="kn">import</span> <span class="n">OpenAI</span>
+<span class="kn">from</span> <span class="nn">getpass</span> <span class="kn">import</span> <span class="n">getpass</span>
+
+<span class="n">image_url</span><span class="o">=</span><span class="s2">&quot;https://github.com/kluster-ai/klusterai-cookbook/blob/main/images/parking-image.jpeg?raw=true&quot;</span>
+
+<span class="c1"># Get API key from user input</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="n">getpass</span><span class="p">(</span><span class="s2">&quot;Enter your kluster.ai API key: &quot;</span><span class="p">)</span>
+
+<span class="c1"># Initialize OpenAI client pointing to kluster.ai API</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">OpenAI</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="n">api_key</span><span class="p">,</span> <span class="n">base_url</span><span class="o">=</span><span class="s2">&quot;https://api.kluster.ai/v1&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create chat completion request</span>
+<span class="n">completion</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">completions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;Qwen/Qwen2.5-VL-7B-Instruct&quot;</span><span class="p">,</span>
+    <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Who can park in the area?&quot;</span><span class="p">},</span>
+                <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;image_url&quot;</span><span class="p">,</span> <span class="s2">&quot;image_url&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="n">image_url</span><span class="p">}},</span>
+            <span class="p">],</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Image URL: </span><span class="si">{</span><span class="n">image_url</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="sd">&quot;&quot;&quot;Logs the full AI response to terminal.&quot;&quot;&quot;</span>
+
+<span class="c1"># Extract model name and AI-generated text</span>
+<span class="n">model_name</span> <span class="o">=</span> <span class="n">completion</span><span class="o">.</span><span class="n">model</span>
+<span class="n">text_response</span> <span class="o">=</span> <span class="n">completion</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">content</span>
+
+<span class="c1"># Print response to console</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">🔍 AI response (model: </span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2">):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">text_response</span><span class="p">)</span>
 </code></pre></div>
 </details>
 <h3 id="cli">CLI<a class="headerlink" href="#cli" title="Permanent link">＃</a></h3>
 <p>Similarly, the following curl commands showcase how to easily send a chat completion request to kluster.ai for the different supported models. This example assumes you've exported your kluster.ai API key as the variable <code>API_KEY</code>.</p>
 <details class="example">
 <summary>DeepSeek R1</summary>
-<div class="highlight"><pre><span></span><code>
-</code></pre></div>
-</details>
-<details class="example">
-<summary>DeepSeek V3</summary>
-<div class="highlight"><pre><span></span><code>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+
+<span class="c1"># Check if API_KEY is set and not empty</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span>-z<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$API_KEY</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\nError: API_KEY environment variable is not set.\n&quot;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span>
+<span class="k">fi</span>
+
+<span class="c1"># Submit real-time request</span>
+curl<span class="w"> </span>https://api.kluster.ai/v1/chat/completions<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$API_KEY</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-d<span class="w"> </span><span class="s2">&quot;{</span>
+<span class="s2">            \&quot;model\&quot;: \&quot;deepseek-ai/DeepSeek-R1\&quot;, </span>
+<span class="s2">            \&quot;messages\&quot;: [</span>
+<span class="s2">                { </span>
+<span class="s2">                    \&quot;role\&quot;: \&quot;user\&quot;, </span>
+<span class="s2">                    \&quot;content\&quot;: \&quot;What is the ultimate breakfast sandwich?\&quot;</span>
+<span class="s2">                }</span>
+<span class="s2">            ]</span>
+<span class="s2">        }&quot;</span>
 </code></pre></div>
 </details>
 <details class="example">
 <summary>DeepSeek V3 0324</summary>
-<div class="highlight"><pre><span></span><code>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+
+<span class="c1"># Check if API_KEY is set and not empty</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span>-z<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$API_KEY</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\nError: API_KEY environment variable is not set.\n&quot;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span>
+<span class="k">fi</span>
+
+<span class="c1"># Submit real-time request</span>
+curl<span class="w"> </span>https://api.kluster.ai/v1/chat/completions<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$API_KEY</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-d<span class="w"> </span><span class="s2">&quot;{</span>
+<span class="s2">            \&quot;model\&quot;: \&quot;deepseek-ai/DeepSeek-V3-0324\&quot;, </span>
+<span class="s2">            \&quot;messages\&quot;: [</span>
+<span class="s2">                { </span>
+<span class="s2">                    \&quot;role\&quot;: \&quot;user\&quot;, </span>
+<span class="s2">                    \&quot;content\&quot;: \&quot;What is the ultimate breakfast sandwich?\&quot;</span>
+<span class="s2">                }</span>
+<span class="s2">            ]</span>
+<span class="s2">        }&quot;</span>
 </code></pre></div>
 </details>
 <details class="example">
 <summary>Gemma 3 27B</summary>
-<div class="highlight"><pre><span></span><code>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+
+<span class="c1"># Check if API_KEY is set and not empty</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span>-z<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$API_KEY</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\nError: API_KEY environment variable is not set.\n&quot;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span>
+<span class="k">fi</span>
+
+<span class="nv">image_url</span><span class="o">=</span><span class="s2">&quot;https://github.com/kluster-ai/klusterai-cookbook/blob/main/images/parking-image.jpeg?raw=true&quot;</span>
+
+<span class="c1"># Submit real-time request</span>
+curl<span class="w"> </span>https://api.kluster.ai/v1/chat/completions<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$API_KEY</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-d<span class="w"> </span><span class="s2">&quot;{</span>
+<span class="s2">        \&quot;model\&quot;: \&quot;google/gemma-3-27b-it\&quot;,</span>
+<span class="s2">        \&quot;messages\&quot;: [</span>
+<span class="s2">            {</span>
+<span class="s2">                \&quot;role\&quot;: \&quot;user\&quot;,</span>
+<span class="s2">                \&quot;content\&quot;: [</span>
+<span class="s2">                    {\&quot;type\&quot;: \&quot;text\&quot;, \&quot;text\&quot;: \&quot;Who can park in the area?\&quot;},</span>
+<span class="s2">                    {\&quot;type\&quot;: \&quot;image_url\&quot;, \&quot;image_url\&quot;: {\&quot;url\&quot;: \&quot;</span><span class="nv">$image_url</span><span class="s2">\&quot;}}</span>
+<span class="s2">                ]</span>
+<span class="s2">            }</span>
+<span class="s2">        ]</span>
+<span class="s2">    }&quot;</span>
 </code></pre></div>
 </details>
 <details class="example">
 <summary>LLama 3.1 8B</summary>
-<div class="highlight"><pre><span></span><code>
-</code></pre></div>
-</details>
-<details class="example">
-<summary>LLama 3.1 405B</summary>
-<div class="highlight"><pre><span></span><code>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+
+<span class="c1"># Check if API_KEY is set and not empty</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span>-z<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$API_KEY</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\nError: API_KEY environment variable is not set.\n&quot;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span>
+<span class="k">fi</span>
+
+<span class="c1"># Submit real-time request</span>
+curl<span class="w"> </span>https://api.kluster.ai/v1/chat/completions<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$API_KEY</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-d<span class="w"> </span><span class="s2">&quot;{</span>
+<span class="s2">            \&quot;model\&quot;: \&quot;klusterai/Meta-Llama-3.1-8B-Instruct-Turbo\&quot;, </span>
+<span class="s2">            \&quot;messages\&quot;: [</span>
+<span class="s2">                { </span>
+<span class="s2">                    \&quot;role\&quot;: \&quot;user\&quot;, </span>
+<span class="s2">                    \&quot;content\&quot;: \&quot;What is the ultimate breakfast sandwich?\&quot;</span>
+<span class="s2">                }</span>
+<span class="s2">            ]</span>
+<span class="s2">        }&quot;</span>
 </code></pre></div>
 </details>
 <details class="example">
 <summary>LLama 3.3 70B</summary>
-<div class="highlight"><pre><span></span><code>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+
+<span class="c1"># Check if API_KEY is set and not empty</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span>-z<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$API_KEY</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\nError: API_KEY environment variable is not set.\n&quot;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span>
+<span class="k">fi</span>
+
+<span class="c1"># Submit real-time request</span>
+curl<span class="w"> </span>https://api.kluster.ai/v1/chat/completions<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$API_KEY</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-d<span class="w"> </span><span class="s2">&quot;{</span>
+<span class="s2">            \&quot;model\&quot;: \&quot;klusterai/Meta-Llama-3.3-70B-Instruct-Turbo\&quot;, </span>
+<span class="s2">            \&quot;messages\&quot;: [</span>
+<span class="s2">                { </span>
+<span class="s2">                    \&quot;role\&quot;: \&quot;user\&quot;, </span>
+<span class="s2">                    \&quot;content\&quot;: \&quot;What is the ultimate breakfast sandwich?\&quot;</span>
+<span class="s2">                }</span>
+<span class="s2">            ]</span>
+<span class="s2">    }&quot;</span>
 </code></pre></div>
 </details>
 <details class="example">
 <summary>Llama 4 Maverick 17B 128E</summary>
-<div class="highlight"><pre><span></span><code>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+
+<span class="c1"># Check if API_KEY is set and not empty</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span>-z<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$API_KEY</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\nError: API_KEY environment variable is not set.\n&quot;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span>
+<span class="k">fi</span>
+
+<span class="c1"># Submit real-time request</span>
+curl<span class="w"> </span>https://api.kluster.ai/v1/chat/completions<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$API_KEY</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-d<span class="w"> </span><span class="s2">&quot;{</span>
+<span class="s2">            \&quot;model\&quot;: \&quot;meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8\&quot;, </span>
+<span class="s2">            \&quot;messages\&quot;: [</span>
+<span class="s2">                { </span>
+<span class="s2">                    \&quot;role\&quot;: \&quot;user\&quot;, </span>
+<span class="s2">                    \&quot;content\&quot;: \&quot;What is the ultimate breakfast sandwich?\&quot;</span>
+<span class="s2">                }</span>
+<span class="s2">            ]</span>
+<span class="s2">    }&quot;</span>
 </code></pre></div>
 </details>
 <details class="example">
 <summary>Llama 4 Scout 17B 16E</summary>
-<div class="highlight"><pre><span></span><code>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+
+<span class="c1"># Check if API_KEY is set and not empty</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span>-z<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$API_KEY</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\nError: API_KEY environment variable is not set.\n&quot;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span>
+<span class="k">fi</span>
+
+<span class="c1"># Submit real-time request</span>
+curl<span class="w"> </span>https://api.kluster.ai/v1/chat/completions<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$API_KEY</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-d<span class="w"> </span><span class="s2">&quot;{</span>
+<span class="s2">            \&quot;model\&quot;: \&quot;meta-llama/Llama-4-Scout-17B-16E-Instruct\&quot;, </span>
+<span class="s2">            \&quot;messages\&quot;: [</span>
+<span class="s2">                { </span>
+<span class="s2">                    \&quot;role\&quot;: \&quot;user\&quot;, </span>
+<span class="s2">                    \&quot;content\&quot;: \&quot;What is the ultimate breakfast sandwich?\&quot;</span>
+<span class="s2">                }</span>
+<span class="s2">            ]</span>
+<span class="s2">    }&quot;</span>
 </code></pre></div>
 </details>
 <details class="example">
 <summary>Qwen 2.5 7B</summary>
-<div class="highlight"><pre><span></span><code>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+
+<span class="c1"># Check if API_KEY is set and not empty</span>
+<span class="k">if</span> <span class="p">[[</span> <span class="o">-</span><span class="n">z</span> <span class="s2">&quot;$API_KEY&quot;</span> <span class="p">]];</span> <span class="n">then</span>
+    <span class="n">echo</span> <span class="o">-</span><span class="n">e</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Error: API_KEY environment variable is not set.</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">&gt;&amp;</span><span class="mi">2</span>
+<span class="n">fi</span>
+
+<span class="n">image_url</span><span class="o">=</span><span class="s2">&quot;https://github.com/kluster-ai/klusterai-cookbook/blob/main/images/parking-image.jpeg?raw=true&quot;</span>
+
+<span class="c1"># Submit real-time request</span>
+<span class="n">curl</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">.</span><span class="n">kluster</span><span class="o">.</span><span class="n">ai</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">chat</span><span class="o">/</span><span class="n">completions</span> \
+    <span class="o">-</span><span class="n">H</span> <span class="s2">&quot;Authorization: Bearer $API_KEY&quot;</span> \
+    <span class="o">-</span><span class="n">H</span> <span class="s2">&quot;Content-Type: application/json&quot;</span> \
+    <span class="o">-</span><span class="n">d</span> <span class="s2">&quot;{</span>
+        \<span class="s2">&quot;model</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">Qwen/Qwen2.5-VL-7B-Instruct</span><span class="se">\&quot;</span><span class="s2">,</span>
+        \<span class="s2">&quot;messages</span><span class="se">\&quot;</span><span class="s2">: [</span>
+            <span class="p">{</span>
+                \<span class="s2">&quot;role</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">user</span><span class="se">\&quot;</span><span class="s2">,</span>
+                \<span class="s2">&quot;content</span><span class="se">\&quot;</span><span class="s2">: [</span>
+                    <span class="p">{</span>\<span class="s2">&quot;type</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">text</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">text</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">Who can park in the area?</span><span class="se">\&quot;</span><span class="s2">},</span>
+                    <span class="p">{</span>\<span class="s2">&quot;type</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">image_url</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">image_url</span><span class="se">\&quot;</span><span class="s2">: {</span><span class="se">\&quot;</span><span class="s2">url</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">$image_url</span><span class="se">\&quot;</span><span class="s2">}}</span>
+                <span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span><span class="s2">&quot;</span>
 </code></pre></div>
 </details>
 <h2 id="real-time-inference-flow">Real-time inference flow<a class="headerlink" href="#real-time-inference-flow" title="Permanent link">＃</a></h2>
@@ -1654,7 +2078,27 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">getpass</span> <span class="kn">import</span> <span class="n">getpass</span>
+
+<span class="kn">from</span> <span class="nn">openai</span> <span class="kn">import</span> <span class="n">OpenAI</span>
+
+<span class="c1"># Get API key from user input</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="n">getpass</span><span class="p">(</span><span class="s2">&quot;Enter your kluster.ai API key: &quot;</span><span class="p">)</span>
+
+<span class="c1"># Initialize OpenAI client pointing to kluster.ai API</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">OpenAI</span><span class="p">(</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="n">api_key</span><span class="p">,</span>
+    <span class="n">base_url</span><span class="o">=</span><span class="s2">&quot;https://api.kluster.ai/v1&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Create chat completion request</span>
+<span class="n">completion</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">completions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;deepseek-ai/DeepSeek-V3-0324&quot;</span><span class="p">,</span>
+    <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;What is the ultimate breakfast sandwich?&quot;</span><span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">)</span>
 </code></pre></div>
 </div>
 </div>
@@ -1686,7 +2130,7 @@
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">],</span>
 <span class="w">    </span><span class="nt">&quot;created&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1742378836</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;deepseek-ai/DeepSeek-V3&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;deepseek-ai/DeepSeek-V3-0324&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;object&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;chat.completion&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;service_tier&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;system_fingerprint&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
@@ -1703,7 +2147,30 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">log_response_to_file</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;response_log.json&quot;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Logs the full AI response to a JSON file in the same directory as the script.&quot;&quot;&quot;</span>
+
+    <span class="c1"># Extract model name and AI-generated text</span>
+    <span class="n">model_name</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">model</span>  
+    <span class="n">text_response</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">content</span>  
+
+    <span class="c1"># Print response to console</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">🔍 AI response (model: </span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2">):&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">text_response</span><span class="p">)</span>
+
+    <span class="c1"># Convert response to dictionary</span>
+    <span class="n">response_data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">model_dump</span><span class="p">()</span>
+
+    <span class="c1"># Get the script directory</span>
+    <span class="n">script_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
+    <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">script_dir</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+
+    <span class="c1"># Write to JSON file</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">json_file</span><span class="p">:</span>
+        <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">response_data</span><span class="p">,</span> <span class="n">json_file</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;💾 Response saved to </span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Log response to file</span>
 </code></pre></div>
 </div>
 </div>
@@ -1714,7 +2181,54 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">getpass</span> <span class="kn">import</span> <span class="n">getpass</span>
+
+<span class="kn">from</span> <span class="nn">openai</span> <span class="kn">import</span> <span class="n">OpenAI</span>
+
+<span class="c1"># Get API key from user input</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="n">getpass</span><span class="p">(</span><span class="s2">&quot;Enter your kluster.ai API key: &quot;</span><span class="p">)</span>
+
+<span class="c1"># Initialize OpenAI client pointing to kluster.ai API</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">OpenAI</span><span class="p">(</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="n">api_key</span><span class="p">,</span>
+    <span class="n">base_url</span><span class="o">=</span><span class="s2">&quot;https://api.kluster.ai/v1&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Create chat completion request</span>
+<span class="n">completion</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">completions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;deepseek-ai/DeepSeek-V3-0324&quot;</span><span class="p">,</span>
+    <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;What is the ultimate breakfast sandwich?&quot;</span><span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">log_response_to_file</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;response_log.json&quot;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Logs the full AI response to a JSON file in the same directory as the script.&quot;&quot;&quot;</span>
+
+    <span class="c1"># Extract model name and AI-generated text</span>
+    <span class="n">model_name</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">model</span>  
+    <span class="n">text_response</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">content</span>  
+
+    <span class="c1"># Print response to console</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">🔍 AI response (model: </span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2">):&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">text_response</span><span class="p">)</span>
+
+    <span class="c1"># Convert response to dictionary</span>
+    <span class="n">response_data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">model_dump</span><span class="p">()</span>
+
+    <span class="c1"># Get the script directory</span>
+    <span class="n">script_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
+    <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">script_dir</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+
+    <span class="c1"># Write to JSON file</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">json_file</span><span class="p">:</span>
+        <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">response_data</span><span class="p">,</span> <span class="n">json_file</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;💾 Response saved to </span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Log response to file</span>
+<span class="n">log_response_to_file</span><span class="p">(</span><span class="n">completion</span><span class="p">)</span>
 </code></pre></div>
 </div>
 </div>

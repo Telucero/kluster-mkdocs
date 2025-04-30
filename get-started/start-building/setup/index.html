@@ -90,7 +90,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#macro-rendering-error" class="md-skip">
+        <a href="#start-using-the-klusterai-api" class="md-skip">
           Skip to content
         </a>
       
@@ -507,6 +507,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Initial setup
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -516,6 +527,61 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#get-your-api-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get your API key
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-up-the-openai-client-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set up the OpenAI client library
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-request-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      API request limits
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-to-go-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where to go next
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1213,6 +1279,48 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/klusterai-api/effective-prompt-engineering/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Effective prompt engineering
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/klusterai-api/uploads-api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Uploading large files
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1248,6 +1356,50 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#get-your-api-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get your API key
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-up-the-openai-client-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set up the OpenAI client library
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-request-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      API request limits
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-to-go-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where to go next
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1260,23 +1412,421 @@
      
 
 
-<h1 id="macro-rendering-error"><em>Macro Rendering Error</em><a class="headerlink" href="#macro-rendering-error" title="Permanent link">＃</a></h1>
-<p><em>File</em>: <code>get-started/start-building/setup.md</code></p>
-<p><em>UndefinedError</em>: 'libraries' is undefined</p>
-<div class="highlight"><pre><span></span><code>Traceback (most recent call last):
-  File &quot;/opt/hostedtoolcache/Python/3.13.3/x64/lib/python3.13/site-packages/mkdocs_macros/plugin.py&quot;, line 527, in render
-    return md_template.render(**page_variables)
-           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.13.3/x64/lib/python3.13/site-packages/jinja2/environment.py&quot;, line 1301, in render
-    self.environment.handle_exception()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File &quot;/opt/hostedtoolcache/Python/3.13.3/x64/lib/python3.13/site-packages/jinja2/environment.py&quot;, line 936, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File &quot;&lt;template&gt;&quot;, line 20, in top-level template code
-  File &quot;/opt/hostedtoolcache/Python/3.13.3/x64/lib/python3.13/site-packages/jinja2/environment.py&quot;, line 485, in getattr
-    return getattr(obj, attribute)
-jinja2.exceptions.UndefinedError: &#39;libraries&#39; is undefined
+<h1 id="start-using-the-klusterai-api">Start using the kluster.ai API<a class="headerlink" href="#start-using-the-klusterai-api" title="Permanent link">＃</a></h1>
+<p>The <a href="https://www.kluster.ai/" target="_blank">kluster.ai</a> API provides a straightforward way to work with Large Language Models (LLMs) at scale. It is <a href="/kluster-mkdocs/get-started/openai-compatibility/" target="_blank">compatible with OpenAI's API and SDKs</a>, making it easy to integrate into your existing workflows with minimal code changes.</p>
+<h2 id="get-your-api-key">Get your API key<a class="headerlink" href="#get-your-api-key" title="Permanent link">＃</a></h2>
+<p>Navigate to the kluster.ai developer console <a href="https://platform.kluster.ai/apikeys" target="_blank"><strong>API Keys</strong></a> section and create a new key. You'll need this for all API requests.</p>
+<p>For step-by-step instructions, refer to the <a href="/kluster-mkdocs/get-started/get-api-key" target="_blank">Get an API key</a> guide.</p>
+<h2 id="set-up-the-openai-client-library">Set up the OpenAI client library<a class="headerlink" href="#set-up-the-openai-client-library" title="Permanent link">＃</a></h2>
+<p>Developers can use the OpenAI libraries with kluster.ai with no changes. To start, you need to install the library:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">pip</span> <span class="n">install</span> <span class="s2">&quot;openai&gt;=1.0.0&quot;</span>
 </code></pre></div>
+</div>
+</div>
+</div>
+<p>Once the library is installed, you can instantiate an OpenAI client pointing to kluster.ai with the following code and replacing <code>INSERT_API_KEY</code>:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">openai</span> <span class="kn">import</span> <span class="n">OpenAI</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">OpenAI</span><span class="p">(</span>
+    <span class="n">base_url</span><span class="o">=</span><span class="s2">&quot;https://api.kluster.ai/v1&quot;</span><span class="p">,</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="s2">&quot;INSERT_API_KEY&quot;</span><span class="p">,</span>  <span class="c1"># Replace with your actual API key</span>
+<span class="p">)</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Check the <a href="/kluster-mkdocs/get-started/openai-compatibility/" target="_blank">kluster.ai OpenAI compatibility page</a> for detailed information about the integration.</p>
+<h2 id="api-request-limits">API request limits<a class="headerlink" href="#api-request-limits" title="Permanent link">＃</a></h2>
+<p>The following limits apply to API requests based on <a href="https://platform.kluster.ai/plans" target="_blank">your plan</a>:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:4"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Trial</label><label for="__tabbed_3_2">Core</label><label for="__tabbed_3_3">Scale</label><label for="__tabbed_3_4">Enterprise</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Model</th>
+<th style="text-align: center;">Context size<br>[tokens]</th>
+<th style="text-align: center;">Max output<br>[tokens]</th>
+<th style="text-align: center;">Max batch<br>requests</th>
+<th style="text-align: center;">Concurrent<br>requests</th>
+<th style="text-align: center;">Requests<br>per minute</th>
+<th style="text-align: center;">Hosted fine-tuned<br>models</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>DeepSeek R1</strong></td>
+<td style="text-align: center;">32k</td>
+<td style="text-align: center;">4k</td>
+<td style="text-align: center;">1000</td>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">30</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>DeepSeek V3 0324</strong></td>
+<td style="text-align: center;">32k</td>
+<td style="text-align: center;">4k</td>
+<td style="text-align: center;">1000</td>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">30</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Gemma 3 27B</strong></td>
+<td style="text-align: center;">32k</td>
+<td style="text-align: center;">4k</td>
+<td style="text-align: center;">1000</td>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">30</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Llama 3.1 8B</strong></td>
+<td style="text-align: center;">32k</td>
+<td style="text-align: center;">4k</td>
+<td style="text-align: center;">1000</td>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">30</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Llama 3.3 70B</strong></td>
+<td style="text-align: center;">32k</td>
+<td style="text-align: center;">4k</td>
+<td style="text-align: center;">1000</td>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">30</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Llama 4 Maverick 17B 128E</strong></td>
+<td style="text-align: center;">32k</td>
+<td style="text-align: center;">4k</td>
+<td style="text-align: center;">1000</td>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">30</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Llama 4 Scout 17B 16E</strong></td>
+<td style="text-align: center;">32k</td>
+<td style="text-align: center;">4k</td>
+<td style="text-align: center;">1000</td>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">30</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Qwen 2.5 7B</strong></td>
+<td style="text-align: center;">32k</td>
+<td style="text-align: center;">4k</td>
+<td style="text-align: center;">1000</td>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">30</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Model</th>
+<th style="text-align: center;">Context size<br>[tokens]</th>
+<th style="text-align: center;">Max output<br>[tokens]</th>
+<th style="text-align: center;">Max batch<br>requests</th>
+<th style="text-align: center;">Concurrent<br>requests</th>
+<th style="text-align: center;">Requests<br>per minute</th>
+<th style="text-align: center;">Hosted fine-tuned<br>models</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>DeepSeek R1</strong></td>
+<td style="text-align: center;">164k</td>
+<td style="text-align: center;">164k</td>
+<td style="text-align: center;">100k</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">600</td>
+<td style="text-align: center;">10</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>DeepSeek V3 0324</strong></td>
+<td style="text-align: center;">164k</td>
+<td style="text-align: center;">164k</td>
+<td style="text-align: center;">100k</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">600</td>
+<td style="text-align: center;">10</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Gemma 3 27B</strong></td>
+<td style="text-align: center;">64k</td>
+<td style="text-align: center;">8k</td>
+<td style="text-align: center;">100k</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">600</td>
+<td style="text-align: center;">10</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Llama 3.1 8B</strong></td>
+<td style="text-align: center;">131k</td>
+<td style="text-align: center;">131k</td>
+<td style="text-align: center;">100k</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">600</td>
+<td style="text-align: center;">10</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Llama 3.3 70B</strong></td>
+<td style="text-align: center;">131k</td>
+<td style="text-align: center;">131k</td>
+<td style="text-align: center;">100k</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">600</td>
+<td style="text-align: center;">10</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Llama 4 Maverick 17B 128E</strong></td>
+<td style="text-align: center;">1M</td>
+<td style="text-align: center;">1M</td>
+<td style="text-align: center;">100k</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">600</td>
+<td style="text-align: center;">10</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Llama 4 Scout 17B 16E</strong></td>
+<td style="text-align: center;">131k</td>
+<td style="text-align: center;">131k</td>
+<td style="text-align: center;">100k</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">600</td>
+<td style="text-align: center;">10</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Qwen 2.5 7B</strong></td>
+<td style="text-align: center;">32k</td>
+<td style="text-align: center;">32k</td>
+<td style="text-align: center;">100k</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">600</td>
+<td style="text-align: center;">10</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Model</th>
+<th style="text-align: center;">Context size<br>[tokens]</th>
+<th style="text-align: center;">Max output<br>[tokens]</th>
+<th style="text-align: center;">Max batch<br>requests</th>
+<th style="text-align: center;">Concurrent<br>requests</th>
+<th style="text-align: center;">Requests<br>per minute</th>
+<th style="text-align: center;">Hosted fine-tuned<br>models</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>DeepSeek R1</strong></td>
+<td style="text-align: center;">164k</td>
+<td style="text-align: center;">164k</td>
+<td style="text-align: center;">500k</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">1200</td>
+<td style="text-align: center;">25</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>DeepSeek V3 0324</strong></td>
+<td style="text-align: center;">164k</td>
+<td style="text-align: center;">164k</td>
+<td style="text-align: center;">500k</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">1200</td>
+<td style="text-align: center;">25</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Gemma 3 27B</strong></td>
+<td style="text-align: center;">64k</td>
+<td style="text-align: center;">8k</td>
+<td style="text-align: center;">500k</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">1200</td>
+<td style="text-align: center;">25</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Llama 3.1 8B</strong></td>
+<td style="text-align: center;">131k</td>
+<td style="text-align: center;">131k</td>
+<td style="text-align: center;">500k</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">1200</td>
+<td style="text-align: center;">25</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Llama 3.3 70B</strong></td>
+<td style="text-align: center;">131k</td>
+<td style="text-align: center;">131k</td>
+<td style="text-align: center;">500k</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">1200</td>
+<td style="text-align: center;">25</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Llama 4 Maverick 17B 128E</strong></td>
+<td style="text-align: center;">1M</td>
+<td style="text-align: center;">1M</td>
+<td style="text-align: center;">500k</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">1200</td>
+<td style="text-align: center;">25</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Llama 4 Scout 17B 16E</strong></td>
+<td style="text-align: center;">131k</td>
+<td style="text-align: center;">131k</td>
+<td style="text-align: center;">500k</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">1200</td>
+<td style="text-align: center;">25</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Qwen 2.5 7B</strong></td>
+<td style="text-align: center;">32k</td>
+<td style="text-align: center;">32k</td>
+<td style="text-align: center;">500k</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">1200</td>
+<td style="text-align: center;">25</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Model</th>
+<th style="text-align: center;">Context size<br>[tokens]</th>
+<th style="text-align: center;">Max output<br>[tokens]</th>
+<th style="text-align: center;">Max batch<br>requests</th>
+<th style="text-align: center;">Concurrent<br>requests</th>
+<th style="text-align: center;">Requests<br>per minute</th>
+<th style="text-align: center;">Hosted fine-tuned<br>models</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>DeepSeek R1</strong></td>
+<td style="text-align: center;">164k</td>
+<td style="text-align: center;">164k</td>
+<td style="text-align: center;">Unlimited</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">Unlimited</td>
+<td style="text-align: center;">Unlimited</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>DeepSeek V3 0324</strong></td>
+<td style="text-align: center;">164k</td>
+<td style="text-align: center;">164k</td>
+<td style="text-align: center;">Unlimited</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">Unlimited</td>
+<td style="text-align: center;">Unlimited</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Gemma 3 27B</strong></td>
+<td style="text-align: center;">64k</td>
+<td style="text-align: center;">8k</td>
+<td style="text-align: center;">Unlimited</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">Unlimited</td>
+<td style="text-align: center;">Unlimited</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Llama 3.1 8B</strong></td>
+<td style="text-align: center;">131k</td>
+<td style="text-align: center;">131k</td>
+<td style="text-align: center;">Unlimited</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">Unlimited</td>
+<td style="text-align: center;">Unlimited</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Llama 3.3 70B</strong></td>
+<td style="text-align: center;">131k</td>
+<td style="text-align: center;">131k</td>
+<td style="text-align: center;">Unlimited</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">Unlimited</td>
+<td style="text-align: center;">Unlimited</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Llama 4 Maverick 17B 128E</strong></td>
+<td style="text-align: center;">1M</td>
+<td style="text-align: center;">1M</td>
+<td style="text-align: center;">Unlimited</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">Unlimited</td>
+<td style="text-align: center;">Unlimited</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Llama 4 Scout 17B 16E</strong></td>
+<td style="text-align: center;">131k</td>
+<td style="text-align: center;">131k</td>
+<td style="text-align: center;">Unlimited</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">Unlimited</td>
+<td style="text-align: center;">Unlimited</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Qwen 2.5 7B</strong></td>
+<td style="text-align: center;">32k</td>
+<td style="text-align: center;">32k</td>
+<td style="text-align: center;">Unlimited</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">Unlimited</td>
+<td style="text-align: center;">Unlimited</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<h2 id="where-to-go-next">Where to go next<a class="headerlink" href="#where-to-go-next" title="Permanent link">＃</a></h2>
+<div class="grid cards">
+<ul>
+<li>
+<p><span class="badge guide">Guide</span> <strong>Real-time inference</strong></p>
+<hr />
+<p>Build AI-powered applications that deliver instant, real-time responses.</p>
+<p><a href="/kluster-mkdocs/get-started/start-building/real-time/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/></svg></span> Visit the guide</a></p>
+</li>
+<li>
+<p><span class="badge guide">Guide</span> <strong>Batch inference</strong></p>
+<hr />
+<p>Process large-scale data efficiently with AI-powered batch inference.</p>
+<p><a href="/kluster-mkdocs/get-started/start-building/batch/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/></svg></span> Visit the guide</a></p>
+</li>
+<li>
+<p><span class="badge guide">Reference</span> <strong>API reference</strong></p>
+<hr />
+<p>Explore the complete kluster.ai API documentation and usage details.</p>
+<p><a href="/kluster-mkdocs/api-reference/reference/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/></svg></span> Reference</a></p>
+</li>
+</ul>
+</div>
 
 
 

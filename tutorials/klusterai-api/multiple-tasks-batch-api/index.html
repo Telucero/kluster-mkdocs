@@ -1341,6 +1341,48 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../effective-prompt-engineering/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Effective prompt engineering
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uploads-api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Uploading large files
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2047,10 +2089,6 @@ api_key = getpass("Enter your kluster.ai API key: ")</div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Enter your kluster.ai API key:  ········
-</pre>
-</div>
 </div>
 </div>
 </div>
@@ -2072,7 +2110,7 @@ api_key = getpass("Enter your kluster.ai API key: ")</div>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
 <clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-2">
@@ -2378,7 +2416,7 @@ df.head()</div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Dataset downloaded and saved as data/ag_news.csv
+<pre>Using cached file at data/ag_news.csv
 </pre>
 </div>
 </div>
@@ -2592,7 +2630,7 @@ df.head()</div>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>This example uses the <code>deepseek-ai/DeepSeek-V3</code> model. If you'd like to use a different model, feel free to change it by modifying the <code>model</code> field. In this notebook, you can also comment DeepSeek V3, and uncomment whatever model you want to try out.</p>
+<p>This example uses the <code>deepseek-ai/DeepSeek-V3-0324</code> model. If you'd like to use a different model, feel free to change it by modifying the <code>model</code> field.</p>
 <p>Please refer to the <a href="/get-started/models/#model-comparison-table" target="_blank">Supported models</a> section for a list of the models we support.</p>
 <p>The following snippets prepare the JSONL file, where each line represents a different request. Note that each separate batch request can have its own model. Also, we are using a temperature of <code>0.5</code> but feel free to change it and play around with the different outcomes.</p>
 </div>
@@ -2619,9 +2657,8 @@ df.head()</div>
 </div>
 <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Models</span>
 <span class="c1"># model="deepseek-ai/DeepSeek-R1"</span>
-<span class="n">model</span> <span class="o">=</span> <span class="s2">"deepseek-ai/DeepSeek-V3"</span>
+<span class="n">model</span> <span class="o">=</span> <span class="s2">"deepseek-ai/DeepSeek-V3-0324"</span>
 <span class="c1"># model="klusterai/Meta-Llama-3.1-8B-Instruct-Turbo"</span>
-<span class="c1"># model="klusterai/Meta-Llama-3.1-405B-Instruct-Turbo"</span>
 <span class="c1"># model="klusterai/Meta-Llama-3.3-70B-Instruct-Turbo"</span>
 <span class="c1"># model="Qwen/Qwen2.5-VL-7B-Instruct"</span>
 
@@ -2658,9 +2695,8 @@ df.head()</div>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-8"># Models
 # model="deepseek-ai/DeepSeek-R1"
-model = "deepseek-ai/DeepSeek-V3"
+model = "deepseek-ai/DeepSeek-V3-0324"
 # model="klusterai/Meta-Llama-3.1-8B-Instruct-Turbo"
-# model="klusterai/Meta-Llama-3.1-405B-Instruct-Turbo"
 # model="klusterai/Meta-Llama-3.3-70B-Instruct-Turbo"
 # model="Qwen/Qwen2.5-VL-7B-Instruct"
 
@@ -2806,9 +2842,9 @@ data/batch_request_keyword_extraction.jsonl
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>{"custom_id": "sentiment-0", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "deepseek-ai/DeepSeek-V3", "temperature": 0.5, "messages": [{"role": "system", "content": "\n  Analyze the sentiment of the given text. Provide only a JSON object with the following structure:\n  {\n    \"sentiment\": string, // \"positive\", \"negative\", or \"neutral\"\n    \"confidence\": float, // A value between 0 and 1 indicating your confidence in the sentiment analysis\n  }\n  "}, {"role": "user", "content": "Feds Accused of Exaggerating Fire Impact (AP): AP - The Forest Service exaggerated the effect of wildfires on California spotted owls in justifying a planned increase in logging in the Sierra Nevada, according to a longtime agency expert who worked on the plan.: nan"}]}}
-{"custom_id": "sentiment-1", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "deepseek-ai/DeepSeek-V3", "temperature": 0.5, "messages": [{"role": "system", "content": "\n  Analyze the sentiment of the given text. Provide only a JSON object with the following structure:\n  {\n    \"sentiment\": string, // \"positive\", \"negative\", or \"neutral\"\n    \"confidence\": float, // A value between 0 and 1 indicating your confidence in the sentiment analysis\n  }\n  "}, {"role": "user", "content": "New Method May Predict Quakes Weeks Ahead (AP): AP - Swedish geologists may have found a way to predict earthquakes weeks before they happen by monitoring the amount of metals like zinc and copper in subsoil water near earthquake sites, scientists said Wednesday.: nan"}]}}
-{"custom_id": "sentiment-2", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "deepseek-ai/DeepSeek-V3", "temperature": 0.5, "messages": [{"role": "system", "content": "\n  Analyze the sentiment of the given text. Provide only a JSON object with the following structure:\n  {\n    \"sentiment\": string, // \"positive\", \"negative\", or \"neutral\"\n    \"confidence\": float, // A value between 0 and 1 indicating your confidence in the sentiment analysis\n  }\n  "}, {"role": "user", "content": "Marine Expedition Finds New Species (AP): AP - Norwegian scientists who explored the deep waters of the Atlantic Ocean said Thursday their findings  #151; including what appear to be new species of fish and squid  #151; could be used to protect marine ecosystems worldwide.: nan"}]}}
+<pre>{"custom_id": "sentiment-0", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "deepseek-ai/DeepSeek-V3-0324", "temperature": 0.5, "messages": [{"role": "system", "content": "\n  Analyze the sentiment of the given text. Provide only a JSON object with the following structure:\n  {\n    \"sentiment\": string, // \"positive\", \"negative\", or \"neutral\"\n    \"confidence\": float, // A value between 0 and 1 indicating your confidence in the sentiment analysis\n  }\n  "}, {"role": "user", "content": "Feds Accused of Exaggerating Fire Impact (AP): AP - The Forest Service exaggerated the effect of wildfires on California spotted owls in justifying a planned increase in logging in the Sierra Nevada, according to a longtime agency expert who worked on the plan.: nan"}]}}
+{"custom_id": "sentiment-1", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "deepseek-ai/DeepSeek-V3-0324", "temperature": 0.5, "messages": [{"role": "system", "content": "\n  Analyze the sentiment of the given text. Provide only a JSON object with the following structure:\n  {\n    \"sentiment\": string, // \"positive\", \"negative\", or \"neutral\"\n    \"confidence\": float, // A value between 0 and 1 indicating your confidence in the sentiment analysis\n  }\n  "}, {"role": "user", "content": "New Method May Predict Quakes Weeks Ahead (AP): AP - Swedish geologists may have found a way to predict earthquakes weeks before they happen by monitoring the amount of metals like zinc and copper in subsoil water near earthquake sites, scientists said Wednesday.: nan"}]}}
+{"custom_id": "sentiment-2", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "deepseek-ai/DeepSeek-V3-0324", "temperature": 0.5, "messages": [{"role": "system", "content": "\n  Analyze the sentiment of the given text. Provide only a JSON object with the following structure:\n  {\n    \"sentiment\": string, // \"positive\", \"negative\", or \"neutral\"\n    \"confidence\": float, // A value between 0 and 1 indicating your confidence in the sentiment analysis\n  }\n  "}, {"role": "user", "content": "Marine Expedition Finds New Species (AP): AP - Norwegian scientists who explored the deep waters of the Atlantic Ocean said Thursday their findings  #151; including what appear to be new species of fish and squid  #151; could be used to protect marine ecosystems worldwide.: nan"}]}}
 </pre>
 </div>
 </div>
@@ -2937,19 +2973,19 @@ for data_dir in filenames:
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Uploading file data/batch_request_sentiment.jsonl
 Creating request for data/batch_request_sentiment.jsonl
-File uploaded successfully. File ID: 67e677a2c04383db4bd5141d
+File uploaded successfully. File ID: 6801436295e6d3f11461e80c
 Uploading file data/batch_request_translation.jsonl
 Creating request for data/batch_request_translation.jsonl
-File uploaded successfully. File ID: 67e677a3711c9502a75a01ad
+File uploaded successfully. File ID: 68014362d82e57647b763060
 Uploading file data/batch_request_summary.jsonl
 Creating request for data/batch_request_summary.jsonl
-File uploaded successfully. File ID: 67e677a330398a707d4a884d
+File uploaded successfully. File ID: 680143635f3f96e4d1ddda37
 Uploading file data/batch_request_topic_classification.jsonl
 Creating request for data/batch_request_topic_classification.jsonl
-File uploaded successfully. File ID: 67e677a3711c9502a75a01b3
+File uploaded successfully. File ID: 68014363186ab8d64b39630d
 Uploading file data/batch_request_keyword_extraction.jsonl
 Creating request for data/batch_request_keyword_extraction.jsonl
-File uploaded successfully. File ID: 67e677a41f2fb6ea20485e37
+File uploaded successfully. File ID: 680143638225fce1bc87b575
 </pre>
 </div>
 </div>
@@ -3079,16 +3115,16 @@ for batch_file in batch_files:
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Creating batch job for file ID 67e677a2c04383db4bd5141d
-Batch job created with ID 67e677a88d3b27ee9af94ce3
-Creating batch job for file ID 67e677a3711c9502a75a01ad
-Batch job created with ID 67e677b230398a707d4a893d
-Creating batch job for file ID 67e677a330398a707d4a884d
-Batch job created with ID 67e677bc1f2fb6ea20486001
-Creating batch job for file ID 67e677a3711c9502a75a01b3
-Batch job created with ID 67e677c730398a707d4a8a77
-Creating batch job for file ID 67e677a41f2fb6ea20485e37
-Batch job created with ID 67e677d2711c9502a75a042e
+<pre>Creating batch job for file ID 6801436295e6d3f11461e80c
+Batch job created with ID 680143645f3f96e4d1ddda3f
+Creating batch job for file ID 68014362d82e57647b763060
+Batch job created with ID 68014364fba4aabfd069c948
+Creating batch job for file ID 680143635f3f96e4d1ddda37
+Batch job created with ID 6801436477b0762a42e196e6
+Creating batch job for file ID 68014363186ab8d64b39630d
+Batch job created with ID 680143658cc246574d8aa01d
+Creating batch job for file ID 680143638225fce1bc87b575
+Batch job created with ID 680143658225fce1bc87b58d
 </pre>
 </div>
 </div>
@@ -3456,7 +3492,7 @@ TEXT: New Method May Predict Quakes Weeks Ahead (AP): AP - Swedish geologists ma
 RESULT: ```json
 {
   "sentiment": "neutral",
-  "confidence": 0.95
+  "confidence": 0.85
 }
 ```
 
@@ -3468,8 +3504,8 @@ TEXT: Marine Expedition Finds New Species (AP): AP - Norwegian scientists who ex
 
 RESULT: ```json
 {
-    "sentiment": "positive",
-    "confidence": 0.85
+  "sentiment": "positive",
+  "confidence": 0.9
 }
 ```
 
@@ -3479,10 +3515,7 @@ Inference ID: translation-0.
 
 TEXT: Feds Accused of Exaggerating Fire Impact (AP): AP - The Forest Service exaggerated the effect of wildfires on California spotted owls in justifying a planned increase in logging in the Sierra Nevada, according to a longtime agency expert who worked on the plan.: nan
 
-RESULT: {
-  "translation": "Acusan a las autoridades federales de exagerar el impacto de los incendios (AP): AP - El Servicio Forestal exageró el efecto de los incendios forestales en los búhos manchados de California para justificar un aumento planificado de la tala en la Sierra Nevada, según un experto de larga trayectoria en la agencia que trabajó en el plan.",
-  "notes": "The translation maintains the original structure and meaning of the text. The term 'Feds' was translated as 'autoridades federales' to convey the same informal yet official tone. 'Fire impact' was translated as 'impacto de los incendios' to ensure clarity. The phrase 'California spotted owls' was translated as 'búhos manchados de California' to accurately reflect the species name. The term 'logging' was translated as 'tala,' which is the standard term used in Spanish for this context. The phrase 'longtime agency expert' was translated as 'experto de larga trayectoria en la agencia' to emphasize the person's extensive experience within the organization."
-}
+RESULT: The article discusses allegations that the U.S. Forest Service exaggerated the impact of wildfires on California spotted owls in order to justify increasing logging in the Sierra Nevada. A longtime agency expert who worked on the plan is cited as making these claims. The article suggests that the Forest Service may have misrepresented data to support their logging plans.
 
  -------------------------- 
 
@@ -3490,10 +3523,7 @@ Inference ID: translation-1.
 
 TEXT: New Method May Predict Quakes Weeks Ahead (AP): AP - Swedish geologists may have found a way to predict earthquakes weeks before they happen by monitoring the amount of metals like zinc and copper in subsoil water near earthquake sites, scientists said Wednesday.: nan
 
-RESULT: {
-  "translation": "Nuevo Método Podría Predecir Terremotos con Semanas de Anticipación (AP): AP - Geólogos suecos podrían haber encontrado una manera de predecir terremotos semanas antes de que ocurran, mediante el monitoreo de la cantidad de metales como zinc y cobre en el agua subterránea cerca de los sitios de terremotos, dijeron científicos el miércoles.",
-  "notes": "The translation maintains the original meaning and structure of the text. The phrase 'subsoil water' was translated as 'agua subterránea,' which is the most common term used in Spanish for this concept. The cultural context remains the same as the topic is scientific and universally understood. No significant cultural adaptations were necessary."
-}
+RESULT: The article is about a new method that could predict earthquakes weeks in advance by monitoring the presence of metals like zinc and copper in subsoil water near earthquake sites. The method was developed by Swedish geologists and was announced on Wednesday.
 
  -------------------------- 
 
@@ -3501,10 +3531,36 @@ Inference ID: translation-2.
 
 TEXT: Marine Expedition Finds New Species (AP): AP - Norwegian scientists who explored the deep waters of the Atlantic Ocean said Thursday their findings  #151; including what appear to be new species of fish and squid  #151; could be used to protect marine ecosystems worldwide.: nan
 
-RESULT: {
-  "translation": "Expedición marina descubre nuevas especies (AP): AP - Científicos noruegos que exploraron las aguas profundas del Océano Atlántico anunciaron el jueves que sus hallazgos —incluyendo lo que parecen ser nuevas especies de peces y calamares— podrían ser utilizados para proteger los ecosistemas marinos a nivel mundial.",
-  "notes": "The translation maintains the original structure and intent of the text. The use of em dashes (—) is preserved to indicate a break in thought, which is also common in Spanish. The phrase 'could be used to protect marine ecosystems worldwide' is translated directly, as the concept of protecting ecosystems is universally understood and relevant in Spanish-speaking contexts. No significant cultural adaptations were necessary, as the topic of scientific discovery and environmental protection is globally applicable."
-}
+RESULT: # Protecting Marine Ecosystems Worldwide
+
+## Key Strategies for Protecting Marine Ecosystems
+
+### 1. **Marine Protected Areas (MPAs)**
+   - Establish and expand MPAs to safeguard marine biodiversity.
+   - Limit human activities like fishing and drilling in these areas.
+
+### 2. **Sustainable Fishing Practices**
+   - Implement sustainable fishing quotas and gear restrictions.
+   - Promote selective fishing to avoid overfishing and bycatch.
+
+### 3. **Pollution Control**
+   - Reduce plastic waste and marine debris through waste management.
+   - Limit chemical discharges from industries and agriculture.
+
+### 4. **Climate Action**
+   - Reduce greenhouse gas emissions to mitigate ocean acidification.
+   - Protect coastal areas from rising sea levels and storms.
+
+### 5. **Public Awareness and Education**
+   - Educate communities on marine conservation.
+   - Promote eco-friendly tourism and fishing practices.
+
+### 6. **International Cooperation**
+   - Collaborate globally for marine conservation efforts.
+   - Enforce international agreements like the UNCLOS.
+
+## Conclusion
+Protecting marine ecosystems requires global cooperation, sustainable practices, and public awareness to ensure ocean health for future generations.
 
  -------------------------- 
 
@@ -3512,9 +3568,7 @@ Inference ID: summary-0.
 
 TEXT: Feds Accused of Exaggerating Fire Impact (AP): AP - The Forest Service exaggerated the effect of wildfires on California spotted owls in justifying a planned increase in logging in the Sierra Nevada, according to a longtime agency expert who worked on the plan.: nan
 
-RESULT: {
-  "summary": "A Forest Service expert claims the agency overstated wildfires' impact on California spotted owls to justify increased logging in the Sierra Nevada."
-}
+RESULT: The Forest Service's plan to increase logging in the Sierra Nevada has been criticized for exaggerating the effect of wildfires on California spotted owls. A longtime agency expert who worked on the plan has stated that the agency overstated the impact of wildfires on the owls to justify the logging increase. This suggests that the Forest Service may have misrepresented the situation to support its logging plans.
 
  -------------------------- 
 
@@ -3522,9 +3576,47 @@ Inference ID: summary-1.
 
 TEXT: New Method May Predict Quakes Weeks Ahead (AP): AP - Swedish geologists may have found a way to predict earthquakes weeks before they happen by monitoring the amount of metals like zinc and copper in subsoil water near earthquake sites, scientists said Wednesday.: nan
 
-RESULT: {
-  "summary": "Swedish geologists have potentially developed a method to predict earthquakes weeks in advance by monitoring zinc and copper levels in subsoil water near earthquake-prone areas."
-}
+RESULT: ### Understanding the Science Behind Predicting Earthquakes Using Subsoil Water Chemistry
+
+#### **1. What is the scientific basis behind this method?**
+The study suggests that earthquakes might be preceded by changes in the levels of metals like zinc and copper in subsoil water. The underlying idea is that tectonic stress and rock deformation before an earthquake could release these metals from the earth’s crust into groundwater. By monitoring these changes, scientists might be able to predict earthquakes weeks in advance.
+
+#### **2. How does tectonic stress lead to the release of metals?**
+Tectonic stress causes microfractures in rocks. As these fractures form, they can release minerals and metals that were trapped within the rocks. These metals then dissolve into groundwater, leading to measurable changes in water chemistry.
+
+#### **3. What are the challenges in this method?**
+- **Variability:** Earthquakes vary in size, depth, and location. The method would need to account for these differences to be universally applicable.
+- **Monitoring:** Continuous monitoring of subsoil water is required, which can be logistically and financially challenging.
+- **False positives:** Other geological processes (like volcanic activity) might also release metals into groundwater, leading to false earthquake predictions.
+
+#### **4. How does this compare to other earthquake prediction methods?**
+- **Seismic activity:** Traditional methods rely on monitoring seismic waves, but they often only provide seconds or minutes of warning.
+- **Animal behavior:** Some studies suggest animals might sense earthquakes before they happen, but this is not scientifically proven.
+- **Radon gas:** Some research suggests that radon gas levels might change before earthquakes, but this is also not consistently reliable.
+
+This method is unique because it suggests a measurable change in water chemistry weeks before an earthquake, offering a longer warning period.
+
+#### **5. What are the implications if this method is confirmed?**
+- **Early warning:** If scientists can reliably predict earthquakes weeks in advance, it could save lives and reduce damage by allowing for better preparation.
+- **Economic benefits:** Communities could take measures to strengthen infrastructure, evacuate areas, or prepare emergency responses.
+- **Scientific advancement:** It would represent a significant breakthrough in understanding earthquake precursors and tectonic activity.
+
+#### **6. What are the next steps in this research?**
+- **Field studies:** More studies are needed to confirm the relationship between metal levels and earthquakes.
+- **Technology development:** Better monitoring tools might be needed to detect subtle changes in water chemistry.
+- **Public policy:** If proven reliable, governments might need to invest in monitoring networks.
+
+### Conclusion
+This research is promising because it suggests a measurable way to predict earthquakes weeks in advance. However, more research is needed to confirm this method’s reliability and applicability across different earthquake scenarios. If successful, it could revolutionize earthquake prediction and save countless lives.
+
+---
+
+### **Key Takeaways**
+- **Scientific basis:** Changes in subsoil water chemistry might predict earthquakes.
+- **Mechanism:** Tectonic stress causes microfractures, releasing metals into groundwater.
+- **Challenges:** Variability, monitoring logistics, and false positives.
+- **Implications:** Early warning could save lives and reduce damage.
+- **Next steps:** More research, technology development, and public policy considerations.
 
  -------------------------- 
 
@@ -3532,9 +3624,33 @@ Inference ID: summary-2.
 
 TEXT: Marine Expedition Finds New Species (AP): AP - Norwegian scientists who explored the deep waters of the Atlantic Ocean said Thursday their findings  #151; including what appear to be new species of fish and squid  #151; could be used to protect marine ecosystems worldwide.: nan
 
-RESULT: {
-  "summary": "Norwegian scientists discovered potential new species of fish and squid during a deep-sea expedition in the Atlantic Ocean. Their findings aim to aid in the protection of global marine ecosystems."
-}
+RESULT: ### The Deep Ocean Exploration and Its Implications for Marine Conservation
+
+The deep waters of the Atlantic Ocean have long been a source of mystery and intrigue, hiding secrets that only advanced technology can uncover. Recently, a team of researchers announced their findings from an expedition to these depths, revealing what appears to be new species of fish and squid. These discoveries not only expand our understanding of marine biodiversity but also provide a foundation for protecting marine ecosystems worldwide.
+
+#### The Expedition and Its Discoveries
+
+The expedition, conducted by a team of scientists, utilized cutting-edge technology to explore the deep waters of the Atlantic Ocean. The team deployed deep-sea submersibles and remotely operated vehicles (ROVs) to capture images and samples from the ocean floor. Their findings include what seem to be new species of fish and squid, highlighting the vast biodiversity that remains undiscovered in the deep ocean.
+
+The discovery of new species is particularly significant because it underscores the vastness of marine life that remains unknown to science. The deep ocean, with its extreme pressures and darkness, presents a unique environment that has led to the evolution of creatures with distinct adaptations. These findings provide a glimpse into the complex web of life that exists beneath the ocean's surface.
+
+#### Implications for Marine Conservation
+
+The discoveries made by the expedition have far-reaching implications for marine conservation. By identifying new species, the researchers can better understand the biodiversity of the Atlantic Ocean and its ecological dynamics. This knowledge is essential for developing effective conservation strategies that protect marine ecosystems from threats such as overfishing, climate change, and deep-sea mining.
+
+One of the key takeaways from the expedition is the need for international cooperation in marine conservation. The deep waters of the Atlantic Ocean are a shared resource, and their protection requires a global effort. The findings can be used to advocate for the establishment of marine protected areas (MPAs) that safeguard the habitats of these newly discovered species.
+
+#### The Role of Technology in Ocean Exploration
+
+The success of the expedition highlights the importance of technology in ocean exploration. The use of submersibles and ROVs allowed the researchers to reach depths that were previously inaccessible. These technologies provide scientists with the tools to study the deep ocean in unprecedented detail, leading to new discoveries and a better understanding of marine ecosystems.
+
+Moreover, the data collected during the expedition can be used to develop models that predict the impacts of human activities on the deep ocean. This is crucial for making informed decisions about resource extraction and other activities that could harm marine ecosystems.
+
+#### Conclusion
+
+The expedition to the deep waters of the Atlantic Ocean has yielded remarkable findings, including what appear to be new species of fish and squid. These discoveries not only expand our knowledge of marine biodiversity but also provide a foundation for protecting marine ecosystems worldwide. By leveraging these findings, scientists can advocate for policies that safeguard the deep ocean and its inhabitants, ensuring a sustainable future for marine life.
+
+The exploration of the deep ocean is a testament to the power of scientific inquiry and the potential for new discoveries to drive conservation efforts. As we continue to uncover the mysteries of the Atlantic Ocean, we must also commit to protecting its fragile ecosystems for future generations.
 
  -------------------------- 
 
@@ -3542,12 +3658,13 @@ Inference ID: topic_classification-0.
 
 TEXT: Feds Accused of Exaggerating Fire Impact (AP): AP - The Forest Service exaggerated the effect of wildfires on California spotted owls in justifying a planned increase in logging in the Sierra Nevada, according to a longtime agency expert who worked on the plan.: nan
 
-RESULT: ```json
-{
-  "category": "politics",
-  "confidence": 0.8
-}
-```
+RESULT:  The Sierra Nevada is a mountain range in the western United States, stretching across California and Nevada. The area is known for its stunning scenery, diverse wildlife, and rich natural resources. The Sierra Nevada is also a popular destination for outdoor activities such as hiking, camping, and skiing.
+
+The Sierra Nevada is home to a variety of wildlife, including black bears, mountain lions, deer, and elk. The area is also home to a variety of birds, such as eagles, hawks, and owls. The Sierra Nevada is also home to a variety of plant life, including pine trees, oak trees, and wildflowers.
+
+The Sierra Nevada is a popular destination for outdoor activities such as hiking, camping, and skiing. The area is also home to a variety of recreational activities, such as fishing, hunting, and horseback riding. The Sierra Nevada is also a popular destination for rock climbing, mountain biking, and whitewater rafting.
+
+The Sierra Nevada is a beautiful and diverse area that is home to a variety of wildlife and recreational activities. The area is a popular destination for outdoor activities and is a great place to visit for anyone who loves the outdoors.
 
  -------------------------- 
 
@@ -3557,7 +3674,7 @@ TEXT: New Method May Predict Quakes Weeks Ahead (AP): AP - Swedish geologists ma
 
 RESULT: ```json
 {
-  "category": "science",
+  "primary_category": "science",
   "confidence": 0.95
 }
 ```
@@ -3570,8 +3687,8 @@ TEXT: Marine Expedition Finds New Species (AP): AP - Norwegian scientists who ex
 
 RESULT: ```json
 {
-  "category": "science",
-  "confidence": 0.95
+  "primary_category": "science",
+  "confidence": 0.9
 }
 ```
 
@@ -3584,7 +3701,7 @@ TEXT: Feds Accused of Exaggerating Fire Impact (AP): AP - The Forest Service exa
 RESULT: ```json
 {
   "keywords": ["Forest Service", "wildfires", "California spotted owls", "logging", "Sierra Nevada"],
-  "context": "The keywords highlight the core elements of the text. 'Forest Service' refers to the agency accused of exaggerating wildfire impacts. 'Wildfires' are the natural disaster in question, impacting 'California spotted owls', a species affected by the fires. 'Logging' is the planned activity justified by the exaggerated claims, and 'Sierra Nevada' is the geographic region where these events are taking place."
+  "context": "The keywords highlight the main elements of the controversy. 'Forest Service' refers to the agency accused of exaggerating wildfire impacts. 'Wildfires' are central to the debate over their effect on 'California spotted owls', a protected species. 'Logging' is the planned activity justified by the disputed claims, and 'Sierra Nevada' is the region where this environmental conflict is taking place."
 }
 ```
 
@@ -3596,8 +3713,8 @@ TEXT: New Method May Predict Quakes Weeks Ahead (AP): AP - Swedish geologists ma
 
 RESULT: ```json
 {
-  "keywords": ["earthquake prediction", "geologists", "zinc", "copper", "subsoil water"],
-  "context": "The text discusses a new method developed by Swedish geologists to predict earthquakes weeks in advance. The method involves monitoring the levels of metals such as zinc and copper in subsoil water near earthquake sites. 'Earthquake prediction' is the main focus, while 'geologists' refers to the scientists involved. 'Zinc' and 'copper' are the metals being monitored, and 'subsoil water' is the medium where these metals are measured."
+  "keywords": ["earthquakes", "prediction", "geologists", "metals", "subsoil water"],
+  "context": "The text discusses a new method for predicting earthquakes weeks in advance by Swedish geologists. 'Earthquakes' is the central topic, while 'prediction' highlights the innovative aspect of forecasting them earlier. 'Geologists' refers to the scientists involved in the research. 'Metals' like zinc and copper are key indicators being monitored, and 'subsoil water' is the medium where these metals are detected to predict seismic activity."
 }
 ```
 
@@ -3607,10 +3724,12 @@ Inference ID: keyword_extraction-2.
 
 TEXT: Marine Expedition Finds New Species (AP): AP - Norwegian scientists who explored the deep waters of the Atlantic Ocean said Thursday their findings  #151; including what appear to be new species of fish and squid  #151; could be used to protect marine ecosystems worldwide.: nan
 
-RESULT: {
-  "keywords": ["Marine Expedition", "New Species", "Atlantic Ocean", "Norwegian Scientists", "Marine Ecosystems"],
-  "context": "The keywords highlight the core aspects of the text. 'Marine Expedition' refers to the scientific exploration conducted in the deep waters. 'New Species' emphasizes the discovery of previously unknown fish and squid. 'Atlantic Ocean' specifies the location of the expedition. 'Norwegian Scientists' identifies the group responsible for the research. 'Marine Ecosystems' underscores the broader goal of using the findings to protect ocean habitats globally."
+RESULT: ```json
+{
+  "keywords": ["Marine expedition", "New species", "Atlantic Ocean", "Norwegian scientists", "Marine ecosystems"],
+  "context": "The keywords highlight the main aspects of the text. 'Marine expedition' refers to the scientific exploration mentioned. 'New species' underscores the discovery of unidentified fish and squid. 'Atlantic Ocean' specifies the location of the research. 'Norwegian scientists' identifies the group conducting the study. 'Marine ecosystems' relates to the potential global impact of the findings for conservation efforts."
 }
+```
 </pre>
 </div>
 </div>
