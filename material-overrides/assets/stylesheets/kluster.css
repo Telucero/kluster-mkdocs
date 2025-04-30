@@ -1,6 +1,7 @@
 :root {
   --md-border-radius: 0.1rem;
   --md-border-width: 0.1rem;
+  --md-scroll-margin: 0 rem;
 }
 
 :root,
@@ -58,6 +59,12 @@
 .md-typeset a:focus,
 .md-typeset a:hover {
   color: var(--md-accent-bg-color);
+}
+
+@media screen and (min-width: 76.25em) {
+  .md-header--lifted ~ .md-container .md-typeset :target {
+    --md-scroll-margin: 0 rem;
+  }
 }
 
 .md-typeset h1 {
@@ -690,6 +697,7 @@ details.child {
 @media screen and (min-width: 76.25em) {
   .md-nav--lifted > .md-nav__list > .md-nav__item--active > .md-nav__link {
     box-shadow: none;
+    
   }
 
   .md-nav__list .md-ellipsis {
